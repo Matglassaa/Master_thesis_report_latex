@@ -1,0 +1,21 @@
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.out
+*.toc
+*.log
+*.synctex.gz
+*.bcf
+*.run.xml
+
+# VS Code specific
+.vscode/
