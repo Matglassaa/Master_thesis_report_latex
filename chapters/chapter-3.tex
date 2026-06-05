@@ -1,0 +1,130 @@
+\chapter{Methodology}\label{Ch:Methodology}
+%=====================================================================================%
+% Chapter outline:  
+%       - Flumy
+%           - Modelling rules
+%           - Parameter ranges
+%       - GAN framework
+%           - Model architecture(s)
+%           - Conditioning approach
+%           - (Hyperparameters)
+%       - Evaluation framework
+%           - MSSWD
+%           - 
+%           - Well data
+%           - (Heat)flow simulations
+%=====================================================================================%
+This chapter describes the comprehensive project workflow, beginning with the generation of 3D synthetic datasets used for training, validating, and testing the models (Section~\ref{Sec:data_gen}). 
+Section~\ref{Subsec:Fluvgan} details the Generative Adversarial Network (GAN) framework, including the network architectures, the facies representation strategy, and the loss functions employed during training. 
+Finally, Section~\ref{Sec:eval} introduces the metrics and simulation methods used to evaluate the geological realism and practical utility of the generated realizations.
+
+%=====================================================================================%
+\section{Training Data Generation}\label{Sec:data_gen}
+\subsection{Conceptual Models}\label{Subsec:Conceptual_models}
+Training deep learning algorithms for 3D geomodelling requires a substantial volume of ground-truth data. 
+Given the scarcity and high uncertainty of subsurface measurements, synthetic data generation using stochastic algorithms is the established approach to provide sufficient training samples~\parencite{rongier2025atowards, sun2023geological}. 
+In this project, three distinct geological conceptual models are employed to capture the range of environments hypothesized for the Delft Sandstone (see Chapter~\ref{Ch:Background}):
+\begin{itemize}
+    \item \textbf{Dataset A (Upper Plain Deltaic):} Characterized by meandering fluvial channels and extensive floodplain deposits.
+    \item \textbf{Dataset B (Lower Plain Deltaic):} Reflects increased marine influence with shorter, more numerous distributary channels.
+    \item \textbf{Dataset C (General Deltaic):} A stochastic combination of both settings to represent a transitional depositional system.
+\end{itemize}
+
+\subsection{Dataset Descriptions}\label{Subsec:Dataset_descriptions}
+The training datasets were generated using FLUMY~\parencite{martin-hal-01313232}, a process-based stochastic modelling software designed to reproduce meandering channelized reservoirs. 
+FLUMY simulates facies, relative grain size, and depositional time for each voxel in a 3D grid based on specified hydraulic and sedimentological rules.
+The models are defined on a reservoir scale with a grid resolution of $128 \times 128 \times 32$ voxels. 
+With a voxel dimension of $20~\text{m} \times 20~\text{m} \times 1~\text{m}$, the total simulated volume covers $2560~\text{m} \times 2560~\text{m} \times 32~\text{m}$.
+
+The geological variability between the three datasets is controlled by three primary NEXUS input parameters: Net-to-Gross (NTG), maximum channel depth, and maximum sand body extension. 
+The specific configurations are summarized in Table~\ref{tab:NEXUS_input}. 
+While Chapter~\ref{Ch:Background} notes that individual FA1 units can reach 80~m in thickness, the 32~m grid depth used here represents a focused reservoir interval where the conditioning challenge is most acute.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{0.25\textwidth}|c|c|c|}
+ \hline
+ \textbf{Parameter} & \textbf{Dataset A} & \textbf{Dataset B} & \textbf{Dataset C} \\
+ \hline\hline
+ Net-to-Gross (\%) & 67 & 67 & 67 \\
+ \hline
+ Max. Channel Depth (m) & 6 & 4 & 4--6 \\
+ \hline
+ Max. Sand Body Extension & 100 & 60 & 60--100 \\
+ \hline
+\end{tabular}
+\caption{NEXUS input parameters for the three training datasets.}\label{tab:NEXUS_input}
+\end{table}
+
+A total of 20,000 samples were generated for each dataset. 
+Each sample is represented using 9 primary facies classes relevant to the fluvial-deltaic system, as shown in Table~\ref{tab:facies_config_overview}.
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{c p{0.30\textwidth} l p{0.40\textwidth}}
+        \hline
+        \textbf{Value} & \textbf{Facies Key} & \textbf{Color} & \textbf{Description} \\
+        \hline
+        0 & Background & \textcolor[HTML]{FFF7DB}{\rule{10pt}{10pt}} & Undefined/Muddy matrix \\
+        1 & Channel Lag & \textcolor[HTML]{F1970F}{\rule{10pt}{10pt}} & Coarse active channel fill \\
+        2 & Point Bar & \textcolor[HTML]{F3DD12}{\rule{10pt}{10pt}} & Meandering lateral accretion \\
+        3 & Sand Plug & \textcolor[HTML]{AF8F00}{\rule{10pt}{10pt}} & Fine-grained channel abandonment \\
+        4 & Crevasse Splay & \textcolor[HTML]{FFFC65}{\rule{10pt}{10pt}} & Proximal high-energy overbank \\
+        5 & Crevasse Channel & \textcolor[HTML]{FFD986}{\rule{10pt}{10pt}} & Feeder for splay deposits \\
+        6 & Levee & \textcolor[HTML]{27AE60}{\rule{10pt}{10pt}} & Bordering channel ridges \\
+        7 & Overbank & \textcolor[HTML]{33FF00}{\rule{10pt}{10pt}} & Vegetated floodplain silt \\
+        8 & Wetland/Paleosol & \textcolor[HTML]{D862F0}{\rule{10pt}{10pt}} & Organic-rich anoxic sediments \\
+        \hline
+    \end{tabular}
+    \caption{Overview of the 9 facies classes used in the training datasets.}\label{tab:facies_config_overview}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+ \includegraphics[width=0.99\linewidth]{figures/Geological_Setting_1_Summary.png}
+\caption{Visualization of training data from Dataset A. The rows represent facies distribution, relative grain size, and depositional time, respectively.}\label{fig:Setting_A_visualization}
+\end{figure}
+
+\section{Fluvgan Framework}\label{Subsec:Fluvgan}
+The \gls{fluvgan} model, introduced by~\textcite{rongier2025afluvgan}, is a conditional GAN architecture optimized for 3D fluvial facies modelling. 
+It builds upon the BigGAN framework~\parencite{brock2018large} to handle the high resolution and complex connectivity required for reservoir models. 
+Previous studies have demonstrated that \gls{fluvgan} can generate geologically plausible realizations while remaining training-stable~\parencite{rongier2025atowards}. 
+Crucially,~\textcite{rongier2025btowards} showed that the model's latent space can be inverted and optimized to honor hard constraints from well data.
+
+\subsection{Model Architecture}\label{Subsec:Model_architecture}
+The architecture comprises a Generator ($\mathbf{G}$) and a Discriminator ($\mathbf{D}$) using 3D Residual blocks. 
+To handle the categorical nature of facies data, the project employs a one-hot encoding strategy where each facies is represented as a separate channel in the output volume.
+
+The generator transforms a 100-dimensional latent vector $\mathbf{z}$ into a $9 \times 32 \times 128 \times 128$ volume. 
+It utilizes a 3D transposed convolution to project the latent vector into a $1024 \times 4 \times 4 \times 4$ feature map, followed by five residual upscaling blocks. 
+To accommodate the anisotropy of the grid, spatial dimensions are doubled in each block (up to 128), while the depth dimension is doubled only in the first three blocks (up to 32). 
+The final layer uses a Softmax activation to ensure the 9 facies channels sum to one per voxel.
+
+The discriminator acts as a binary classifier, mapping the $9 \times 32 \times 128 \times 128$ input back to a single scalar logit. 
+It consists of five residual downscaling blocks that iteratively reduce the spatial resolution while increasing the channel count to 1024. 
+Both networks employ spectral normalization and LeakyReLU activations to ensure stable training. 
+The generator and discriminator architectures contain approximately 11.6 and 2.0 million trainable parameters, respectively.
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Hyperparameter} & \textbf{Value} & \textbf{Description} \\
+        \hline
+        Latent Dimension ($dim(\mathbf{z})$) & 100 & Gaussian prior \\
+        Batch Size & 16 & Samples per iteration \\
+        Learning Rate ($G, D$) & $10^{-4}, 4 \cdot 10^{-4}$ & Two-timescale update rule \\
+        Kernel Size & $3 \times 3 \times 3$ & 3D Convolutional filters \\
+        Optimizer & Adam & $\beta_1=0, \beta_2=0.999$ \\
+        \hline
+    \end{tabular}
+    \caption{Key hyperparameters for the Fluvgan architecture.}\label{tab:Architecture_options}
+\end{table}
+
+\subsection{Conditioning and Evaluation}\label{Sec:eval}
+To honor sparse well data, a latent space optimization approach is used. 
+The latent vector $\mathbf{z}$ is iteratively refined to minimize the difference between the generated facies at well locations and the true observations. 
+The realism of the final realizations is evaluated using the Mean Sliced Wasserstein Distance (MSWD) across 1,000 projections, ensuring that the multi-point statistics and connectivity of the training data are preserved~\parencite{bhavsar2024stable}. 
+Additionally, connectivity analysis and (heat)flow simulations are performed to assess the practical impact of the modelling approach on reservoir performance predictions.

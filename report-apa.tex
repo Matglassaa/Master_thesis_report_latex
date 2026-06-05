@@ -1,11 +1,32 @@
 % !TEX program = xelatex
-\documentclass[whitelogo]{TUD-report2020}
+\documentclass[whitelogo, openany]{TUD-report2020}
 
+% introduce packages
+% introduce packages
 \usepackage[style=apa]{biblatex}
-\addbibresource{report.bib}
-
+\usepackage{parskip}
 \usepackage{csquotes}
 \usepackage{changes}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{xcolor}
+
+\hypersetup{colorlinks=true, linkcolor=tudelft-dark-blue}
+\usepackage[acronym]{glossaries}
+\input{chapters/abreviations-defs.tex}
+
+\makeglossaries
+
+% provide the TUD font family commands if not already defined by the class
+\providecommand{\tudsffamily}{\sffamily}
+\providecommand{\chaptitlestyle}{\sffamily\bfseries}
+\providecommand{\sectitlestyle}{\sffamily\bfseries}
+\providecommand{\subsectitlestyle}{\sffamily\bfseries}
+\providecommand{\headerstyle}{\sffamily\bfseries}
+
+% add bibligraphy
+\addbibresource{report.bib}
+
 \begin{document}
 
 %% Use Roman numerals for the page numbers of the title pages and table of
@@ -13,33 +34,34 @@
 \frontmatter
 
 %% Uncomment following 16 lines for a cover with a picture on the lower half only
-\title[tudelft-white]{Title}
-\subtitle[tudelft-black]{Optional subtitle}
-\author[tudelft-white]{J.\ Random Author}
+\title[tudelft-white]{Evaluating the feasibility of Generative Adversarial networks to generate geological facies models}
+\subtitle[tudelft-black]{A Case study for the Delft Area}
+\author[tudelft-white]{M.D. Torres Ruhe}
 \affiliation{Technische Universiteit Delft}
-\coverimage{cover/tank.jpg}
-\covertext[tudelft-white]{
-    \textbf{Cover Text} \\
-}
+\coverimage{figures/cover_fig_1.png}
+% \covertext[tudelft-white]{
+%     \textbf{Cover Text} \\
+% }
 \setpagecolor{tudelft-cyan}
 \makecover[split]
 
 
 %% Include an optional title page.
-\input{title}
+\input{chapters/title}
+\input{chapters/abstract.tex}
+\input{chapters/acknowledgements.tex}
 
-\input{preface}
+\input{chapters/abreviations.tex} 
 
 \tableofcontents
 
-%% Use Arabic numerals for the page numbers of the chapters.
 \mainmatter%
-\input{chapter-1}
-\input{chapter-2}
-\input{chapter-3}
-\input{chapter-4}
-\input{chapter-5}
-\input{chapter-6}
+\input{chapters/chapter-1}
+\input{chapters/chapter-2}
+\input{chapters/chapter-3}
+\input{chapters/chapter-4}
+\input{chapters/chapter-5}
+\input{chapters/chapter-6}
 
 %% Use letters for the chapter numbers of the appendices.
 \appendix

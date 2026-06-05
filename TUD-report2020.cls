@@ -21,7 +21,7 @@
 \ExecuteOptions{english}
 \ProcessOptions\relax
 
-\LoadClass[10pt]{book}
+\LoadClass[6pt]{book}
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -74,9 +74,9 @@
     \RequirePackage{fontspec}
     \defaultfontfeatures{Ligatures=TeX}
 
-    \setmainfont{Georgia} % Requires font installed on your OS
-    \setsansfont{Arial}
-    \setmonofont{Courier New}
+    \setmainfont{Georgia} 
+    \setsansfont{Georgia}
+    \setmonofont{Georgia}
     
     \def\titlefont{\sffamily}
     \def\largetitlestyle{\sffamily}
@@ -126,7 +126,7 @@
 \definecolor{tudelft-white}{cmyk}{0,0,0,0}
 \definecolor{tudelft-sea-green}{cmyk}{0.54,0,0.32,0}
 \definecolor{tudelft-green}{cmyk}{1,0.15,0.4,0}
-\definecolor{tudelft-dark-blue}{cmyk}{1,0.66,0,0.4}
+\definecolor{tudelft-dark-blue}{cmyk}{1,1,0,0.3}
 \definecolor{tudelft-purple}{cmyk}{0.98,1,0,0.35}
 \definecolor{tudelft-turquoise}{cmyk}{0.82,0,0.21,0.08}
 \definecolor{tudelft-sky-blue}{cmyk}{0.45,0,0.06,0.06}
@@ -138,25 +138,13 @@
 \definecolor{tudelft-yellow}{cmyk}{0.02,0,0.54,0}
 
 \def\@pagecolor{tudelft-cyan}
-%\if@whitetitle
-%  \def\titlecolor{tudelft-white}
-%\else   
-%  \def\titlecolor{tudelft-black}
-%\fi
-
-%% Use TU Delft cyan as the color for titles, unless the 'print' option is
-%% specified. % JMT changed this: all titles black!
-% \if@print
-    \colorlet{title}{black}
-%\else
-%    \colorlet{title}{tudelft-cyan}
-%\fi
+    \colorlet{title}{tudelft-dark-blue}
 
 %% We use A4 paper with slightly smaller margins than the default (scale = 0.7).
 \geometry{a4paper,hscale=0.75,vscale=0.8}
 
 %% Redefine the title command to accept an optional subtitle.
-\renewcommand*\title[2][tudelft-white]{%
+\renewcommand*\title[2][tudelft-dark-blue]{%
 %    \def\@subtitle{#1}%
     \def\@titlecolor{#1}%
     \def\@title{#2}%
@@ -355,17 +343,17 @@
           \node at (front top left)[anchor=north west,inner sep=\@cover@margin]{
              \begin{minipage}[t][\@cover@fronttextheight]{\@cover@fronttextwidth}
                  %% Print the title and optional subtitle at the top in white.
-                   {\titlefont\color{\@titlecolor}\fontsize{58}{58}\selectfont\@title}
+                   {\titlefont\color{\@titlecolor}\fontsize{34}{34}\selectfont\@title}
                     \ifx\@subtitle\undefined\else
 %                     \\[3mm]
                      \vfill
                      
-                     {\titlefont\color{\@subtitlecolor}\fontsize{52}{52}\selectfont\@subtitle}
+                     {\titlefont\color{\@subtitlecolor}\fontsize{26}{26}\selectfont\@subtitle}
                    \fi
                  %% Print the author.
                    \vfill
                   
-                   {\titlefont\color{\@authorcolor}\fontsize{52}{52}\selectfont\@author}
+                   {\titlefont\color{\@authorcolor}\fontsize{26}{26}\selectfont\@author}
                    \ifx\@cover@text\undefined\else
                      \vfill
                      
@@ -399,7 +387,7 @@
           \node at (front top left)[anchor=north west,inner sep=\@cover@margin]{
               \begin{minipage}[t][\@cover@fronttextheight]{\@cover@fronttextwidth}
                   %% Print the title and optional subtitle at the top in white.
-                  {\largetitlestyle\color{\@titlecolor}\fontsize{96}{96}\selectfont\@title}
+                  {\largetitlestyle\color{\@titlecolor}\fontsize{46}{46}\selectfont\@title}
   %                {\tudsffamily\color{\@titlecolor}\fontsize{96}{96}\selectfont\@title}
                   \ifx\@subtitle\undefined\else
                       \\[3mm]
