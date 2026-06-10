@@ -1,84 +1,57 @@
 \chapter{Introduction}
-%=====================================================================================
-% Chapter outline:  
-%       - Background: Importance of the subsurface
-%           - Importance of geomodelling
-%       - Overview of industry standard models
-%           - Motivation for each type
-%           - Adress limitations
-%       - Overview of GAN's
-%           - Motivation 
-%           - Adress limitations 
-%       - Bridging the gap from theory to practice
-%       - Objectives and Research Questions
-%====================================================================================
 Sedimentary deposits represent a vital commodity in modern society due to the various resources that can be extracted from them. 
-These resources include minerals, groundwater, geothermal heat, and hydrocarbons~\parencite[e.g.,][]{morris2007genesis, donselaar2017relation, donselaar2015reservoir, brekke2001sedimentary}. 
-Moreover, recent studies have investigated storage possibilities for carbon dioxide and hydrogen in this subsurface environment~\parencite{zhou2020dynamic, heinemann2021enabling}. 
-Beyond the increase in subsurface applications, the world-wide population growth and rising demand for energy and minerals required for the energy transition must be considered. 
-Consequently, the demand for resources hosted within fluvial sedimentary deposits is expected to increase while the distribution of the commodities themselves becomes sparser and of lower quality~\parencite[e.g.,][]{spittler2020modelling, calvo2016decreasing}. 
-This necessitates a deeper understanding of subsurface environments to enable more precise resource management. 
-In the exploration process, after collecting data and defining a geological conceptual model, engineers generate 3D geomodels to predict reservoir flow behavior and resource distribution~\parencite{song2022review, royer20153d}.
+These resources include minerals, groundwater, geothermal heat, sands and hydrocarbons~\parencite[e.g.,][]{morris2007genesis, donselaar2017relation, donselaar2015reservoir, brekke2001sedimentary}. 
+Moreover, recent studies have investigated storage possibilities for carbon dioxide and hydrogen in this subsurface environment~\parencite{zhou2020dynamic, heinemann2021enabling}. Beyond the increase in subsurface applications, the world also deals with an increasing population and energy demand. Consequently, the demand for resources hosted within fluvial sedimentary deposits is expected to increase while the distribution of the commodities themselves becomes sparser and of lower quality~\parencite[e.g.,][]{spittler2020modelling, calvo2016decreasing}. This highligts the need for a deeper understanding of subsurface environments to enable more precise resource management which can be achieved through various methods such as: data gathering surveys, geological evolution and constructing high-quality 3D geomodels.
+
+3D geomodels are traditionally constructed by engineers and geoscientists to predict reservoir properties and resource distribution~\parencite{song2022review, royer20153d}. 
+These predictions are fundamentally based on a foundational geological conceptual model. 
+The conceptual model acts as a hypothesis regarding the most likely rock mass configuration, built entirely from sparse field data~\parencite{koltermann1996heterogeneity}. 
+This data sparsity is an unavoidable reality of subsurface exploration, resulting from the exceptionally high costs and extended runtimes required for physical data acquisition. 
+Consequently, engineers must develop a working understanding of the subsurface based on highly limited information. 
+This reliance on limited information drives the continuous need to improve geomodelling techniques. 
+Such improvements aim to computationally bridge the gap between isolated data points and realistic, continuous geological representations.
 
 \section{Problem definition}
-The subsurface environment is characterized by a lack of data, as data acquisition projects are typically costly and time-consuming. 
-As a result, engineers must develop an understanding of the subsurface based on limited information.
-This low-data environment requires the construction of 3D geomodels through interpretations of a conceptual model. 
-The geological conceptual model represents hypotheses about the most likely rock mass configuration, constructed from sparse data~\parencite{koltermann1996heterogeneity}. 
-Following the definition of a conceptual model, several modelling approaches may be applied, introducing sources of uncertainty:
-\begin{itemize}
-    \item \textbf{Limited input of geological prior knowledge:} When developing a geological realization, the choice of model is a critical consideration. 
-    Often, models rely on a weak geological prior, as their input is restricted to distributions of components~\parencite{rongier2025atowards}. 
-    While methods such as object modelling can recreate complex patterns, more intricate relationships are not always captured~\parencite{sun2023geological}. 
-    Moreover, there is a need to apply a multi-conceptual model approach to minimize uncertainties associated with single-conceptual models~\parencite{ENEMARK2019310}. 
-    However, developing a full-scale model for each conceptualization is time-consuming, as cases with different architectures and dimensions must be defined, making this approach labor-intensive.
+Despite ongoing advancements in geomodelling techniques, the subsurface environment remains inherently characterized by a lack of data. This data scarcity dictates that functional 3D geomodels must rely heavily on subjective interpretations of the underlying geological conceptual model. 
+Because transitioning from these interpretive hypotheses into a digital framework requires applying specific mathematical and spatial algorithms, this workflow inevitably introduces uncertainty into the final model. 
+This inherent uncertainty originates at multiple stages, stemming from both the sparse data inputs and the modelling steps themselves~\parencite{hoyer2024evaluating}
+Although this uncertainty is an inescapable aspect of subsurface engineering, precisely measuring its extent is crucial for effective decision-making. 
+This quantification is usually accomplished via Monte Carlo simulations, necessitating the creation of a large collection of equally likely 3D geomodels. Creating this extensive ensemble, however, reveals a core drawback in conventional modeling techniques: the significant compromise between computational efficiency and geological precision.
+To sustain the generation rate needed for extensive uncertainty quantification, traditional methods frequently depend on greatly simplified, weak geological assumptions. 
 
-    \item \textbf{Uncertainty quantification:} The workflow of geological modelling is divided into multiple steps, with uncertainty added at each stage, either through data inputs or the modelling steps themselves~\parencite{hoyer2024evaluating}. 
-    Uncertainties are generally categorized into objective and subjective types~\parencite{fookes1997geology}: objective uncertainties relate to data variability, while subjective uncertainties arise from interpretations. 
-    Due to biases inherent in interpretations, these uncertainties can propagate to the final 3D model. 
-    Therefore, modelling requires professional judgment to balance objectivity and subjective intuition~\parencite{zorzi20253d}.
-    As~\textcite{caers2011modeling} noted, the uncertainty arising from subjective sources may theoretically be infinite in magnitude.
-\end{itemize} 
-The limited geological prior knowledge and high uncertainty call for a modelling process that can capture the complexity of the subsurface while honoring available data.
-Consequently, the question arises as to how the current modelling workflow can be adapted so that 1)~prior geological knowledge and geological complexity are better utilized and 2)~uncertainty in the model is better quantified. 
+Due to the fact that these approaches are often limited to simple statistical distributions or strict object-oriented rules~\parencite{rongier2025atowards}, they find it challenging to replicate the intricate, non-linear architectural relationships present in natural sedimentary formations~\parencite{sun2023geological}. As a result, existing workflows compel engineers to decide between models that can quickly quantify uncertainty but do not possess geological realism, or highly precise multi-conceptual models that require too much effort to produce in large quantities~\parencite{ENEMARK2019310}.This bottleneck highlights a significant deficiency in contemporary subsurface characterization. A significant need exists for a modeling approach that can thoroughly incorporate complex geological prior knowledge while also ensuring the fast generation rates necessary for ensemble-based uncertainty quantification. As a result, the inquiry comes up regarding how the existing modelling process can be modified to ensure that:
+\begin{itemize}
+    \item 1) Previous geological insights and structural intricacies are better employed.
+    \item 2) Uncertainty in the produced models is quantified more precisely and efficiently.
+\end{itemize}  
+To address the need for both geological realism and rapid ensemble generation, recent research has proposed advanced machine learning algorithms as a highly effective solution. These algorithms, specifically the modern subset known as (\gls{dgm}), possess the unique ability to learn complex, non-linear spatial relationships directly from data. By learning these intricate relationships, \gls{dgm} can accurately capture the geological complexity and non-stationarity that traditional methods often miss~\parencite{rongier2025atowards}. Furthermore, once such a model is fully trained and validated, it can generate a vast ensemble of geologically realistic 3D realizations almost instantaneously. This rapid generation directly facilitates the large-scale uncertainty quantification demanded by modern subsurface engineering.
 
 \section{Research gap and opportunity}
-In response to these challenges in the geological modelling workflow, machine learning techniques have been proposed as a potential solution.
-Their main advantage is the ability to learn complex spatial relationships from data, which can be used to capture the complexity of the subsurface.
-Additionally, once trained and validated, a well-curated machine learning model can generate a large number of realizations efficiently, facilitating uncertainty quantification.
-These characteristics may help better capture geological complexity and quantify uncertainty in the modelling workflow.
+While the broader application of machine learning in geomodelling has historical roots~\parencite{demyanov2008geomodelling}, recent surges in computing power have yielded highly capable 3D \gls{dgm} architectures, including \glspl{vae} and Latent Diffusion Models~\parencite[e.g.,][]{laloy2017inversion, bhavsar2024stable, song2023gansim, federico2025three}. Among these varied architectures, this study specifically focuses on Generative Adversarial Networks (\glspl{gan}). While recent literature highlights Latent Diffusion Models as a vanguard for precise hard data conditioning, they inherently suffer from slow inference speeds due to their iterative denoising process. In contrast, \glspl{gan} offer near-instantaneous sampling speeds perfectly suited for large-scale Monte Carlo uncertainty loops, despite well-known training vulnerabilities such as mode collapse. \glspl{gan} are therefore selected due to their computational efficiency, established research history in spatial generation, and the wide availability of architectures strictly tailored for geomodelling. However, successfully training such \glspl{gan} requires an extensive volume of high-quality data to act as the geological prior. To overcome the inherent scarcity of real subsurface data, process-based forward modelling software, such as FLUMY~\parencite{martin-hal-01313232}, can be utilized to generate robust synthetic training datasets.
 
-The application of machine learning in geological modelling is not a new approach, as shown by~\textcite{demyanov2008geomodelling}. 
-However, recent developments in computer science and computing power have introduced Deep Generative Models (DGMs). 
-Recent work in geological modelling has demonstrated the potential for several DGM techniques, such as Variational Auto-Encoders (VAEs), Generative Adversarial Networks (GANs), and 3D Latent Diffusion Models, to produce geologically realistic realizations~\parencite[e.g.,][]{laloy2017inversion, bhavsar2024stable, song2023gansim, federico2025three}. 
-These models are advantageous because, once trained, they can generate realizations much faster than traditional process-based models and, given sufficient training data, can capture non-stationarity within the subsurface~\parencite{rongier2025atowards}.
+Utilizing these synthetic datasets allows \glspl{gan} to effectively learn geological priors; however, a critical research gap remains regarding their ultimate deployment. While \gls{dgm} excels in theoretical environments, recent literature emphasizes an urgent need to transition from idealized, synthetic test cases to practical field applications. As~\textcite{rongier2025atowards} stated, \say{We now need to move towards more detailed studies on larger case studies closer to field applications to further assess how the whole workflow performs}. Similarly,~\textcite{federico2025three} noted that the application (and extension as required) of the overall methodology to real cases should be performed. Addressing this explicit mandate forms the core opportunity of this research. Consequently, the primary goal of this project is to bridge the divide between synthetic training environments and practical field operations by assessing the performance of deep generative modelling in a more complex, real-world application.
 
-While various DGM architectures exist, this study focuses on GANs due to their established research history in geomodelling and the wide availability of proven codebases and architectures tailored for this purpose. 
-In contrast, while VAEs and Diffusion models show promise, their application to complex 3D reservoir conditioning is less documented in current literature.
-To address the low-data challenge, process-based modelling software like FLUMY~\parencite{martin-hal-01313232} can be utilized to generate synthetic training datasets that represent geological prior knowledge.
-As~\textcite{rongier2025atowards} stated: ``We now need to move towards more detailed studies on larger case studies closer to field applications to further assess how the whole workflow performs.'' 
-Similarly,~\textcite{federico2025three} noted: ``Finally, the application (and extension as required) of the overall methodology to real cases should be performed.'' 
-With this in mind, the goal of this project is to assess the performance of deep generative modelling in real-world applications. 
-
+Testing these models in a real-world application requires targeting an active subsurface system, a role fulfilled in this study by utilizing data from the Delft Sandstone reservoir. 
+This reservoir target must be characterized using a comprehensive geological conceptual model combined with sparse well data. Such sparse well data will serve as the hard conditioning constraints to evaluate how the generative model behaves under tight physical limitations. These limitations, and the resulting fluctuations in uncertainty, will be analyzed by testing the workflow across multiple distinct geological priors. Investigating the interplay between varied priors and sparse conditioning constraints ultimately establishes the framework for the specific objectives of this study.
+\pagebreak
 \section{Objective and research questions}
-The main goal of this thesis is to \textbf{assess the practical feasibility of using a Generative Adversarial Network (GAN) to generate realizations of a real-world reservoir by conditioning it to well data}. 
-The outcome of this thesis may indicate whether GANs can be used to model the subsurface in various settings and if other DGM techniques should be considered. 
+The main goal of this thesis is to assess the practical feasibility of using a \gls{gan} to generate models of a real-world reservoir by conditioning it to well data. 
+The outcome of this thesis may indicate whether GANs can be used to model the subsurface in various settings and if other \gls{dgm} techniques should be considered. 
 Hence, the main research question of this work is:
 \textbf{To what extent can Deep Generative Modelling (DGM) be used to create geologically plausible realizations of the Delft Sandstone reservoir while conditioned to sparse real-world data?}\\
 To help answer this question, several subquestions are formulated:
 \begin{enumerate}
     \item How should the Delft Sandstone’s geology be parameterized in FLUMY to produce a training dataset sufficiently diverse for DGM modeling?
-    \item Which DGM methods are best suited for 3D geological modelling? 
+    \item What type of \gls{gan} architecture best suits facies modelling?
     \item How well is the model able to reproduce the complexity inherent in the training data?
-    \item How well does the conditioned model produce geologically realistic structures and is it able to produce new, previously unseen structures? 
+    \item How well does the optimized model produce geologically plausible structures? 
+    \item How different do models trained on different geological priors react when sparse data is introduced?
 \end{enumerate}
 
 \section{Thesis outline}
-The remainder of this thesis is structured as follows:
-\begin{itemize}
-    \item \textbf{Chapter~\ref{Ch:Background}:} Provides the theoretical background on geological modelling, deep generative models, and the geological setting of the Delft Sandstone.
-    \item \textbf{Chapter~\ref{Ch:Methodology}:} Describes the methodology used to generate synthetic training data with FLUMY and the architecture of the GAN used for reservoir modelling.
-    \item \textbf{Chapter~\ref{Ch:Results}:} Presents the results of the training process and the evaluation of the generated realizations.
-    \item \textbf{Chapter~\ref{Ch:Discussion}:} Discusses the implications of the results, the limitations of the proposed approach, and potential future research directions.
-    \item \textbf{Chapter~\ref{Ch:Conclusion}:} Summarizes the main findings of the thesis and answers the research questions.
-\end{itemize}
+The remainder of this thesis is structured to systematically address these research objectives. 
+Chapter~\ref{Ch:Background} establishes the theoretical foundation by reviewing the principles of geological modelling, the mechanics of deep generative models, and the specific geological setting of the Delft Sandstone Member. 
+Building upon this theoretical background, Chapter~\ref{Ch:Methodology} outlines the core workflow, describing the generation of synthetic training datasets using FLUMY and detailing the specific Generative Adversarial Network (\gls{gan}) architecture deployed for the reservoir modelling tasks. 
+The empirical outcomes of this workflow are presented in Chapter~\ref{Ch:Results}, which evaluates the training process and analyzes the structural and spatial realism of the generated realizations. 
+These results are critically examined in Chapter~\ref{Ch:Discussion}, which contextualizes the findings, addresses the inherent limitations of the proposed approach, and highlights avenues for future research. 
+Finally, Chapter~\ref{Ch:Conclusion} summarizes the main contributions of this thesis and provides definitive answers to the central research questions.
