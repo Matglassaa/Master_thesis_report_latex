@@ -1,74 +1,35 @@
 \chapter{Methodology}\label{Ch:Methodology}
+This chapter describes the comprehensive project workflow, beginning with the generation of 3D synthetic datasets used for training, validating, and testing the models (Section~\ref{Sec:data_gen}). Section~\ref{Subsec:Fluvgan} details the \gls{gan} framework, including the network architectures, the facies representation strategy, and the loss functions employed during training. Finally, Section~\ref{Sec:eval} introduces the metrics and simulation methods used to evaluate the geological realism and practical utility of the generated realizations.
 %=====================================================================================%
-% Chapter outline:  
-%       - Flumy
-%           - Geological settings
-%               - Setting 1: Upper plain
-%               - Setting 2: Lower Plain
-%               - Setting 3: Combined
-%           - Datasets
-%               - Training, Validation
-%               - Testing
-%           - Dataset preprocessing
-%               - grouping scheme
-%       - GAN framework
-%           - Model architecture(s)
-%               - Standard Deep GAN
-%               - Wasserstein Deep GAN
-%           - Conditioning approach
-%               - Optimization Latent space
-%               - Pivotal tuning Generator
-%           - (Hyperparameters)
-%               - 
-%       - Evaluation framework
-%           - Visual evaluation
-%           - 
-%           - Entropy
-%           - Connectivity
-%           - 
-%           - Los (time)?
-%=====================================================================================%
-This chapter describes the comprehensive project workflow, beginning with the generation of 3D synthetic datasets used for training, validating, and testing the models (Section~\ref{Sec:data_gen}). 
-Section~\ref{Subsec:Fluvgan} details the Generative Adversarial Network (GAN) framework, including the network architectures, the facies representation strategy, and the loss functions employed during training. 
-Finally, Section~\ref{Sec:eval} introduces the metrics and simulation methods used to evaluate the geological realism and practical utility of the generated realizations.
-%=====================================================================================%
-\section{Training Data Generation}\label{Sec:data_gen}
-The training datasets were generated using FLUMY~\parencite{martin-hal-01313232}, a process-based stochastic modelling software designed to reproduce meandering channelized reservoirs. 
-FLUMY has previously successfully been implemented in the research by ~\textcite{bhavsar2024stable} to generate samples for training GAN's.
-FLUMY simulates facies, relative grain size, and depositional time for each voxel in a 3D grid based on specified hydraulic and sedimentological rules.
-%=====================================================================================%
-\subsection{Conceptual Models}\label{Subsec:Conceptual_models}
-Training deep learning algorithms for 3D geomodelling requires a substantial volume of ground-truth data. 
-Given the scarcity and high uncertainty of subsurface measurements, synthetic data generation using stochastic algorithms is the established approach to provide sufficient training samples~\parencite{rongier2025atowards, sun2023geological}. 
-In this project, three distinct geological conceptual models are employed to capture the range of environments hypothesized for the Delft Sandstone (see Chapter~\ref{Ch:Background}):
-\begin{itemize}
-    \item \textbf{Dataset A (Upper Plain Deltaic):} Characterized by meandering fluvial channels and extensive floodplain deposits.
-    \item \textbf{Dataset B (Lower Plain Deltaic):} Reflects increased marine influence with shorter, more numerous distributary channels.
-    \item \textbf{Dataset C (General Deltaic):} A stochastic combination of both settings to represent a transitional depositional system.
-\end{itemize}
+\section{Dataset Generation}\label{Sec:data_gen}
+In order to rigorously test the applicability of \glspl{gan} several new datasets had to be generated. Training deep learning algorithms for 3D geomodelling requires a substantial volume of high-fidelity training data. High-fidelity training data is inherently scarce due to the high uncertainty and limited availability of subsurface measurements, making synthetic data generation via stochastic process-based algorithms the established approach to provide sufficient training samples~\parencite{rongier2025atowards, sun2023geological}.These new datasets were generated using FLUMY~\parencite{martin-hal-01313232}, a process-based stochastic modelling software designed to reproduce meandering channelized reservoirs. Meandering channelized reservoirs are accurately replicated because FLUMY simulates facies, relative grain size, and depositional time for each voxel in a 3D grid based on specified hydraulic and sedimentological rules. These specified hydraulic and sedimentological rules ensure that the models the software generates contain geologically realistic features. Geologically realistic features are produced without requiring excessive computational overhead, making the software not very computationally intensive and making it possible to generate a large number of models in a relatively short amount of time. This rapid generation capacity is one of the primary characteristics why FLUMY has already successfully been implemented in the research by~\textcite{bhavsar2024stable} to generate samples for training \glspl{gan}.  
+
+Training samples for these generative frameworks can be tailored because FLUMY is designed to be compatible with a wide range of input parameters, of which a full list can be found on their \href{https://flumy.minesparis.psl.eu/download/}{website}. This full website list is simplified in the python distribution, which contains so-called Non-Expert User Settings (NEXUS) that only allow three customizable parameters: 1) Maximum Channel Depth, 2) Maximum Sand Body Extension, and 3) Net to Gross. Based on these three customizable inputs, the full list of parameters as provided in the \href{https://flumy.minesparis.psl.eu/download/}{user guide} is estimated automatically. Although the software is specifically designed to simulate fluvial meandering rivers, its underlying process-based parameters can be intentionally adapted to mimic alternative depositional domains. Mimicking these alternative depositional domains allows the software to effectively capture the complex deltaic architectures hypothesized for the Delft Sandstone reservoir, establishing a strong foundation for the specific configurations of the underlying conceptual models.
 %=====================================================================================%
 \subsection{Dataset Descriptions}\label{Subsec:Dataset_descriptions}
-The geological variability between the three datasets is controlled by three primary NEXUS input parameters: Net-to-Gross (NTG), maximum channel depth, and maximum sand body extension. 
-The specific configurations are summarized in Table~\ref{tab:NEXUS_input}. 
-The models are defined on a reservoir scale with a grid resolution of $128 \times 128 \times 32$ voxels. 
-With a voxel dimension of $20~\text{m} \times 20~\text{m} \times 1~\text{m}$, the total simulated volume covers $2560~\text{m} \times 2560~\text{m} \times 32~\text{m}$.
-While Chapter~\ref{Ch:Background} notes that individual FA1 units can reach 80~m in thickness, the 32~m grid depth used here represents a focused reservoir interval where the conditioning challenge is most acute.
+The three distinct geological conceptual models developed to capture the range of environments hypothesized for the Delft Sandstone reservoir are compiled into separate training suites. These separate training suites consist of Dataset A, Dataset B, and Dataset C. Dataset A (Upper Plain Deltaic) initiates this sequence and is characterized by meandering fluvial channels and extensive floodplain deposits. Extensive floodplain deposits and deep meandering channels stand in direct contrast to the configurations within Dataset B (Lower Plain Deltaic). Dataset B (Lower Plain Deltaic) reflects an increased marine influence with shorter, more numerous distributary channels. Shorter, more numerous distributary channels are subsequently blended with upper plain characteristics to construct Dataset C (General Deltaic). Dataset C (General Deltaic) utilizes a stochastic combination of both settings to represent a transitional depositional system.
+
+The hypothesized depositional environments are split across three discrete suites, starting with Dataset A (Upper Plain Deltaic), which is characterized by meandering fluvial channels and extensive floodplain deposits. Extensive floodplain deposits and deep meandering channels stand in contrast to Dataset B (Lower Plain Deltaic), a setting that reflects an increased marine influence with shorter, more numerous distributary channels. Shorter, more numerous distributary channels are subsequently blended with upper plain characteristics to construct Dataset C (General Deltaic), which utilizes a stochastic combination of both settings to represent a transitional depositional system.  
+
+This transitional depositional system and the overall geological variability across all three datasets are explicitly controlled by three primary NEXUS input parameters: Net-to-Gross (NTG), maximum channel depth, and maximum sand body extension. Maximum sand body extension, maximum channel depth, and target NTG values define the explicit architectural bounds of each setting, as summarized in Table~\ref{tab:NEXUS_input}.  
 
 \begin{table}[htbp]
-\centering
-\begin{tabular}{p{0.25\textwidth}ccc|}
- \hline
- \textbf{Parameter} & \textbf{Dataset A} & \textbf{Dataset B} & \textbf{Dataset C} \\
- \hline
- Net-to-Gross (\%) & 67 & 67 & 67 \\
- Max. Channel Depth (m) & 6 & 4 & 4--6 \\
- Max. Sand Body Extension & 100 & 60 & 60--100 \\
- \hline
-\end{tabular}
-\caption{NEXUS input parameters for the three training datasets.}\label{tab:NEXUS_input}
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{p{0.25\textwidth}ccc}
+        \hline
+        \textbf{Parameter} & \textbf{Dataset A} & \textbf{Dataset B} & \textbf{Dataset C} \\
+        \hline
+        Net-to-Gross (%) & 67 & 67 & 67 \\
+        Max. Channel Depth (m) & 6 & 4 & 4--6 \\
+        Max. Sand Body Extension & 100 & 60 & 60--100 \\
+        \hline
+    \end{tabular}
+    \caption{NEXUS input parameters for the three training datasets.}
+    \label{tab:NEXUS_input}
 \end{table}
 
-Each sample is represented using 9 primary facies classes relevant to the fluvial-deltaic system, as shown in Table~\ref{tab:facies_config_overview}.
+Beyond these specific NEXUS constraints, all generated models share a uniform reservoir scale with a total grid resolution fixed at 128×128×32 voxels. Establishing this specific grid resolution combined with a standard voxel dimension of 20 m×20 m×1 m means that the total simulated domain securely covers a volume of 2560 m×2560 m×32 m. A simulated volume with a 32~m grid depth functions as a highly focused reservoir interval where the sparse conditioning challenge is most acute, even though individual channel sandstone units within the broader regional stratigraphy can vertically stack up to an extreme thickness of 80~m. Every single voxel within this acute 32~m vertical interval is ultimately encoded using a specific categorical index chosen from a suite of 9 primary facies classes.
 
 \begin{table}[htbp]
     \centering
@@ -134,4 +95,9 @@ The generator and discriminator architectures contain approximately 11.6 and 2.0
 To honor sparse well data, a latent space optimization approach is used. 
 The latent vector $\mathbf{z}$ is iteratively refined to minimize the difference between the generated facies at well locations and the true observations. 
 The realism of the final realizations is evaluated using the Mean Sliced Wasserstein Distance (MSWD) across 1,000 projections, ensuring that the multi-point statistics and connectivity of the training data are preserved~\parencite{bhavsar2024stable}. 
+
+Shannon's entropy fomrula:
+\begin{equation}
+    H(X) = -\sum_{i=1}^{n}P(x_i)log_2 P(x_i)
+\end{equation}
 
