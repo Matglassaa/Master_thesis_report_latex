@@ -2,5 +2,65 @@
 %=====================================================================================%
 % Chapter outline:  
 %=====================================================================================%
-\section{Post Training Results}\label{Sec:Post_training_res}
-\section{Post Conditioning Results}\label{Sec:Post_Cond_Res}
+\section{Datasets}\label{Sec:Datasets}
+In total, 20,000 synthetic realization models were generated for Setting 1, alongside 10,000 models generated for both Settings 2 and 3. 
+These generated datasets are visually summarized in Figure \ref{fig:3D_datasets_comparison}, which displays a representative 3D sample block paired alongside a corresponding plot of the normalized spatial uncertainty distribution. This normalized spatial entropy maps how the architectural features progress across the training suites, moving from tightly confined, small meandering channels into much deeper channel paths embedded within wider sand bodies. These wider channel architectures heavily influence the accompanying entropy plots on the right, which show that the physical distribution of the facies almost reaches the maximum theoretically possible entropy threshold.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/results/comparison_facies_distribution.png}
+    \caption{Global categorical facies distribution profiles compared across the three synthetic training datasets for all available classes.}
+    \label{fig:comparison_facies_distribution_real_samples}
+\end{figure}
+
+This threshold configuration can be further evaluated by analyzing Figure \ref{fig:comparison_facies_distribution_real_samples}, which provides an exhaustive overview of the global facies distributions across the ensemble. As can be observed in this overview, the structural facies, hereafter referred to as classes, exhibit a severe statistical imbalance throughout the data volume. This severe imbalance manifests as dominant classes occupying over 60\% of the total grid volume, while corresponding minority classes are entirely absent due to the fundamental boundary limitations of the FLUMY NEXUS parameters. The volumetric presence of classes 4, 5, and 6 is particularly suppressed, yielding an exceptionally low occurrence rate ranging between 0.0\% and 0.1\%. Such depressed occurrence rates present an optimization bottleneck for the subsequent model inversion step, as established sedimentological literature indicates that the real-world occurrence of the intermediate Levee \& Crevasse association (FA2) within the Delft reservoir is significantly higher, at approximately (...\%).
+
+Moreover, the differences of facies distributions between the facies are not substantial. This makes it less intuitive to judge the performance of the model to choose a specific dataset that fits the well data better based off the facies distributions.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/results/real_datasets_comparison.png}
+    \caption{Volumetric overview of the synthetic datasets generated with FLUMY, showcasing the structural progression across \textbf{a)} Setting 1, \textbf{b)} Setting 2, and \textbf{c)} Setting 3.}
+    \label{fig:3D_datasets_comparison}
+\end{figure}
+
+\section{Post Training Generative Results}\label{Sec:Post_training_res}
+\subsection{cGAN Unconstrained Performance}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/results/cGAN_real_distribution_comparison.png}
+    \caption{Comparison of Real dataset distribution with the GAN distribution.}
+    \label{fig:cGAN_vs_Real_dataset_distribution}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/results/cGAN_3_entropy_plots.png}
+    \caption{Comparison of Real dataset distribution with the GAN distribution.}
+    \label{fig:cGAN_3_entropy_plots}
+\end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{ccccc}
+        \hline
+        \textbf{Slice Axis} & \textbf{Voxel Index} & \textbf{Real Normalized Entropy} & \textbf{GAN Normalized Entropy} & \textbf{JSD (Real vs. GAN)} \\
+        \hline
+        $Z$ & 0  & 1.014740 & 0.551894 & 0.290421 \\
+        $Z$ & 15 & 0.960197 & 0.590325 & 0.288134 \\
+        $Z$ & 31 & 0.983518 & 0.587173 & 0.301107 \\
+        \hline
+    \end{tabular}
+    \caption{Spatial uncertainty and distribution divergence metrics along the vertical ($Z$) axis for the baseline training data and unconstrained cGAN realizations trained on Setting 1.}
+    \label{tab:cGAN_setting1_entropy_results}
+\end{table}
+
+\pagebreak
+\subsection{WGAN Unconstrained Performance}
+\subsection{High-Fidelity 9-Class Generative Performance}
+
+\section{Post-Inversion Conditioning Results}\label{Sec:Post_Cond_Res}
+\subsection{cGAN Latent Space Optimization and Pivotal Tuning}
+\subsection{WGAN Latent Space Optimization and Pivotal Tuning}

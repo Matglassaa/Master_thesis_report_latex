@@ -1,0 +1,27 @@
+\chapter{FLUMY dataset generation}
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{c p{0.30\textwidth} l p{0.40\textwidth}}
+        \hline
+        \textbf{Value} & \textbf{Facies Key} & \textbf{Color} & \textbf{Description} \\
+        \hline
+        0 & Background & \textcolor[HTML]{FF0000}{\rule{10pt}{10pt}} & Undefined \\
+        1 & Channel Lag & \textcolor[HTML]{F1970F}{\rule{10pt}{10pt}} & Coarse active channel fill \\
+        2 & Point Bar & \textcolor[HTML]{F3DD12}{\rule{10pt}{10pt}} & Meandering lateral accretion \\
+        3 & Sand Plug & \textcolor[HTML]{AF8F00}{\rule{10pt}{10pt}} & Fine-grained channel abandonment \\
+        4 & Crevasse Splay I & \textcolor[HTML]{FFFC65}{\rule{10pt}{10pt}} & Proximal high-energy overbank \\
+        5 & Crevasse Channel & \textcolor[HTML]{FFD986}{\rule{10pt}{10pt}} & Feeder for splay deposits \\
+        6 & Crevasse Splay II & \textcolor[HTML]{FF9853}{\rule{10pt}{10pt}} & Feeder for splay deposits \\
+        7 & Levee & \textcolor[HTML]{27AE60}{\rule{10pt}{10pt}} & Bordering channel ridges \\
+        8 & Overbank & \textcolor[HTML]{33FF00}{\rule{10pt}{10pt}} & Vegetated floodplain silt \\
+        9 & Mud plug & \textcolor[HTML]{FFF7DB}{\rule{10pt}{10pt}} & Organic-rich anoxic sediments \\
+        10 & Hemipelagic plug & \textcolor[HTML]{7A7D80}{\rule{10pt}{10pt}} & Fine-grained marine deposits consisting of clay and silt-sized grains \\
+        11 & Wetland/Paleosol & \textcolor[HTML]{D862F0}{\rule{10pt}{10pt}} & Organic-rich anoxic sediments \\
+        12 & Draping & \textcolor[HTML]{8DD5E7}{\rule{10pt}{10pt}} & Fine-grained sediments conforming to topography \\
+        13 & Pelagic & \textcolor[HTML]{3498DB}{\rule{10pt}{10pt}} & Deep-marine fine-grained suspension settling \\
+        \hline
+    \end{tabular}
+    \caption{Overview of the 9 facies classes used in the training datasets.}\label{tab:facies_config_overview}
+\end{table}
