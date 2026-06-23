@@ -1,10 +1,7 @@
 \chapter{Results}\label{Ch:Results}
-%=====================================================================================%
-% Chapter outline:  
-%=====================================================================================%
+The presentation of the results will follow the order of the workflow as defined in figure~\ref{fig:workflow_simple}: First of all the curated datasets will be displayed with the addition of statistical parameters that can be used to evaluate the difference between the samples in the datasets and the synthetic \gls{gan} samples. Secondly, the post training results are presented which presents teh results of the hyperparameter tuning, the cGAN unconstrained performance to grouped facies classes as well as the cGAN unconstrained performance when presented with all facies classes. Finally, the results of the optimization and inversion results are presented, after the model was constrained to the \gls{gtd} well data.   
 \section{Datasets}\label{Sec:Datasets}
-In total, 20,000 synthetic realization models were generated for Setting 1, alongside 10,000 models generated for both Settings 2 and 3. 
-These generated datasets are visually summarized in Figure \ref{fig:3D_datasets_comparison}, which displays a representative 3D sample block paired alongside a corresponding plot of the normalized spatial uncertainty distribution. This normalized spatial entropy maps how the architectural features progress across the training suites, moving from tightly confined, small meandering channels into much deeper channel paths embedded within wider sand bodies. These wider channel architectures heavily influence the accompanying entropy plots on the right, which show that the physical distribution of the facies almost reaches the maximum theoretically possible entropy threshold.
+In total, 20,000 samples were generated for the three datasets as defined in table~\ref{tab:NEXUS_input}. These generated datasets are visually summarized in figure~\ref{fig:3D_datasets_comparison}, which displays a representative 3D sample block paired alongside a corresponding plot of the normalized spatial entropy. This normalized spatial entropy maps show how the architectural features progress across the training suites, moving from tightly confined, small meandering channels into much deeper channel paths embedded within wider sand bodies. These wider channel architectures heavily influence the accompanying entropy plots on the right, which show that the physical distribution of the facies almost reaches the maximum theoretically possible entropy threshold.
 
 \begin{figure}[!htbp]
     \centering
@@ -25,25 +22,32 @@ Moreover, the differences of facies distributions between the facies are not sub
 \end{figure}
 
 \section{Post Training Generative Results}\label{Sec:Post_training_res}
+\subsection{Hyperparameter Tuning}\label{Sec:Hyperparam_results}
 \subsection{cGAN Unconstrained Performance}
+Evaluating the unconstrained performance of the conditional Generative Adversarial Network (cGAN) was executed over a total training duration of 150 epochs. These 150 epochs yield a model ensemble whose global macro-properties are analyzed across 100 stochastically generated realizations. These 100 generated realizations exhibit a global facies volume distribution that appears practically identical to the baseline training suite, as illustrated in Figure \ref{fig:cGAN_vs_Real_dataset_distribution}. 
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.75\textwidth]{figures/results/cGAN_real_distribution_comparison.png}
-    \caption{Comparison of Real dataset distribution with the GAN distribution.}
+    \caption{Comparative analysis of global facies volume percentages between the true training dataset and 100 unconstrained cGAN realizations, demonstrating macro-scale categorical matching.}
     \label{fig:cGAN_vs_Real_dataset_distribution}
 \end{figure}
+
+While this identical volume distribution suggests successful macro-scale adaptation, a localized spatial evaluation reveals a structural failure to capture true sample diversity. 
+This failure to capture sample diversity is visually apparent in the XY-plane normalized cell-wise entropy plots presented in Figure \ref{fig:cGAN_3_entropy_plots}. 
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.99\textwidth]{figures/results/cGAN_3_entropy_plots.png}
-    \caption{Comparison of Real dataset distribution with the GAN distribution.}
+    \caption{Normalized cell-wise spatial entropy across selected horizontal slices ($Z = 6, 10, and 24$) calculated over 100 unconstrained cGAN realizations.}
     \label{fig:cGAN_3_entropy_plots}
 \end{figure}
 
+These 3D spatial entropy plots show heavily restricted uncertainty across the simulated grid slices, a trend further substantiated by the vertical axis statistics compiled in Table \ref{tab:cGAN_setting1_entropy_results}. 
+
 \begin{table}[htbp]
     \centering
-    \renewcommand{\arraystretch}{1.2}
+    \renewcommand{\arraystretch}{1.3}
     \begin{tabular}{ccccc}
         \hline
         \textbf{Slice Axis} & \textbf{Voxel Index} & \textbf{Real Normalized Entropy} & \textbf{GAN Normalized Entropy} & \textbf{JSD (Real vs. GAN)} \\
@@ -57,7 +61,8 @@ Moreover, the differences of facies distributions between the facies are not sub
     \label{tab:cGAN_setting1_entropy_results}
 \end{table}
 
-\pagebreak
+Table \ref{tab:cGAN_setting1_entropy_results} highlights a severe mathematical discrepancy, where the GAN normalized entropy drops to approximately 0.55--0.59 compared to the near-maximum uncertainty values preserved in the true dataset. This low GAN entropy, combined with a persistent Jensen-Shannon Divergence (JSD) value around 0.29, mathematically confirms that the network has entered a state of severe mode collapse. This severe mode collapse restricts the generator's stochastic capability, causing the framework to repeat specific spatial configurations over and over instead of exploring the full architectural variety of the geological prior.
+
 \subsection{WGAN Unconstrained Performance}
 \subsection{High-Fidelity 9-Class Generative Performance}
 

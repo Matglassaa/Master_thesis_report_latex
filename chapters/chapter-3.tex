@@ -53,14 +53,16 @@ To comprehensively assess the capabilities of \glspl{gan}, the synthetic trainin
     \label{tab:3_facies_grouping}
 \end{table}
 
-Beyond this grouping process, the categorical nature of both the 3-facies and 9-facies datasets necessitates a final preprocessing step known as one-hot encoding~\parencite{goodfellow-et-al-2016}. One-hot encoding is critical because standard neural networks process continuous numerical gradients and might otherwise incorrectly interpret integer facies labels as having an ordinal, mathematical relationship. This ordinal misinterpretation is prevented by transforming the original 3D volume into an expanded 4D tensor, where each facies class is assigned its own dedicated spatial channel. Each spatial channel indicates the presence or absence of a specific facies using values of 1 and -1, a bipolar scaling choice specifically optimized for the activation functions commonly used in GAN architectures~\parencite{bhavsar2024stable}.
+Beyond this grouping process, the categorical nature of both the 3-facies and 9-facies datasets necessitates a final preprocessing step known as one-hot encoding~\parencite{goodfellow-et-al-2016}. One-hot encoding is critical because standard neural networks process continuous numerical gradients and might otherwise incorrectly interpret integer facies labels as having an ordinal, mathematical relationship. This ordinal misinterpretation is prevented by transforming the original 3D volume into an expanded 4D tensor, where each facies class is assigned its own dedicated spatial channel. Each spatial channel indicates the presence or absence of a specific facies using values of 1 and -1, which has the result that the facies represantatino of each facies looks like [-1,1,-1] given that FA2 was present in that sepcific voxel.
 
 \section{Fluvgan Framework}\label{Subsec:Fluvgan}
-\subsection{Model Architecture}\label{Subsec:Model_architecture}
+\subsection{Model Architecture and training configuration}\label{Subsec:Model_architecture}
 The \gls{fluvgan} model, introduced by~\textcite{rongier2025afluvgan}, relies on an optimized DCGAN architecture for 3D fluvial facies modelling. This architecture adapts the BigGAN framework~\parencite{brock2018large} to manage the complex connectivity and high resolution necessary for realistic reservoir models. These models originally generated continuous values, which differs from this project's need for categorical facies data. Categorical facies data is therefore processed using the previously described one-hot encoding strategy, which assigns each facies to a separate output channel. These separate output channels dictate the final depth of the generator's tensor, represented by the variable $C$, where $C = 3$ or $C = 9$ depending on the selected experimental track. 
 
-This dynamic channel depth is accommodated by an architecture comprising a Generator ($\mathbf{G}$) and a Discriminator ($\mathbf{D}$) built with 3D Residual blocks. These blocks enable the generator to transform a 100-dimensional latent vector $\mathbf{z}$ into a $C \times 32 \times 128 \times 128$ volume. This volume begins as a $512 \times 4 \times 4 \times 4$ feature map, created via a 3D transposed convolution, and is then expanded by five residual upscaling blocks. These upscaling blocks accommodate grid anisotropy by doubling spatial dimensions up to 128, while limiting depth doubling to the first three blocks to reach 32. This final spatial resolution is processed through a Softmax activation, ensuring the $C$ facies channels sum to exactly one per voxel. Every generated voxel is then evaluated by the discriminator, acting as a binary classifier to reduce the $C \times 32 \times 128 \times 128$ input to a single scalar logit. This logit is produced through five residual downscaling blocks that iteratively reduce spatial resolution while increasing the channel count to 512. This 512-channel discriminator, alongside the generator, achieves training stability by utilizing spectral normalization and LeakyReLU activations. Training stability is essential for managing the model's computational scale, which involves roughly 11.6 million trainable parameters for the generator and 2.0 million for the discriminator.
+This dynamic channel depth is accommodated by an architecture comprising a Generator ($\mathbf{G}$) and a Discriminator ($\mathbf{D}$) built with 3D Residual blocks. These blocks enable the generator to transform a, in this case, 100-dimensional latent vector $\mathbf{z}$ into a $C \times 32 \times 128 \times 128$ volume. This volume begins as a $512 \times 4 \times 4 \times 4$ feature map, created via a 3D transposed convolution, and is then expanded by five residual upscaling blocks. These upscaling blocks accommodate grid anisotropy by doubling spatial dimensions up to 128, while limiting depth doubling to the first three blocks to reach 32. This final spatial resolution is processed through a Softmax activation, ensuring the $C$ facies channels sum to exactly one per voxel. Every generated voxel is then evaluated by the discriminator, acting as a binary classifier to reduce the $C \times 32 \times 128 \times 128$ input to a single scalar logit. This logit is produced through five residual downscaling blocks that iteratively reduce spatial resolution while increasing the channel count to 512. This 512-channel discriminator, alongside the generator, achieves training stability by utilizing spectral normalization and LeakyReLU activations. Training stability is essential for managing the model's computational scale, which involves roughly 11.6 million trainable parameters for the generator and 2.0 million for the discriminator.
 
+\subsubsection{Hyperparameters}
+Training \glspl{gan} is notoriously hard, as described in section .., since it requires both the Generator ($\mathbf{G}$) and Discriminator ($\mathbf{D}$) to learn with each iteration. As a result, the hyperparameters of the architecture need to carefully chosen so both components train properly. By testing a long list of possible combinations, the hyperparameter combination achieving the most geologically plausible models was found with the following values:
 \begin{table}[htbp]
     \centering
     \renewcommand{\arraystretch}{1.2}
@@ -68,17 +70,34 @@ This dynamic channel depth is accommodated by an architecture comprising a Gener
         \hline
         \textbf{Hyperparameter} & \textbf{Value} & \textbf{Description} \\
         \hline
-        Latent Dimension (dim(z)) & 100 & Gaussian prior \\
-        Batch Size & 16 & Samples per iteration \\
-        Learning Rate (G,D) & 10−4,4⋅10−4 & Two-timescale update rule \\
+        Batch Size & 64 & Samples per iteration \\
         Kernel Size & 3×3×3 & 3D Convolutional filters \\
         Optimizer & Adam & β1​=0,β2​=0.999 \\
+        Learning Rate (G,D) & 10−4,4⋅10−4 & Two-timescale update rule \\
+        num iter $\mathbf{D}$ & 1 & Number of consecutive iterations of the discriminator before an iteration of the generator.\\
+        
         \hline
     \end{tabular}
     \caption{Key hyperparameters for the Fluvgan architecture.}\label{tab:Architecture_options}
 \end{table}
 
-\subsection{Model Inversion}
+\subsubsection{Loss Functions}
+
+Evaluating the generated realizations begins by analyzing the foundational mathematical metrics, specifically Binary Cross-Entropy (BCE) and Wasserstein Loss. 
+BCE is deployed because the generator processes one-hot encoded facies, effectively turning the spatial generation into a multi-channel binary classification task. 
+This classification task relies on BCE to penalize pixel-wise deviations between the generated probabilities ($\hat{y}_i$) and the true categorical labels ($y_i$), defined mathematically across $N$ voxels as:
+
+$$ \mathcal{L}_{BCE} = - \frac{1}{N} \sum_{i=1}^N \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$
+
+While this equation effectively measures local, pixel-to-pixel accuracy, it structurally fails to capture the broader spatial connectivity of complex geological architectures. 
+Complex geological architectures and global multi-point statistics are instead evaluated using the Wasserstein Loss, often implemented via the Mean Sliced Wasserstein Distance (MSWD). 
+Wasserstein Loss calculates the optimal transport cost (Earth Mover's Distance) between the true ($P_r$) and generated ($P_g$) probability distributions, allowing the network to converge on highly realistic, non-linear structures even when exact pixel overlap is minimal. 
+This structural distance is expressed as:
+
+$$ \mathcal{W}(P_r, P_g) = \inf_{\gamma \sim \Pi(P_r, P_g)} \mathbb{E}_{(x,y) \sim \gamma} [\|x - y\|] $$
+
+\subsection{Optimization \& Inversion}
+
 While the 9-facies models are utilized to evaluate unconstrained generative performance, the 3-facies models are deployed to test practical conditioning against the \textbf{DEL-GT-01} well data. To successfully condition this 3-facies generative model to real-world observations, the overall inversion workflow relies on two primary mechanisms:
 \begin{itemize}
     \item \textbf{Latent Space Optimization:} An iterative search to find the optimal random noise vector $\mathbf{z}^*$ that best approximates the well data.
@@ -106,37 +125,22 @@ Validating the outputs generated by the network requires a comprehensive suite o
     \item \textbf{Macro F1-Score:} Quantifies the localized mismatch at the wellbore while accounting for severe facies imbalance.
 \end{itemize}
 
-Evaluating the generated realizations begins by analyzing the foundational mathematical metrics, specifically Binary Cross-Entropy (BCE) and Wasserstein Loss. 
-BCE is deployed because the generator processes one-hot encoded facies, effectively turning the spatial generation into a multi-channel binary classification task. 
-This classification task relies on BCE to penalize pixel-wise deviations between the generated probabilities ($\hat{y}_i$) and the true categorical labels ($y_i$), defined mathematically across $N$ voxels as:
+\subsubsection{Geological Realism}
+In order to validate the model for geological realism without knowing the ground truth model, it is important to use a set of validation metrics which may be used to help with quantifying the geological realism in the models. To achieve this, validation metrics covering global and local structures are needed. To validate the local geological plausibility in a single sample the connectivity of between facies can be analysed. 
 
-$$ \mathcal{L}_{BCE} = - \frac{1}{N} \sum_{i=1}^N \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$
-
-While this equation effectively measures local, pixel-to-pixel accuracy, it structurally fails to capture the broader spatial connectivity of complex geological architectures. 
-Complex geological architectures and global multi-point statistics are instead evaluated using the Wasserstein Loss, often implemented via the Mean Sliced Wasserstein Distance (MSWD). 
-Wasserstein Loss calculates the optimal transport cost (Earth Mover's Distance) between the true ($P_r$) and generated ($P_g$) probability distributions, allowing the network to converge on highly realistic, non-linear structures even when exact pixel overlap is minimal. 
-This structural distance is expressed as:
-
-$$ \mathcal{W}(P_r, P_g) = \inf_{\gamma \sim \Pi(P_r, P_g)} \mathbb{E}_{(x,y) \sim \gamma} [\|x - y\|] $$
-
-Beyond evaluating the structural realism of a single generated model, it is critical to quantify the spatial uncertainty across the entire generated ensemble. 
-This ensemble uncertainty is quantified using entropy metrics, beginning with Normalized Shannon's Entropy. 
-Normalized Shannon's Entropy evaluates the pixel-wise conflict across multiple stochastic realizations, scaling the standard entropy equation by the number of classes ($k$) to strictly bound the metric:
+Beyond evaluating the structural realism of a single generated model, it is critical to quantify the spatial uncertainty across the entire generated ensemble. This ensemble uncertainty is quantified using entropy metrics, beginning with Normalized Shannon's Entropy~\parencite{shannon1948mathematical}. Normalized Shannon's Entropy evaluates the pixel-wise entropy across multiple models, scaling the standard entropy equation by the number of classes ($k$) to strictly bound the metric:
 
 $$ H_{norm}(X) = -\frac{1}{\log_2(k)} \sum_{i=1}^{k}P(x_i)\log_2 P(x_i) $$
 
-This $[0, 1]$ bounding scale allows to visually map exact regions of spatial uncertainty, highlighting areas where the ensemble highly agrees versus areas of deep geological conflict. 
-This 3D grid of spatial conflict is ultimately aggregated into a single definitive scalar using Jensen-Shannon (JS) divergence. 
-JS divergence measures the total variation and stochastic spread between the probability distributions of the ensemble, acting as a final quantitative measure of sample diversity:
+This $[0, 1]$ bounding scale allows to visually map exact regions of spatial uncertainty, highlighting areas where the ensemble highly agrees versus areas of deep geological conflict. This 3D grid of spatial conflict is ultimately aggregated into a single definitive scalar using the Jensen-Shannon (JS) divergence \parencite{lin1991divergence}. JS divergence measures the pixel-wise distributional disagreement and stochastic spread between the probability distributions of the flumy and \gls{gan} models, acting as a final quantitative measure of spatial fidelity:
 
-$$ D_{JS}(P \parallel Q) = \frac{1}{2} D_{KL}(P \parallel M) + \frac{1}{2} D_{KL}(Q \parallel M) $$
+\[ D_{JS}(P \parallel Q) = \frac{1}{2} D_{KL}(P \parallel M) + \frac{1}{2} D_{KL}(Q \parallel M) \]
 
-where $M = \frac{1}{2}(P + Q)$ and $D_{KL}$ represents the standard Kullback-Leibler divergence.
+where $P$ and $Q$ represent the categorical probability distributions of the flumy and \gls{gan} models respectively, $M = \frac{1}{2}(P + Q)$ and $D_{KL}$ represents the standard Kullback-Leibler divergence~\parencite{ kullback1951information}.
 
-While JS divergence defines the overall ensemble spread, each individual realization within that ensemble must still strictly honor the physical reality at the wellbore. 
-This physical reality at the wellbore acts as a strict spatial constraint, the localized mismatch of which is calculated using the Macro F1-score. 
-The Macro F1-score calculates the unweighted average of the harmonic mean of precision and recall across all $C$ individual facies classes:
+\subsubsection{Data conditioning}
+While JS divergence defines the overall ensemble spread, each individual \gls{gan} model within that ensemble must still strictly honor the physical reality at the wellbore. This physical reality at the wellbore acts as a strict spatial constraint, the localized mismatch of which is calculated using the Macro F1-score. The Macro F1-score calculates the unweighted average of the harmonic mean of precision and recall across all $C$ individual facies classes:
 
-$$ F1_{macro} = \frac{1}{C} \sum_{c=1}^{C} \frac{2 \cdot \text{Precision}_c \cdot \text{Recall}_c}{\text{Precision}_c + \text{Recall}_c} $$
+\[ F1_{macro} = \frac{1}{C} \sum_{c=1}^{C} \frac{2 \cdot \text{Precision}_c \cdot \text{Recall}_c}{\text{Precision}_c + \text{Recall}_c} \]
 
 Evaluating every facies class independently provides a highly robust performance metric that heavily penalizes the model if it ignores underrepresented minority classes. These underrepresented minority classes, such as the thin crevasse splays (FA2), would otherwise be completely overshadowed by the massive channel sand deposits (FA1) if standard statistical accuracy was deployed to assess the well conditioning.
