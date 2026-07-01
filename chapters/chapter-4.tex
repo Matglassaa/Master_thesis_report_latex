@@ -1,71 +1,92 @@
 \chapter{Results}\label{Ch:Results}
-The presentation of the results will follow the order of the workflow as defined in figure~\ref{fig:workflow_simple}: First of all the curated datasets will be displayed with the addition of statistical parameters that can be used to evaluate the difference between the samples in the datasets and the synthetic \gls{gan} samples. Secondly, the post training results are presented which presents teh results of the hyperparameter tuning, the cGAN unconstrained performance to grouped facies classes as well as the cGAN unconstrained performance when presented with all facies classes. Finally, the results of the optimization and inversion results are presented, after the model was constrained to the Delft Geothermal Reservoir well data.   
+The presentation of the results will follow the order of the workflow: First of all the curated datasets will be displayed with the addition of statistical parameters that can be used to evaluate the difference between the samples in the datasets and the synthetic \gls{gan} samples. Secondly, the post training results are presented which presents the results of the hyperparameter tuning, the cGAN unconstrained performance to grouped facies classes as well as the cGAN unconstrained performance when presented with all facies classes. Finally, the results of the optimization and inversion results are presented, after the model was constrained to the Delft Geothermal Reservoir well data.   
 \section{Datasets}\label{Sec:Datasets}
-In total, 20,000 samples were generated for the three datasets as defined in table~\ref{tab:NEXUS_input}. These generated datasets are visually summarized in figure~\ref{fig:3D_datasets_comparison}, which displays a representative 3D sample block paired alongside a corresponding plot of the normalized spatial entropy. This normalized spatial entropy maps show how the architectural features progress across the training suites, moving from tightly confined, small meandering channels into much deeper channel paths embedded within wider sand bodies. These wider channel architectures heavily influence the accompanying entropy plots on the right, which show that the physical distribution of the facies almost reaches the maximum theoretically possible entropy threshold.
-
-\begin{figure}[!htbp]
+In total, 20,000 samples were generated for the three datasets as defined in table~\ref{tab:NEXUS_input}. These generated datasets are visually summarized in figure~\ref{fig:3D_datasets_comparison}: a 2D MDS plot clearly shows a grouping effect per setting, indicating the samples look different internally. This can be visually confirmed by the two random 3D facies plots per setting, showing that a lower sand body extension as input parameter yields samples with thinner sandbodies and more erratic meandering behavior in samples of this size. The right most plots show the pixel-wise entropy computed over an ensemble of 1000 samples per setting, setting a baseline for the entropy readings we look to achieve from a diverse synthetic dataset produced by the trained GAN model. This threshold configuration can be further evaluated by analyzing table~\ref{tab:comparison_facies_distribution_flumy_samples}, which provides an exhaustive overview of the global facies distributions across the ensemble.
+\begin{table}[htbp!]
     \centering
-    \includegraphics[width=0.99\textwidth]{figures/results/comparison_facies_distribution.png}
+    \renewcommand{\arraystretch}{1.4}
+    \small
+    \begin{tabularx}{\textwidth}{Xccc}
+        \hline
+        \textbf{Facies} & \textbf{Setting 1 (\%)} & \textbf{Setting 2 (\%)} & \textbf{Setting 3 (\%)}\\
+        \hline
+        \textbf{1: Channel Lag} & 1.6 & 1.8 & 1.8 \\
+        \textbf{2: Point Bar} & 67.5 & 66.3 & 65.4 \\
+        \textbf{3: Sand Plug} & 1.8 & 1.6 & 1.4 \\
+        \textbf{4: Crevasse Splay Core} & 0.0 & 0.0 & 0.0 \\
+        \textbf{5: Crevasse Channel} & 0.1  & 0.1 & 0.1 \\
+        \textbf{6: Crevasse Splay Delta} & 0.0 & 0.0 & 0.0 \\
+        \textbf{7: Levee} & 5.1 & 6.5 & 7.7 \\
+        \textbf{8: Overbank} & 10.2 & 11.4 & 11.9 \\
+        \textbf{9: Mud Plug} & 13.6 & 12.4 & 11.5 \\
+        \hline
+    \end{tabularx}
     \caption{Global categorical facies distribution profiles compared across the three synthetic training datasets for all available classes.}
-    \label{fig:comparison_facies_distribution_real_samples}
-\end{figure}
-
-This threshold configuration can be further evaluated by analyzing Figure \ref{fig:comparison_facies_distribution_real_samples}, which provides an exhaustive overview of the global facies distributions across the ensemble. As can be observed in this overview, the structural facies, hereafter referred to as classes, exhibit a severe statistical imbalance throughout the data volume. This severe imbalance manifests as dominant classes occupying over 60\% of the total grid volume, while corresponding minority classes are entirely absent due to the fundamental boundary limitations of the FLUMY NEXUS parameters. The volumetric presence of classes 4, 5, and 6 is particularly suppressed, yielding an exceptionally low occurrence rate ranging between 0.0\% and 0.1\%. Such depressed occurrence rates present an optimization bottleneck for the subsequent model inversion step, as established sedimentological literature indicates that the real-world occurrence of the intermediate Levee \& Crevasse association (FA2) within the Delft reservoir is significantly higher, at approximately (...\%).
-
-Moreover, the differences of facies distributions between the facies are not substantial. This makes it less intuitive to judge the performance of the model to choose a specific dataset that fits the well data better based off the facies distributions.
-
-\begin{figure}[!htbp]
+    \label{tab:comparison_facies_distribution_flumy_samples}
+\end{table}
+As can be observed in this overview, the structural facies, hereafter referred to as classes, exhibit a severe statistical imbalance throughout the data volume. This severe imbalance is a result of dominant classes occupying over 60\% of the total grid volume, while corresponding minority classes are entirely absent due to the fundamental boundary limitations of the FLUMY NEXUS parameters. The volumetric presence of classes 4, 5, and 6 is particularly suppressed, yielding an exceptionally low occurrence rate ranging between 0.0\% and 0.1\%. Altough the classes will be grouped to form three classes instead of nine, the class imbalance will remain with the second class only occuring around 5|5 of the time while the first class occurs approximatly 70\% of the time. Such depressed occurrence rates could present an optimization bottleneck as the random occurrence of these volumes throughout the samples could confuse the model into finding an optimized setting that totally disregards these classes. The Discriminator could get stuck on deciding whether a sample is real or fake by judging mostly based on class 1, which leads to the Generator trying to improve the structure of this class, completely disregarding the other classes. Moreover, the high class imbalance in the data has to be accounted for when evaluating the model, especially with regards to the well mismatch evaluation. 
+\begin{figure}[htbp!]
     \centering
-    \includegraphics[width=0.85\textwidth]{figures/results/real_datasets_comparison.png}
-    \caption{Volumetric overview of the synthetic datasets generated with FLUMY, showcasing the structural progression across \textbf{a)} Setting 1, \textbf{b)} Setting 2, and \textbf{c)} Setting 3.}
+    \includegraphics[width=0.95\textwidth]{figures/results/datasets_summary.png}
+    \caption{MDS plot with two 3D facies samples displayed and a 3D pixel-wise entropy per setting.}
     \label{fig:3D_datasets_comparison}
 \end{figure}
-
 \section{Post Training Generative Results}\label{Sec:Post_training_res}
+All the models were trained on 2 NVIDIA-A100 GPU's with each 80GB of unified memory. When trained for 25 epochs on 20000 samples, the excecution time took approximately 3-4 hours.
 \subsection{Hyperparameter Tuning}\label{Sec:Hyperparam_results}
-\subsection{cGAN Unconstrained Performance}
-Evaluating the unconstrained performance of the conditional Generative Adversarial Network (cGAN) was executed over a total training duration of 150 epochs. These 150 epochs yield a model ensemble whose global macro-properties are analyzed across 100 stochastically generated realizations. These 100 generated realizations exhibit a global facies volume distribution that appears practically identical to the baseline training suite, as illustrated in Figure \ref{fig:cGAN_vs_Real_dataset_distribution}. 
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.75\textwidth]{figures/results/cGAN_real_distribution_comparison.png}
-    \caption{Comparative analysis of global facies volume percentages between the true training dataset and 100 unconstrained cGAN realizations, demonstrating macro-scale categorical matching.}
-    \label{fig:cGAN_vs_Real_dataset_distribution}
-\end{figure}
-
-While this identical volume distribution suggests successful macro-scale adaptation, a localized spatial evaluation reveals a structural failure to capture true sample diversity. 
-This failure to capture sample diversity is visually apparent in the XY-plane normalized cell-wise entropy plots presented in Figure \ref{fig:cGAN_3_entropy_plots}. 
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.99\textwidth]{figures/results/cGAN_3_entropy_plots.png}
-    \caption{Normalized cell-wise spatial entropy across selected horizontal slices ($Z = 6, 10, and 24$) calculated over 100 unconstrained cGAN realizations.}
-    \label{fig:cGAN_3_entropy_plots}
-\end{figure}
-
-These 3D spatial entropy plots show heavily restricted uncertainty across the simulated grid slices, a trend further substantiated by the vertical axis statistics compiled in Table \ref{tab:cGAN_setting1_entropy_results}. 
-
+Figure~\ref{fig:ablation_study} and table~\ref{tab:ablation_study} provide an overview of the hyperparameter tuning study. All trained model reserved 10\% of their training data exclusively for validation: computing the \gls{swd} metric for both training and validation datasets. Figure~\ref{fig:ablation_study} includes tracking of the Sliced Wasserstein Distance (SWD) metric across 25 epochs, a randomly generated sample by the trained model and a 3D entropy plot of an ensemble of 1000 \gls{gan} generated samples. Complementary, the Jenson-Shannon Divergence (JSD) and Mean SWD which both compare the ensemble of 1000 generated samples per run to a test set of 1000 samples is provided in table~\ref{tab:ablation_study}. 
 \begin{table}[htbp]
     \centering
-    \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{ccccc}
+    \renewcommand{\arraystretch}{1.4}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{cccccccc}
         \hline
-        \textbf{Slice Axis} & \textbf{Voxel Index} & \textbf{Real Normalized Entropy} & \textbf{GAN Normalized Entropy} & \textbf{JSD (Real vs. GAN)} \\
+        \textbf{Run} & \textbf{Epochs}& \textbf{disc penalty} & \textbf{double conv} & \textbf{double resblock} & \textbf{$JSD$} & \textbf{$MS-SWD$} & \textbf{mean $H_{norm}$}\\
         \hline
-        $Z$ & 0  & 1.014740 & 0.551894 & 0.290421 \\
-        $Z$ & 15 & 0.960197 & 0.590325 & 0.288134 \\
-        $Z$ & 31 & 0.983518 & 0.587173 & 0.301107 \\
+        1 & 25 & no & off & off & 0.0718 $\pm$ 0.0157 & 0.08865 & \\
+        2 & 25 & no & on & off & 0.1161 $\pm$ 0.0243 & 0.06842 & \\
+        3 & 25 & no & on & on & 0.0458 $\pm$ 0.0076 & 0.08271 & \\
+        4 & 25 & 32 & on & on & 0.0612 $\pm$ 0.0314 & 0.09224 & \\
+        5 & 25 & 16 & on & on & 0.0155 $\pm$ 0.0067 & 0.07986 & \\
+        6 & 25 & 1 & on & on & 0.0202 $\pm$ 0.0038 & 0.07690 & \\
+        7 & 25 & 16 & on & on & 0.1190 $\pm$ 0.0324 & 0.11924 & \\
+        8 & 25 & 16 & on & on & 0.0278 $\pm$ 0.0045 &  0.13389 & \\
         \hline
-    \end{tabular}
-    \caption{Spatial uncertainty and distribution divergence metrics along the vertical ($Z$) axis for the baseline training data and unconstrained cGAN realizations trained on Setting 1.}
-    \label{tab:cGAN_setting1_entropy_results}
+    \end{tabular}%
+    }
+    \caption{Overview of hyperparameters and evaluation metrics of each run. Run 5, based on architecture 4 by~\parencite{rongier2025atowards} yields the best JSD and second to best MS-SWD value.}
+    \label{tab:ablation_study}
 \end{table}
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/results/Ablation study.png}
+    \caption{Ablation study starting from \gls{fluvgan} and progressively adding/adjusting parameters to observe their effect on training, geological plausibility and sample diversity.~\textit{Run 1:} Standard FluvGAN architecture from~\parencite{rongier2025atowards}.~\textit{Run 2:} Addition of double convolutional layers.~\textit{Run 3:} Addition of double residual blocks (i.e. skip connections) on top of double convolutions.~\textit{Run 4:} Addition of a discriminator penalty every 32 iterations.~\textit{Run 5:} CHanged discriminator penalty to every 16 iterations.~\textit{Run 6:} Changed discriminator penalty to every iteration.~\textit{Run 7:} Run 5 hyperparameters but decreased to 10000 training samples.~\textit{Run 8:} Run 5 hyperparameters but changed number of itereation of the discriminator to 2.}
+    \label{fig:ablation_study}
+\end{figure}
+Based on the metrics from table~\ref{tab:ablation_study} and entropy plots from figure~\ref{fig:ablation_study}, the best model was achieved in run 5 with a JSD of 0.0155, MS-SWD of 0.07986 and with the best pixel-wise entropy value out of all the runs (0.79), supported by the 3D entropy plot which shows almost no structure visible in any region. The MS-SWD metric showed all samples decreasing in Sliced Wasserstein's Distance, indicating a better fit to the training dataset. An interesting observation with regards to the \gls{swd} evolution over 25 epochs can be made: All plots show a stabilizing SWD after 2000 training iterations. From a \gls{swd} metric standpoint, this indicates that the model has stopped improving its samples compared to the validation dataset. 
 
-Table \ref{tab:cGAN_setting1_entropy_results} highlights a severe mathematical discrepancy, where the GAN normalized entropy drops to approximately 0.55--0.59 compared to the near-maximum uncertainty values preserved in the true dataset. This low GAN entropy, combined with a persistent Jensen-Shannon Divergence (JSD) value around 0.29, mathematically confirms that the network has entered a state of severe mode collapse. This severe mode collapse restricts the generator's stochastic capability, causing the framework to repeat specific spatial configurations over and over instead of exploring the full architectural variety of the geological prior.
+Moreover, the base \gls{fluvgan} architecture lead to significant mode collapse looking at figure~\ref{fig:ablation_study}. Only after increasing the model depth (double convolutions \& double residual blocks) did the model train properly without mode collapse. Moreover, when varying the discriminator R1 Regularization, applying the penalty every 16 iterations yielded the best result. All other option (no penalty, every 32 iterations and every iteration) all resulted in mode collapse. Finally, run 7 and 8 investigated whether decreasing the number of training samples from 20000 to 10000 and only updating the discriminator every 2nd iteration, yielded any improved results. Where the results from run 8 yielded similar results to run 6, the metrics from run 8 yielded a much higher mean JSD of 0.1190 $\pm$ 0.0324. Additionally, looking at teh entropy plot of run 8 in figure~\ref{fig:ablation_study}, The plot shows a significantly higher percentage of regions with low entropy values, indicating that most samples produced by the generator after training have similar pixel-wise values.
 
-\subsection{WGAN Unconstrained Performance}
+\subsection{cGAN Unconstrained Performance}
+The model with run 5 parameters, of which a complete list with all exact parameters can be found in (add table to the appendix), was run for 100 epochs as well to see whether the results could improve. Altough the the JSD and MS-SWD values did not vary significantly, the geological plausibility of the samples seems to increase significantly, suggested by figure~\ref{fig:mds_samples_run_5}: when visually, comparing the evolution from 25 to 100 epochs, especially the continuity of the clay deposits, the continuity of this facies seems to have increased (add comparison figure between these two samples! -> 20 3s samples from 25 epochs and 20 samples from 100 epochs.). This is further supported by the blob mean blob size calculation (see table~)
+\begin{figure}[htbpt!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/results/mds_samples_overview_matrix.png}
+    \caption{Overview of model trained with run 5 settings as described in table~\ref{tab:ablation_study} and figure~\ref{fig:ablation_study} for 100 epochs. The MDS plot shows a 2D representation of a high dimensional structure computed with the Wasserstein distance. For reference have 100 samples from run 6 been added, showing that those samples do not overlap with the training dataset samples, suggesting they lack in full complexity.}
+    \label{fig:mds_samples_run_5}
+\end{figure}
+As already noted in section~\ref{sec:Post_training_res}, the \gls{swd} metric evolution stops improving after around 2000 training iterations, suggesting that the model has stopped improving. However, when assessing the samples from a visual perspective, ... ADD EVOLUTION... 
+
 \subsection{High-Fidelity 9-Class Generative Performance}
+Additionally, besides only evaluating the model trained on the grouped facies, the training was also conducted on the high fidelity case: testing whether reverting to 9 facies classes lead to significantly different results in terms of geological plausibility and sample diversity. Since the classes are highly unbalanced (some facies occur over 30\% of the time while others only occur 0.1\% of the time), this run tests what the capability limits of this model is.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/results/combined_plot_all_channels.png}
+    \caption{Overview of (best) high fidelity model trained over 25 epochs. }
+    \label{fig:combined_plot_all_channels}
+\end{figure}
 
 \section{Post-Inversion Conditioning Results}\label{Sec:Post_Cond_Res}
+
 \subsection{cGAN Latent Space Optimization and Pivotal Tuning}
-\subsection{WGAN Latent Space Optimization and Pivotal Tuning}

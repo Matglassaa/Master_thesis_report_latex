@@ -140,8 +140,8 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Petroleum geology of the continental shelf of North-West Europe}
-      \field{title}{Habitat of the Rijswijk oil province, onshore, The Netherlands}
+      \field{booktitle}{Petroleum geology of the continental shelf of {North-West Europe}}
+      \field{title}{Habitat of the {Rijswijk} oil province, onshore, the {Netherlands}}
       \field{year}{1981}
       \field{pages}{301\bibrangedash 309}
       \range{pages}{9}
@@ -190,11 +190,49 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Norwegian petroleum society special publications}
-      \field{title}{Sedimentary environments offshore Norway—an overview}
+      \field{title}{Sedimentary environments offshore {Norway}—an overview}
       \field{volume}{10}
       \field{year}{2001}
       \field{pages}{7\bibrangedash 37}
       \range{pages}{31}
+    \endentry
+    \entry{brock2018large}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=adb20bf3d0b245b522662eed0d7cb5a2}{%
+           family={Brock},
+           familyi={B\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=913090a0d65c7a300c602f5a5a5a61e3}{%
+           family={Donahue},
+           familyi={D\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9d16b7284df92c9adaee86c37ab992df}{%
+           family={Simonyan},
+           familyi={S\bibinitperiod},
+           given={Karen},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9fea317a07c20323dff7fb9b17e77ff5}
+      \strng{fullhash}{3164af52b8e69894e92b64552f9e237b}
+      \strng{bibnamehash}{3164af52b8e69894e92b64552f9e237b}
+      \strng{authorbibnamehash}{3164af52b8e69894e92b64552f9e237b}
+      \strng{authornamehash}{9fea317a07c20323dff7fb9b17e77ff5}
+      \strng{authorfullhash}{3164af52b8e69894e92b64552f9e237b}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the International Conference on Learning Representations ({ICLR})}
+      \field{title}{Large scale {GAN} training for high fidelity natural image synthesis}
+      \field{year}{2019}
     \endentry
     \entry{bruining2023sedimentological}{thesis}{}
       \name{author}{1}{}{%
@@ -233,34 +271,6 @@
       \verb{url}
       \verb https://repository.tudelft.nl/
       \endverb
-    \endentry
-    \entry{caers2011modeling}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=f5cec9a9a1d26fade7996bdfc4eeb596}{%
-           family={Caers},
-           familyi={C\bibinitperiod},
-           given={Jef},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {John Wiley \& Sons}%
-      }
-      \strng{namehash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \strng{fullhash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \strng{bibnamehash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \strng{authorbibnamehash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \strng{authornamehash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \strng{authorfullhash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Modeling uncertainty in the earth sciences}
-      \field{year}{2011}
     \endentry
     \entry{calvo2016decreasing}{article}{}
       \name{author}{4}{}{%
@@ -356,6 +366,8 @@
       \field{journaltitle}{Proceedings of International geostatistics congress, Santiago, Chile}
       \field{title}{Geomodelling of a fluvial system with semi-supervised support vector regression}
       \field{year}{2008}
+      \field{pages}{627\bibrangedash 636}
+      \range{pages}{10}
     \endentry
     \entry{den1996fluviomarine}{article}{}
       \name{author}{1}{}{%
@@ -382,8 +394,8 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Geology of Gas and Oil under the Netherlands: Selection of papers presented at the 1983 Iternational Conference of the American Association of Petroleum Geologists, held in The Hague}
-      \field{title}{Fluviomarine sequences in the Lower Cretaceous of the West Netherlands Basin: correlation and seismic expression}
+      \field{journaltitle}{Geology of Gas and Oil under the {Netherlands}: Selection of papers presented at the 1983 Iternational Conference of the American Association of Petroleum Geologists, held in {The Hague}}
+      \field{title}{Fluviomarine sequences in the Lower {Cretaceous} of the {West Netherlands Basin}: correlation and seismic expression}
       \field{year}{1996}
       \field{pages}{229\bibrangedash 241}
       \range{pages}{13}
@@ -404,7 +416,7 @@
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {American Association of Petroleum Geologists (AAPG)}%
+        {American Association of Petroleum Geologists ({AAPG})}%
       }
       \strng{namehash}{43d231de6af1b5b23914e6e0274816da}
       \strng{fullhash}{43d231de6af1b5b23914e6e0274816da}
@@ -419,9 +431,9 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{AAPG bulletin}
+      \field{journaltitle}{{AAPG} bulletin}
       \field{number}{10}
-      \field{title}{Tectonostratigraphy of the nieuwerkerk formation (delfland subgroup), west Netherlands basin}
+      \field{title}{Tectonostratigraphy of the {Nieuwerkerk Formation (Delfland Subgroup), West Netherlands Basin}}
       \field{volume}{86}
       \field{year}{2002}
       \field{pages}{1679\bibrangedash 1707}
@@ -543,7 +555,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Proceedings World Geothermal Congress 2015}
-      \field{title}{Reservoir geology and geothermal potential of the Delft Sandstone Member in the West Netherlands Basin}
+      \field{title}{Reservoir geology and geothermal potential of the {Delft Sandstone Member} in the {West Netherlands Basin}}
       \field{year}{2015}
       \field{pages}{1\bibrangedash 9}
       \range{pages}{9}
@@ -634,38 +646,76 @@
       \endverb
       \keyw{Conceptual models,Model evaluation,Model rejection,Multi-model framework,Conceptual model uncertainty}
     \endentry
-    \entry{fookes1997geology}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3fe174303fb1ea9f93769c5fefa323ae}{%
-           family={Fookes},
-           familyi={F\bibinitperiod},
-           given={PG},
-           giveni={P\bibinitperiod},
+    \entry{goodfellow2014generative}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6a0aa09dd3bc14132802ccd9c7d9b677}{%
+           family={Pouget-Abadie},
+           familyi={P\bibinithyphendelim A\bibinitperiod},
+           given={Jean\bibnamedelima bit},
+           giveni={J\bibinitperiod\bibinitdelim b\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e80f4779b032f68a6106e1424345450}{%
+           family={Mirza},
+           familyi={M\bibinitperiod},
+           given={Mehdi},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=743dd6cdaa6639320289d219d351d7b7}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Bing},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e8151f1b8f85a048cacb34f374ec922b}{%
+           family={Warde-Farley},
+           familyi={W\bibinithyphendelim F\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ca00ffd7cc35f7cfb8f698aa9239c76}{%
+           family={Ozair},
+           familyi={O\bibinitperiod},
+           given={Sherjil},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
            givenun=0}}%
       }
-      \list{publisher}{1}{%
-        {The Geological Society of London}%
-      }
-      \strng{namehash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \strng{fullhash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \strng{bibnamehash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \strng{authorbibnamehash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \strng{authornamehash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \strng{authorfullhash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \strng{namehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{fullhash}{777ff6c48b345d72d3da9c713dbafb13}
+      \strng{bibnamehash}{777ff6c48b345d72d3da9c713dbafb13}
+      \strng{authorbibnamehash}{777ff6c48b345d72d3da9c713dbafb13}
+      \strng{authornamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authorfullhash}{777ff6c48b345d72d3da9c713dbafb13}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Quarterly Journal of Engineering Geology and Hydrogeology}
-      \field{number}{4}
-      \field{title}{Geology for engineers: the geological model, prediction and performance}
-      \field{volume}{30}
-      \field{year}{1997}
-      \field{pages}{293\bibrangedash 424}
-      \range{pages}{132}
+      \field{journaltitle}{Advances in neural information processing systems}
+      \field{title}{Generative adversarial nets}
+      \field{year}{2014}
+      \field{pages}{2672\bibrangedash 2680}
+      \range{pages}{9}
     \endentry
     \entry{goodfellow-et-al-2016}{book}{}
       \name{author}{3}{}{%
@@ -697,6 +747,7 @@
       \strng{authorbibnamehash}{3ae53fe582e8a815b118d26947eaa326}
       \strng{authornamehash}{d17e6557c5836d2d978179999ea1037f}
       \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \field{extraname}{2}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -707,6 +758,85 @@
       \field{note}{\url{http://www.deeplearningbook.org}}
       \field{title}{Deep Learning}
       \field{year}{2016}
+    \endentry
+    \entry{groenenberg2010targeting}{article}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=e9a0eba0d1e1c62f18f65192307a3526}{%
+           family={Groenenberg},
+           familyi={G\bibinitperiod},
+           given={RM},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=13c5cd685ce79007aa04af5841c085db}{%
+           family={Gilding},
+           familyi={G\bibinitperiod},
+           given={DT},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=212b3327434276c0e0123aed2e218994}{%
+           family={Donselaar},
+           familyi={D\bibinitperiod},
+           given={ME},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e54cbbff54ff8fa0bfa32a94e0cf7061}{%
+           family={Drost},
+           familyi={D\bibinitperiod},
+           given={GIA},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=262bd5fe0d48e945df0f57e65754f7ff}{%
+           family={Korenromp},
+           familyi={K\bibinitperiod},
+           given={MHA},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6489e5d98f3b21651d84a72a9fc48b95}{%
+           family={Loerakker},
+           familyi={L\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=970cc65f2d4d8af9309d21426b7ad6c4}{%
+           family={Wiggers},
+           familyi={W\bibinitperiod},
+           given={CJI},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb00f97f81a6b01a09c7259c18ad3889}{%
+           family={Wever},
+           familyi={W\bibinitperiod},
+           given={AKT},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7de9447a9f7cf564ae0ddac0eedccb9}{%
+           family={Wolf},
+           familyi={W\bibinitperiod},
+           given={KAA},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {European Association of Geoscientists \& Engineers}%
+      }
+      \strng{namehash}{b9ca8a4b3b33f078b8d74755bacc9836}
+      \strng{fullhash}{b0cf109d1bf1453ef4d606139d21ec9a}
+      \strng{bibnamehash}{b0cf109d1bf1453ef4d606139d21ec9a}
+      \strng{authorbibnamehash}{b0cf109d1bf1453ef4d606139d21ec9a}
+      \strng{authornamehash}{b9ca8a4b3b33f078b8d74755bacc9836}
+      \strng{authorfullhash}{b0cf109d1bf1453ef4d606139d21ec9a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{72nd {EAGE} Conference and Exhibition incorporating {SPE EUROPEC} 2010}
+      \field{title}{Targeting for Geothermal Energy Production--Reservoir Characterization and Geothermal Potential of the {Delft Sandstone}}
+      \field{year}{2010}
+      \field{pages}{cp\bibrangedash 161}
+      \range{pages}{-1}
     \endentry
     \entry{heinemann2021enabling}{article}{}
       \true{moreauthor}
@@ -843,8 +973,12 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Challenges in characterizing subsurface paralic reservoir geometries: a detailed case study of the Mungaroo Formation, North West Shelf, Australia}
+      \field{journaltitle}{Geological Society, London, Special Publications}
+      \field{title}{Challenges in characterizing subsurface paralic reservoir geometries: a detailed case study of the {Mungaroo Formation, North West Shelf, Australia}}
+      \field{volume}{444}
       \field{year}{2017}
+      \field{pages}{221\bibrangedash 256}
+      \range{pages}{36}
     \endentry
     \entry{hoyer2024evaluating}{article}{}
       \name{author}{6}{}{%
@@ -902,7 +1036,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Engineering Geology}
-      \field{title}{Evaluating the chain of uncertainties in the 3D geological modelling workflow}
+      \field{title}{Evaluating the chain of uncertainties in the {3D} geological modelling workflow}
       \field{volume}{343}
       \field{year}{2024}
       \field{pages}{107792}
@@ -939,7 +1073,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Depositional environments of the Mississippi River deltaic plain—southeastern Louisiana}
+      \field{title}{Depositional environments of the {Mississippi River} deltaic plain—southeastern {Louisiana}}
       \field{year}{1966}
     \endentry
     \entry{koltermann1996heterogeneity}{article}{}
@@ -980,6 +1114,45 @@
       \field{year}{1996}
       \field{pages}{2617\bibrangedash 2658}
       \range{pages}{42}
+    \endentry
+    \entry{kullback1951information}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=34c5bbf9876c37127c3abe4e7d7a7198}{%
+           family={Kullback},
+           familyi={K\bibinitperiod},
+           given={Solomon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=589dd9109c4ab08b8766cbb5f1bd58c8}{%
+           family={Leibler},
+           familyi={L\bibinitperiod},
+           given={Richard\bibnamedelima A},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {JSTOR}%
+      }
+      \strng{namehash}{dacf610a392371bd89d9fb4fdc21a220}
+      \strng{fullhash}{dacf610a392371bd89d9fb4fdc21a220}
+      \strng{bibnamehash}{dacf610a392371bd89d9fb4fdc21a220}
+      \strng{authorbibnamehash}{dacf610a392371bd89d9fb4fdc21a220}
+      \strng{authornamehash}{dacf610a392371bd89d9fb4fdc21a220}
+      \strng{authorfullhash}{dacf610a392371bd89d9fb4fdc21a220}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The annals of mathematical statistics}
+      \field{number}{1}
+      \field{title}{On information and sufficiency}
+      \field{volume}{22}
+      \field{year}{1951}
+      \field{pages}{79\bibrangedash 86}
+      \range{pages}{8}
     \endentry
     \entry{laloy2017inversion}{article}{}
       \name{author}{5}{}{%
@@ -1037,39 +1210,36 @@
       \field{pages}{387\bibrangedash 405}
       \range{pages}{19}
     \endentry
-    \entry{lopez2009process}{article}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=78ca5ca38b9090e33710dd5d33b44680}{%
-           family={Lopez},
+    \entry{lecun2015deep}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
            familyi={L\bibinitperiod},
-           given={Simon},
-           giveni={S\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=ce4ccd0be6c87cad0271f104ec53b6ca}{%
-           family={Cojan},
-           familyi={C\bibinitperiod},
-           given={Isabelle},
-           giveni={I\bibinitperiod},
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=254bb1d70d8d1fd8e8a29353548cf4f0}{%
-           family={Rivoirard},
-           familyi={R\bibinitperiod},
-           given={Jacques},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c5767cac61cb4bde2ba6ec5a961f59a9}{%
-           family={Galli},
-           familyi={G\bibinitperiod},
-           given={Alain},
-           giveni={A\bibinitperiod},
+        {{un=0,uniquepart=base,hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{2cf022f1ef151f435f8d852a1efa7d71}
-      \strng{fullhash}{5988606af78152366ff4d3f661726545}
-      \strng{bibnamehash}{5988606af78152366ff4d3f661726545}
-      \strng{authorbibnamehash}{5988606af78152366ff4d3f661726545}
-      \strng{authornamehash}{2cf022f1ef151f435f8d852a1efa7d71}
-      \strng{authorfullhash}{5988606af78152366ff4d3f661726545}
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{fullhash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{bibnamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authorbibnamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authornamehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{authorfullhash}{c6c75bd00ce5a488e91a749d8383b3df}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
@@ -1077,60 +1247,83 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Analogue and numerical modelling of sedimentary systems: from understanding to prediction, Wiley, Oxford, UK}
-      \field{title}{Process-based stochastic modelling: meandering channelized reservoirs}
-      \field{year}{2009}
-      \field{pages}{139\bibrangedash 144}
-      \range{pages}{6}
+      \field{journaltitle}{nature}
+      \field{number}{7553}
+      \field{title}{Deep learning}
+      \field{volume}{521}
+      \field{year}{2015}
+      \field{pages}{436\bibrangedash 444}
+      \range{pages}{9}
     \endentry
-    \entry{michael2010combining}{article}{}
-      \name{author}{6}{}{%
-        {{un=0,uniquepart=base,hash=07a5b4529b8fa7e988e30823c8a0b5cc}{%
-           family={Michael},
-           familyi={M\bibinitperiod},
-           given={HA},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e2e65bc31792929cfaa15cecf7f23965}{%
-           family={Li},
+    \entry{lin1991divergence}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c9ad66a38d11327f45f96280e5ece1dd}{%
+           family={Lin},
            familyi={L\bibinitperiod},
-           given={H},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=286823455611a0f07673e0633147dc14}{%
-           family={Boucher},
-           familyi={B\bibinitperiod},
-           given={A},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8b5a96f677e27eb8a7470e4dda407b22}{%
-           family={Sun},
-           familyi={S\bibinitperiod},
-           given={T},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=48c166f82d2c13391f3d2b115d3a0528}{%
-           family={Caers},
-           familyi={C\bibinitperiod},
-           given={J},
+           given={Jianhua},
            giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=02b54553089af41afae80a2519870eb3}{%
-           family={Gorelick},
-           familyi={G\bibinitperiod},
-           given={SM},
-           giveni={S\bibinitperiod},
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Wiley Online Library}%
+        {IEEE}%
       }
-      \strng{namehash}{ba6056cb62a0ac3eeb4fc5dce1147bc5}
-      \strng{fullhash}{62bf266f77d67e301ce70c0b6bc281c4}
-      \strng{bibnamehash}{62bf266f77d67e301ce70c0b6bc281c4}
-      \strng{authorbibnamehash}{62bf266f77d67e301ce70c0b6bc281c4}
-      \strng{authornamehash}{ba6056cb62a0ac3eeb4fc5dce1147bc5}
-      \strng{authorfullhash}{62bf266f77d67e301ce70c0b6bc281c4}
+      \strng{namehash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \strng{fullhash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \strng{bibnamehash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \strng{authorbibnamehash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \strng{authornamehash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \strng{authorfullhash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Information theory}
+      \field{number}{1}
+      \field{title}{Divergence measures based on the Shannon entropy}
+      \field{volume}{37}
+      \field{year}{1991}
+      \field{pages}{145\bibrangedash 151}
+      \range{pages}{7}
+    \endentry
+    \entry{martin-hal-01313232}{book}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=d65bbb5614d3c88132d668fa3e83789a}{%
+           family={Martin},
+           familyi={M\bibinitperiod},
+           given={Lemay},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ce4ccd0be6c87cad0271f104ec53b6ca}{%
+           family={Cojan},
+           familyi={C\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32b3025b6eb8ddeca73504aa943ac534}{%
+           family={Ors},
+           familyi={O\bibinitperiod},
+           given={Fabien},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=254bb1d70d8d1fd8e8a29353548cf4f0}{%
+           family={Rivoirard},
+           familyi={R\bibinitperiod},
+           given={Jacques},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {EAGE}%
+      }
+      \strng{namehash}{1227dde0f4013c62a8717e94ace116da}
+      \strng{fullhash}{a25e18cadc3605123ef397d13c840f8d}
+      \strng{bibnamehash}{a25e18cadc3605123ef397d13c840f8d}
+      \strng{authorbibnamehash}{a25e18cadc3605123ef397d13c840f8d}
+      \strng{authornamehash}{1227dde0f4013c62a8717e94ace116da}
+      \strng{authorfullhash}{a25e18cadc3605123ef397d13c840f8d}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
@@ -1138,11 +1331,19 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Water Resources Research}
-      \field{number}{5}
-      \field{title}{Combining geologic-process models and geostatistics for conditional simulation of 3-D subsurface heterogeneity}
-      \field{volume}{46}
-      \field{year}{2010}
+      \field{month}{4}
+      \field{series}{Second Conference on Forward Modelling of Sedimentary Systems}
+      \field{title}{{ Potential of {FLUMY}, a Meandering Fluvial Process-based Model, to Simulate Submarine Channels}}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.3997/2214-4609.201600383
+      \endverb
+      \verb{urlraw}
+      \verb https://minesparis-psl.hal.science/hal-01313232
+      \endverb
+      \verb{url}
+      \verb https://minesparis-psl.hal.science/hal-01313232
+      \endverb
     \endentry
     \entry{mijnlieff2020introduction}{article}{}
       \name{author}{1}{}{%
@@ -1170,7 +1371,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Netherlands Journal of Geosciences}
-      \field{title}{Introduction to the geothermal play and reservoir geology of the Netherlands}
+      \field{title}{Introduction to the geothermal play and reservoir geology of the {Netherlands}}
       \field{volume}{99}
       \field{year}{2020}
       \field{pages}{e2}
@@ -1209,11 +1410,39 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Australian Journal of Earth Sciences}
       \field{number}{5}
-      \field{title}{Genesis of the channel iron deposits (CID) of the Pilbara region, Western Australia}
+      \field{title}{Genesis of the channel iron deposits ({CID}) of the {Pilbara} region, {Western Australia}}
       \field{volume}{54}
       \field{year}{2007}
       \field{pages}{733\bibrangedash 756}
       \range{pages}{24}
+    \endentry
+    \entry{prince2023understanding}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=28ec62e6a6756d1310f22aa92ac3f433}{%
+           family={Prince},
+           familyi={P\bibinitperiod},
+           given={Simon\bibnamedelima JD},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \strng{fullhash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \strng{bibnamehash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \strng{authorbibnamehash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \strng{authornamehash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \strng{authorfullhash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding deep learning}
+      \field{year}{2023}
     \endentry
     \entry{ringrose2016reservoir}{book}{}
       \name{author}{2}{}{%
@@ -1250,6 +1479,97 @@
       \field{volume}{2}
       \field{year}{2016}
     \endentry
+    \entry{roich2022pivotal}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=9e899a50fe7b7515234670236841d8e8}{%
+           family={Roich},
+           familyi={R\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5e532be7f2c9c148919fe9369f66265f}{%
+           family={Mokady},
+           familyi={M\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa623ed1cbb6dca55f527748cfff19b6}{%
+           family={Bermano},
+           familyi={B\bibinitperiod},
+           given={Amit\bibnamedelima H},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cdf44d78713bc27a81394749a9d8bbdc}{%
+           family={Cohen-Or},
+           familyi={C\bibinithyphendelim O\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM New York, NY}%
+      }
+      \strng{namehash}{7b6365080135ccfdc04ea00bc0d56ccf}
+      \strng{fullhash}{c70f79aa909faf6a261ea055bd2be711}
+      \strng{bibnamehash}{c70f79aa909faf6a261ea055bd2be711}
+      \strng{authorbibnamehash}{c70f79aa909faf6a261ea055bd2be711}
+      \strng{authornamehash}{7b6365080135ccfdc04ea00bc0d56ccf}
+      \strng{authorfullhash}{c70f79aa909faf6a261ea055bd2be711}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Transactions on graphics (TOG)}
+      \field{number}{1}
+      \field{title}{Pivotal tuning for latent-based editing of real images}
+      \field{volume}{42}
+      \field{year}{2022}
+      \field{pages}{1\bibrangedash 13}
+      \range{pages}{13}
+    \endentry
+    \entry{rongier2025afluvgan}{misc}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=49791af4f7bac7a2f778d4e7105aee0c}{%
+           family={Rongier},
+           familyi={R\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0a27cca2d40216a058559a5a335fed12}{%
+           family={Peeters},
+           familyi={P\bibinitperiod},
+           given={Luk},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {4TU.ResearchData}%
+      }
+      \strng{namehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{fullhash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{bibnamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authorbibnamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authornamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authorfullhash}{460fd6e45de063f0eaa0818d33ad553d}
+      \field{extraname}{1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{FluvGAN}: {P}ython scripts to test generating and inverting fluvial deposits using {GANs}}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.4121/3469c879-f443-4fcf-83a2-b6df56e96714.v1
+      \endverb
+      \keyw{Python,deep learning,PyTorch,{GAN,DGM,GAN} inversion,stratigraphic modeling}
+    \endentry
     \entry{rongier2025atowards}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=49791af4f7bac7a2f778d4e7105aee0c}{%
@@ -1271,8 +1591,10 @@
       \strng{authorbibnamehash}{460fd6e45de063f0eaa0818d33ad553d}
       \strng{authornamehash}{460fd6e45de063f0eaa0818d33ad553d}
       \strng{authorfullhash}{460fd6e45de063f0eaa0818d33ad553d}
+      \field{extraname}{2}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1325,8 +1647,8 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{3D, 4D and predictive modelling of major mineral belts in Europe}
-      \field{title}{3D and 4D geomodelling applied to mineral resources exploration—An introduction}
+      \field{booktitle}{{3D, 4D} and predictive modelling of major mineral belts in {Europe}}
+      \field{title}{{3D} and {4D} geomodelling applied to mineral resources exploration—An introduction}
       \field{year}{2015}
       \field{pages}{73\bibrangedash 89}
       \range{pages}{17}
@@ -1363,6 +1685,78 @@
       \field{year}{1959}
       \field{pages}{210\bibrangedash 229}
       \range{pages}{20}
+    \endentry
+    \entry{schaaf2019quantification}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e3fb64ec01bf8f8291e89693f696c93d}{%
+           family={Schaaf},
+           familyi={S\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a36e50e3953de8ff1d402e43382f04fc}{%
+           family={Bond},
+           familyi={B\bibinitperiod},
+           given={Clare\bibnamedelima E},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Copernicus Publications Göttingen, Germany}%
+      }
+      \strng{namehash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \strng{fullhash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \strng{bibnamehash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \strng{authorbibnamehash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \strng{authornamehash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \strng{authorfullhash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Solid earth}
+      \field{number}{4}
+      \field{title}{Quantification of uncertainty in 3-D seismic interpretation: implications for deterministic and stochastic geomodeling and machine learning}
+      \field{volume}{10}
+      \field{year}{2019}
+      \field{pages}{1049\bibrangedash 1061}
+      \range{pages}{13}
+    \endentry
+    \entry{shannon1948mathematical}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e930d560748b00dab7e3d19806c848ba}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={Claude\bibnamedelima Elwood},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nokia Bell Labs}%
+      }
+      \strng{namehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{fullhash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{bibnamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authorbibnamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authornamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authorfullhash}{e930d560748b00dab7e3d19806c848ba}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Bell system technical journal}
+      \field{number}{3}
+      \field{title}{A mathematical theory of communication}
+      \field{volume}{27}
+      \field{year}{1948}
+      \field{pages}{379\bibrangedash 423}
+      \range{pages}{45}
     \endentry
     \entry{song2022review}{article}{}
       \name{author}{3}{}{%
@@ -1403,7 +1797,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Petroleum Science Bulletin}
       \field{number}{1}
-      \field{title}{Review of a Generative Adversarial Networks (GANs)-based geomodelling method}
+      \field{title}{Review of a Generative Adversarial Networks ({GANs})-based geomodelling method}
       \field{volume}{7}
       \field{year}{2022}
       \field{pages}{34\bibrangedash 49}
@@ -1453,7 +1847,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Hydrology}
-      \field{title}{GANSim-surrogate: An integrated framework for stochastic conditional geomodelling}
+      \field{title}{{GANSim}-surrogate: An integrated framework for stochastic conditional geomodelling}
       \field{volume}{620}
       \field{year}{2023}
       \field{pages}{129493}
@@ -1548,7 +1942,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computational Geosciences}
       \field{number}{2}
-      \field{title}{Geological realism in Fluvial facies modelling with GAN under variable depositional conditions}
+      \field{title}{Geological realism in Fluvial facies modelling with {GAN} under variable depositional conditions}
       \field{volume}{27}
       \field{year}{2023}
       \field{pages}{203\bibrangedash 221}
@@ -1584,7 +1978,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Stratigraphic nomenclature of the Netherlands, revision and update by RGD and NOGEPA}
+      \field{title}{Stratigraphic nomenclature of the {Netherlands}, revision and update by {RGD} and {NOGEPA}}
       \field{year}{1993}
     \endentry
     \entry{vardon2020geothermal}{article}{}
@@ -1658,7 +2052,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:2003.11826}
-      \field{title}{A geothermal well doublet for research and heat supply of the TU Delft Campus}
+      \field{title}{A geothermal well doublet for research and heat supply of the {TU Delft Campus}}
       \field{year}{2020}
     \endentry
     \entry{vardon2024endofwell}{article}{}
@@ -1746,7 +2140,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{End-of-Well Science Programme Report DEL-GT-01 and DEL-GT-02: TU Delft campus geothermal project}
+      \field{title}{End-of-Well Science Programme Report {DEL-GT-01} and {DEL-GT-02}: {TU Delft} campus geothermal project}
       \field{year}{2024}
     \endentry
     \entry{vondrak2018reservoir}{article}{}
@@ -1783,8 +2177,12 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Reservoir architecture model of the Nieuwerkerk Formation (Early Cretaceous, West Netherlands Basin): diachronous development of sand-prone fluvial deposits}
+      \field{journaltitle}{Geological Society, London, Special Publications}
+      \field{title}{Reservoir architecture model of the {Nieuwerkerk Formation} (Early {Cretaceous, West Netherlands Basin}): diachronous development of sand-prone fluvial deposits}
+      \field{volume}{471}
       \field{year}{2018}
+      \field{pages}{147\bibrangedash 171}
+      \range{pages}{25}
     \endentry
     \entry{weert2024multiple}{article}{}
       \name{author}{7}{}{%
@@ -1849,7 +2247,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Solid Earth}
       \field{number}{2}
-      \field{title}{Multiple phase rifting and subsequent inversion in the West Netherlands Basin: implications for geothermal reservoir characterization}
+      \field{title}{Multiple phase rifting and subsequent inversion in the {West Netherlands Basin}: implications for geothermal reservoir characterization}
       \field{volume}{15}
       \field{year}{2024}
       \field{pages}{121\bibrangedash 141}
@@ -1905,7 +2303,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Netherlands Journal of Geosciences}
-      \field{title}{Geology of the Upper Jurassic to Lower Cretaceous geothermal aquifers in the West Netherlands Basin--an overview}
+      \field{title}{Geology of the Upper {Jurassic} to Lower {Cretaceous} geothermal aquifers in the {West Netherlands Basin}--an overview}
       \field{volume}{99}
       \field{year}{2020}
       \field{pages}{e1}
@@ -1980,7 +2378,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Water Resources Research}
       \field{number}{2}
-      \field{title}{Dynamic processes of CO2 storage in the field: 1. Multiscale and multipath channeling of CO2 flow in the hierarchical fluvial reservoir at Cranfield, Mississippi}
+      \field{title}{Dynamic processes of {CO2} storage in the field: 1. Multiscale and multipath channeling of {CO2} flow in the hierarchical fluvial reservoir at {Cranfield, Mississippi}}
       \field{volume}{56}
       \field{year}{2020}
       \field{pages}{e2019EF001360}
@@ -2016,64 +2414,11 @@
       \field{labeltitlesource}{title}
       \field{edition}{2nd}
       \field{isbn}{978-9036605595}
-      \field{title}{Geological Atlas of Western and Central Europe}
+      \field{title}{Geological Atlas of Western and Central {Europe}}
       \field{volume}{2}
       \field{year}{1990}
       \field{pages}{239}
       \range{pages}{1}
-    \endentry
-    \entry{zorzi20253d}{article}{}
-      \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=1f5b36b640ad951eac2c7f0b5ae700c9}{%
-           family={Zorzi},
-           familyi={Z\bibinitperiod},
-           given={Luca},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d0b7f9804f0fb3450f8657480061f6a6}{%
-           family={Elmo},
-           familyi={E\bibinitperiod},
-           given={D},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3e4affc55352ef0e86bfb7fa965637e1}{%
-           family={Tafwidla},
-           familyi={T\bibinitperiod},
-           given={F},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f6d7aed3c5c9b0cf2e99bce793f4d204}{%
-           family={Lenauer},
-           familyi={L\bibinitperiod},
-           given={I},
-           giveni={I\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=455143edee087f2cc74d1d85a3d97409}{%
-           family={Furney},
-           familyi={F\bibinitperiod},
-           given={S},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{organization}{1}{%
-        {Australian Centre for Geomechanics}%
-      }
-      \strng{namehash}{6233dc3b108e1fc87358349fc43cea2d}
-      \strng{fullhash}{7d1324349d655612d7df6744c835c7e0}
-      \strng{bibnamehash}{7d1324349d655612d7df6744c835c7e0}
-      \strng{authorbibnamehash}{7d1324349d655612d7df6744c835c7e0}
-      \strng{authornamehash}{6233dc3b108e1fc87358349fc43cea2d}
-      \strng{authorfullhash}{7d1324349d655612d7df6744c835c7e0}
-      \field{sortinit}{Z}
-      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{SSIM 2025: Fourth International Slope Stability in Mining Conference}
-      \field{title}{3D geological models: A reliable depiction of nature or a sketch of our biases?}
-      \field{year}{2025}
     \endentry
   \enddatalist
   \datalist[entry]{apa/global//global/global}
@@ -2198,8 +2543,8 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Petroleum geology of the continental shelf of North-West Europe}
-      \field{title}{Habitat of the Rijswijk oil province, onshore, The Netherlands}
+      \field{booktitle}{Petroleum geology of the continental shelf of {North-West Europe}}
+      \field{title}{Habitat of the {Rijswijk} oil province, onshore, the {Netherlands}}
       \field{year}{1981}
       \field{pages}{301\bibrangedash 309}
       \range{pages}{9}
@@ -2248,11 +2593,49 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Norwegian petroleum society special publications}
-      \field{title}{Sedimentary environments offshore Norway—an overview}
+      \field{title}{Sedimentary environments offshore {Norway}—an overview}
       \field{volume}{10}
       \field{year}{2001}
       \field{pages}{7\bibrangedash 37}
       \range{pages}{31}
+    \endentry
+    \entry{brock2018large}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=adb20bf3d0b245b522662eed0d7cb5a2}{%
+           family={Brock},
+           familyi={B\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=913090a0d65c7a300c602f5a5a5a61e3}{%
+           family={Donahue},
+           familyi={D\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9d16b7284df92c9adaee86c37ab992df}{%
+           family={Simonyan},
+           familyi={S\bibinitperiod},
+           given={Karen},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9fea317a07c20323dff7fb9b17e77ff5}
+      \strng{fullhash}{3164af52b8e69894e92b64552f9e237b}
+      \strng{bibnamehash}{3164af52b8e69894e92b64552f9e237b}
+      \strng{authorbibnamehash}{3164af52b8e69894e92b64552f9e237b}
+      \strng{authornamehash}{9fea317a07c20323dff7fb9b17e77ff5}
+      \strng{authorfullhash}{3164af52b8e69894e92b64552f9e237b}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the International Conference on Learning Representations ({ICLR})}
+      \field{title}{Large scale {GAN} training for high fidelity natural image synthesis}
+      \field{year}{2019}
     \endentry
     \entry{bruining2023sedimentological}{thesis}{}
       \name{author}{1}{}{%
@@ -2291,34 +2674,6 @@
       \verb{url}
       \verb https://repository.tudelft.nl/
       \endverb
-    \endentry
-    \entry{caers2011modeling}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=f5cec9a9a1d26fade7996bdfc4eeb596}{%
-           family={Caers},
-           familyi={C\bibinitperiod},
-           given={Jef},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {John Wiley \& Sons}%
-      }
-      \strng{namehash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \strng{fullhash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \strng{bibnamehash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \strng{authorbibnamehash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \strng{authornamehash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \strng{authorfullhash}{f5cec9a9a1d26fade7996bdfc4eeb596}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Modeling uncertainty in the earth sciences}
-      \field{year}{2011}
     \endentry
     \entry{calvo2016decreasing}{article}{}
       \name{author}{4}{}{%
@@ -2414,6 +2769,8 @@
       \field{journaltitle}{Proceedings of International geostatistics congress, Santiago, Chile}
       \field{title}{Geomodelling of a fluvial system with semi-supervised support vector regression}
       \field{year}{2008}
+      \field{pages}{627\bibrangedash 636}
+      \range{pages}{10}
     \endentry
     \entry{den1996fluviomarine}{article}{}
       \name{author}{1}{}{%
@@ -2440,8 +2797,8 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Geology of Gas and Oil under the Netherlands: Selection of papers presented at the 1983 Iternational Conference of the American Association of Petroleum Geologists, held in The Hague}
-      \field{title}{Fluviomarine sequences in the Lower Cretaceous of the West Netherlands Basin: correlation and seismic expression}
+      \field{journaltitle}{Geology of Gas and Oil under the {Netherlands}: Selection of papers presented at the 1983 Iternational Conference of the American Association of Petroleum Geologists, held in {The Hague}}
+      \field{title}{Fluviomarine sequences in the Lower {Cretaceous} of the {West Netherlands Basin}: correlation and seismic expression}
       \field{year}{1996}
       \field{pages}{229\bibrangedash 241}
       \range{pages}{13}
@@ -2462,7 +2819,7 @@
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {American Association of Petroleum Geologists (AAPG)}%
+        {American Association of Petroleum Geologists ({AAPG})}%
       }
       \strng{namehash}{43d231de6af1b5b23914e6e0274816da}
       \strng{fullhash}{43d231de6af1b5b23914e6e0274816da}
@@ -2477,9 +2834,9 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{AAPG bulletin}
+      \field{journaltitle}{{AAPG} bulletin}
       \field{number}{10}
-      \field{title}{Tectonostratigraphy of the nieuwerkerk formation (delfland subgroup), west Netherlands basin}
+      \field{title}{Tectonostratigraphy of the {Nieuwerkerk Formation (Delfland Subgroup), West Netherlands Basin}}
       \field{volume}{86}
       \field{year}{2002}
       \field{pages}{1679\bibrangedash 1707}
@@ -2601,7 +2958,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Proceedings World Geothermal Congress 2015}
-      \field{title}{Reservoir geology and geothermal potential of the Delft Sandstone Member in the West Netherlands Basin}
+      \field{title}{Reservoir geology and geothermal potential of the {Delft Sandstone Member} in the {West Netherlands Basin}}
       \field{year}{2015}
       \field{pages}{1\bibrangedash 9}
       \range{pages}{9}
@@ -2692,39 +3049,6 @@
       \endverb
       \keyw{Conceptual models,Model evaluation,Model rejection,Multi-model framework,Conceptual model uncertainty}
     \endentry
-    \entry{fookes1997geology}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3fe174303fb1ea9f93769c5fefa323ae}{%
-           family={Fookes},
-           familyi={F\bibinitperiod},
-           given={PG},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {The Geological Society of London}%
-      }
-      \strng{namehash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \strng{fullhash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \strng{bibnamehash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \strng{authorbibnamehash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \strng{authornamehash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \strng{authorfullhash}{3fe174303fb1ea9f93769c5fefa323ae}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Quarterly Journal of Engineering Geology and Hydrogeology}
-      \field{number}{4}
-      \field{title}{Geology for engineers: the geological model, prediction and performance}
-      \field{volume}{30}
-      \field{year}{1997}
-      \field{pages}{293\bibrangedash 424}
-      \range{pages}{132}
-    \endentry
     \entry{goodfellow-et-al-2016}{book}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=5d2585c11210cf1d4512e6e0a03ec315}{%
@@ -2755,6 +3079,7 @@
       \strng{authorbibnamehash}{3ae53fe582e8a815b118d26947eaa326}
       \strng{authornamehash}{d17e6557c5836d2d978179999ea1037f}
       \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \field{extraname}{1}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -2765,6 +3090,156 @@
       \field{note}{\url{http://www.deeplearningbook.org}}
       \field{title}{Deep Learning}
       \field{year}{2016}
+    \endentry
+    \entry{goodfellow2014generative}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6a0aa09dd3bc14132802ccd9c7d9b677}{%
+           family={Pouget-Abadie},
+           familyi={P\bibinithyphendelim A\bibinitperiod},
+           given={Jean\bibnamedelima bit},
+           giveni={J\bibinitperiod\bibinitdelim b\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e80f4779b032f68a6106e1424345450}{%
+           family={Mirza},
+           familyi={M\bibinitperiod},
+           given={Mehdi},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=743dd6cdaa6639320289d219d351d7b7}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Bing},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e8151f1b8f85a048cacb34f374ec922b}{%
+           family={Warde-Farley},
+           familyi={W\bibinithyphendelim F\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ca00ffd7cc35f7cfb8f698aa9239c76}{%
+           family={Ozair},
+           familyi={O\bibinitperiod},
+           given={Sherjil},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{fullhash}{777ff6c48b345d72d3da9c713dbafb13}
+      \strng{bibnamehash}{777ff6c48b345d72d3da9c713dbafb13}
+      \strng{authorbibnamehash}{777ff6c48b345d72d3da9c713dbafb13}
+      \strng{authornamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authorfullhash}{777ff6c48b345d72d3da9c713dbafb13}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in neural information processing systems}
+      \field{title}{Generative adversarial nets}
+      \field{year}{2014}
+      \field{pages}{2672\bibrangedash 2680}
+      \range{pages}{9}
+    \endentry
+    \entry{groenenberg2010targeting}{article}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=e9a0eba0d1e1c62f18f65192307a3526}{%
+           family={Groenenberg},
+           familyi={G\bibinitperiod},
+           given={RM},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=13c5cd685ce79007aa04af5841c085db}{%
+           family={Gilding},
+           familyi={G\bibinitperiod},
+           given={DT},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=212b3327434276c0e0123aed2e218994}{%
+           family={Donselaar},
+           familyi={D\bibinitperiod},
+           given={ME},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e54cbbff54ff8fa0bfa32a94e0cf7061}{%
+           family={Drost},
+           familyi={D\bibinitperiod},
+           given={GIA},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=262bd5fe0d48e945df0f57e65754f7ff}{%
+           family={Korenromp},
+           familyi={K\bibinitperiod},
+           given={MHA},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6489e5d98f3b21651d84a72a9fc48b95}{%
+           family={Loerakker},
+           familyi={L\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=970cc65f2d4d8af9309d21426b7ad6c4}{%
+           family={Wiggers},
+           familyi={W\bibinitperiod},
+           given={CJI},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb00f97f81a6b01a09c7259c18ad3889}{%
+           family={Wever},
+           familyi={W\bibinitperiod},
+           given={AKT},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7de9447a9f7cf564ae0ddac0eedccb9}{%
+           family={Wolf},
+           familyi={W\bibinitperiod},
+           given={KAA},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {European Association of Geoscientists \& Engineers}%
+      }
+      \strng{namehash}{b9ca8a4b3b33f078b8d74755bacc9836}
+      \strng{fullhash}{b0cf109d1bf1453ef4d606139d21ec9a}
+      \strng{bibnamehash}{b0cf109d1bf1453ef4d606139d21ec9a}
+      \strng{authorbibnamehash}{b0cf109d1bf1453ef4d606139d21ec9a}
+      \strng{authornamehash}{b9ca8a4b3b33f078b8d74755bacc9836}
+      \strng{authorfullhash}{b0cf109d1bf1453ef4d606139d21ec9a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{72nd {EAGE} Conference and Exhibition incorporating {SPE EUROPEC} 2010}
+      \field{title}{Targeting for Geothermal Energy Production--Reservoir Characterization and Geothermal Potential of the {Delft Sandstone}}
+      \field{year}{2010}
+      \field{pages}{cp\bibrangedash 161}
+      \range{pages}{-1}
     \endentry
     \entry{heinemann2021enabling}{article}{}
       \true{moreauthor}
@@ -2901,8 +3376,12 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Challenges in characterizing subsurface paralic reservoir geometries: a detailed case study of the Mungaroo Formation, North West Shelf, Australia}
+      \field{journaltitle}{Geological Society, London, Special Publications}
+      \field{title}{Challenges in characterizing subsurface paralic reservoir geometries: a detailed case study of the {Mungaroo Formation, North West Shelf, Australia}}
+      \field{volume}{444}
       \field{year}{2017}
+      \field{pages}{221\bibrangedash 256}
+      \range{pages}{36}
     \endentry
     \entry{hoyer2024evaluating}{article}{}
       \name{author}{6}{}{%
@@ -2960,7 +3439,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Engineering Geology}
-      \field{title}{Evaluating the chain of uncertainties in the 3D geological modelling workflow}
+      \field{title}{Evaluating the chain of uncertainties in the {3D} geological modelling workflow}
       \field{volume}{343}
       \field{year}{2024}
       \field{pages}{107792}
@@ -2997,7 +3476,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Depositional environments of the Mississippi River deltaic plain—southeastern Louisiana}
+      \field{title}{Depositional environments of the {Mississippi River} deltaic plain—southeastern {Louisiana}}
       \field{year}{1966}
     \endentry
     \entry{koltermann1996heterogeneity}{article}{}
@@ -3038,6 +3517,45 @@
       \field{year}{1996}
       \field{pages}{2617\bibrangedash 2658}
       \range{pages}{42}
+    \endentry
+    \entry{kullback1951information}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=34c5bbf9876c37127c3abe4e7d7a7198}{%
+           family={Kullback},
+           familyi={K\bibinitperiod},
+           given={Solomon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=589dd9109c4ab08b8766cbb5f1bd58c8}{%
+           family={Leibler},
+           familyi={L\bibinitperiod},
+           given={Richard\bibnamedelima A},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {JSTOR}%
+      }
+      \strng{namehash}{dacf610a392371bd89d9fb4fdc21a220}
+      \strng{fullhash}{dacf610a392371bd89d9fb4fdc21a220}
+      \strng{bibnamehash}{dacf610a392371bd89d9fb4fdc21a220}
+      \strng{authorbibnamehash}{dacf610a392371bd89d9fb4fdc21a220}
+      \strng{authornamehash}{dacf610a392371bd89d9fb4fdc21a220}
+      \strng{authorfullhash}{dacf610a392371bd89d9fb4fdc21a220}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The annals of mathematical statistics}
+      \field{number}{1}
+      \field{title}{On information and sufficiency}
+      \field{volume}{22}
+      \field{year}{1951}
+      \field{pages}{79\bibrangedash 86}
+      \range{pages}{8}
     \endentry
     \entry{laloy2017inversion}{article}{}
       \name{author}{5}{}{%
@@ -3095,39 +3613,36 @@
       \field{pages}{387\bibrangedash 405}
       \range{pages}{19}
     \endentry
-    \entry{lopez2009process}{article}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=78ca5ca38b9090e33710dd5d33b44680}{%
-           family={Lopez},
+    \entry{lecun2015deep}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
            familyi={L\bibinitperiod},
-           given={Simon},
-           giveni={S\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=ce4ccd0be6c87cad0271f104ec53b6ca}{%
-           family={Cojan},
-           familyi={C\bibinitperiod},
-           given={Isabelle},
-           giveni={I\bibinitperiod},
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=254bb1d70d8d1fd8e8a29353548cf4f0}{%
-           family={Rivoirard},
-           familyi={R\bibinitperiod},
-           given={Jacques},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c5767cac61cb4bde2ba6ec5a961f59a9}{%
-           family={Galli},
-           familyi={G\bibinitperiod},
-           given={Alain},
-           giveni={A\bibinitperiod},
+        {{un=0,uniquepart=base,hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{2cf022f1ef151f435f8d852a1efa7d71}
-      \strng{fullhash}{5988606af78152366ff4d3f661726545}
-      \strng{bibnamehash}{5988606af78152366ff4d3f661726545}
-      \strng{authorbibnamehash}{5988606af78152366ff4d3f661726545}
-      \strng{authornamehash}{2cf022f1ef151f435f8d852a1efa7d71}
-      \strng{authorfullhash}{5988606af78152366ff4d3f661726545}
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{fullhash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{bibnamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authorbibnamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authornamehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{authorfullhash}{c6c75bd00ce5a488e91a749d8383b3df}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
@@ -3135,60 +3650,83 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Analogue and numerical modelling of sedimentary systems: from understanding to prediction, Wiley, Oxford, UK}
-      \field{title}{Process-based stochastic modelling: meandering channelized reservoirs}
-      \field{year}{2009}
-      \field{pages}{139\bibrangedash 144}
-      \range{pages}{6}
+      \field{journaltitle}{nature}
+      \field{number}{7553}
+      \field{title}{Deep learning}
+      \field{volume}{521}
+      \field{year}{2015}
+      \field{pages}{436\bibrangedash 444}
+      \range{pages}{9}
     \endentry
-    \entry{michael2010combining}{article}{}
-      \name{author}{6}{}{%
-        {{un=0,uniquepart=base,hash=07a5b4529b8fa7e988e30823c8a0b5cc}{%
-           family={Michael},
-           familyi={M\bibinitperiod},
-           given={HA},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e2e65bc31792929cfaa15cecf7f23965}{%
-           family={Li},
+    \entry{lin1991divergence}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c9ad66a38d11327f45f96280e5ece1dd}{%
+           family={Lin},
            familyi={L\bibinitperiod},
-           given={H},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=286823455611a0f07673e0633147dc14}{%
-           family={Boucher},
-           familyi={B\bibinitperiod},
-           given={A},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8b5a96f677e27eb8a7470e4dda407b22}{%
-           family={Sun},
-           familyi={S\bibinitperiod},
-           given={T},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=48c166f82d2c13391f3d2b115d3a0528}{%
-           family={Caers},
-           familyi={C\bibinitperiod},
-           given={J},
+           given={Jianhua},
            giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=02b54553089af41afae80a2519870eb3}{%
-           family={Gorelick},
-           familyi={G\bibinitperiod},
-           given={SM},
-           giveni={S\bibinitperiod},
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Wiley Online Library}%
+        {IEEE}%
       }
-      \strng{namehash}{ba6056cb62a0ac3eeb4fc5dce1147bc5}
-      \strng{fullhash}{62bf266f77d67e301ce70c0b6bc281c4}
-      \strng{bibnamehash}{62bf266f77d67e301ce70c0b6bc281c4}
-      \strng{authorbibnamehash}{62bf266f77d67e301ce70c0b6bc281c4}
-      \strng{authornamehash}{ba6056cb62a0ac3eeb4fc5dce1147bc5}
-      \strng{authorfullhash}{62bf266f77d67e301ce70c0b6bc281c4}
+      \strng{namehash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \strng{fullhash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \strng{bibnamehash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \strng{authorbibnamehash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \strng{authornamehash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \strng{authorfullhash}{c9ad66a38d11327f45f96280e5ece1dd}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Information theory}
+      \field{number}{1}
+      \field{title}{Divergence measures based on the Shannon entropy}
+      \field{volume}{37}
+      \field{year}{1991}
+      \field{pages}{145\bibrangedash 151}
+      \range{pages}{7}
+    \endentry
+    \entry{martin-hal-01313232}{book}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=d65bbb5614d3c88132d668fa3e83789a}{%
+           family={Martin},
+           familyi={M\bibinitperiod},
+           given={Lemay},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ce4ccd0be6c87cad0271f104ec53b6ca}{%
+           family={Cojan},
+           familyi={C\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32b3025b6eb8ddeca73504aa943ac534}{%
+           family={Ors},
+           familyi={O\bibinitperiod},
+           given={Fabien},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=254bb1d70d8d1fd8e8a29353548cf4f0}{%
+           family={Rivoirard},
+           familyi={R\bibinitperiod},
+           given={Jacques},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {EAGE}%
+      }
+      \strng{namehash}{1227dde0f4013c62a8717e94ace116da}
+      \strng{fullhash}{a25e18cadc3605123ef397d13c840f8d}
+      \strng{bibnamehash}{a25e18cadc3605123ef397d13c840f8d}
+      \strng{authorbibnamehash}{a25e18cadc3605123ef397d13c840f8d}
+      \strng{authornamehash}{1227dde0f4013c62a8717e94ace116da}
+      \strng{authorfullhash}{a25e18cadc3605123ef397d13c840f8d}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
@@ -3196,11 +3734,19 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Water Resources Research}
-      \field{number}{5}
-      \field{title}{Combining geologic-process models and geostatistics for conditional simulation of 3-D subsurface heterogeneity}
-      \field{volume}{46}
-      \field{year}{2010}
+      \field{month}{4}
+      \field{series}{Second Conference on Forward Modelling of Sedimentary Systems}
+      \field{title}{{ Potential of {FLUMY}, a Meandering Fluvial Process-based Model, to Simulate Submarine Channels}}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.3997/2214-4609.201600383
+      \endverb
+      \verb{urlraw}
+      \verb https://minesparis-psl.hal.science/hal-01313232
+      \endverb
+      \verb{url}
+      \verb https://minesparis-psl.hal.science/hal-01313232
+      \endverb
     \endentry
     \entry{mijnlieff2020introduction}{article}{}
       \name{author}{1}{}{%
@@ -3228,7 +3774,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Netherlands Journal of Geosciences}
-      \field{title}{Introduction to the geothermal play and reservoir geology of the Netherlands}
+      \field{title}{Introduction to the geothermal play and reservoir geology of the {Netherlands}}
       \field{volume}{99}
       \field{year}{2020}
       \field{pages}{e2}
@@ -3267,11 +3813,39 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Australian Journal of Earth Sciences}
       \field{number}{5}
-      \field{title}{Genesis of the channel iron deposits (CID) of the Pilbara region, Western Australia}
+      \field{title}{Genesis of the channel iron deposits ({CID}) of the {Pilbara} region, {Western Australia}}
       \field{volume}{54}
       \field{year}{2007}
       \field{pages}{733\bibrangedash 756}
       \range{pages}{24}
+    \endentry
+    \entry{prince2023understanding}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=28ec62e6a6756d1310f22aa92ac3f433}{%
+           family={Prince},
+           familyi={P\bibinitperiod},
+           given={Simon\bibnamedelima JD},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \strng{fullhash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \strng{bibnamehash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \strng{authorbibnamehash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \strng{authornamehash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \strng{authorfullhash}{28ec62e6a6756d1310f22aa92ac3f433}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding deep learning}
+      \field{year}{2023}
     \endentry
     \entry{ringrose2016reservoir}{book}{}
       \name{author}{2}{}{%
@@ -3308,6 +3882,97 @@
       \field{volume}{2}
       \field{year}{2016}
     \endentry
+    \entry{roich2022pivotal}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=9e899a50fe7b7515234670236841d8e8}{%
+           family={Roich},
+           familyi={R\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5e532be7f2c9c148919fe9369f66265f}{%
+           family={Mokady},
+           familyi={M\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa623ed1cbb6dca55f527748cfff19b6}{%
+           family={Bermano},
+           familyi={B\bibinitperiod},
+           given={Amit\bibnamedelima H},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cdf44d78713bc27a81394749a9d8bbdc}{%
+           family={Cohen-Or},
+           familyi={C\bibinithyphendelim O\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM New York, NY}%
+      }
+      \strng{namehash}{7b6365080135ccfdc04ea00bc0d56ccf}
+      \strng{fullhash}{c70f79aa909faf6a261ea055bd2be711}
+      \strng{bibnamehash}{c70f79aa909faf6a261ea055bd2be711}
+      \strng{authorbibnamehash}{c70f79aa909faf6a261ea055bd2be711}
+      \strng{authornamehash}{7b6365080135ccfdc04ea00bc0d56ccf}
+      \strng{authorfullhash}{c70f79aa909faf6a261ea055bd2be711}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Transactions on graphics (TOG)}
+      \field{number}{1}
+      \field{title}{Pivotal tuning for latent-based editing of real images}
+      \field{volume}{42}
+      \field{year}{2022}
+      \field{pages}{1\bibrangedash 13}
+      \range{pages}{13}
+    \endentry
+    \entry{rongier2025afluvgan}{misc}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=49791af4f7bac7a2f778d4e7105aee0c}{%
+           family={Rongier},
+           familyi={R\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0a27cca2d40216a058559a5a335fed12}{%
+           family={Peeters},
+           familyi={P\bibinitperiod},
+           given={Luk},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {4TU.ResearchData}%
+      }
+      \strng{namehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{fullhash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{bibnamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authorbibnamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authornamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authorfullhash}{460fd6e45de063f0eaa0818d33ad553d}
+      \field{extraname}{1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{FluvGAN}: {P}ython scripts to test generating and inverting fluvial deposits using {GANs}}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.4121/3469c879-f443-4fcf-83a2-b6df56e96714.v1
+      \endverb
+      \keyw{Python,deep learning,PyTorch,{GAN,DGM,GAN} inversion,stratigraphic modeling}
+    \endentry
     \entry{rongier2025atowards}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=49791af4f7bac7a2f778d4e7105aee0c}{%
@@ -3329,8 +3994,10 @@
       \strng{authorbibnamehash}{460fd6e45de063f0eaa0818d33ad553d}
       \strng{authornamehash}{460fd6e45de063f0eaa0818d33ad553d}
       \strng{authorfullhash}{460fd6e45de063f0eaa0818d33ad553d}
+      \field{extraname}{2}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -3383,8 +4050,8 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{3D, 4D and predictive modelling of major mineral belts in Europe}
-      \field{title}{3D and 4D geomodelling applied to mineral resources exploration—An introduction}
+      \field{booktitle}{{3D, 4D} and predictive modelling of major mineral belts in {Europe}}
+      \field{title}{{3D} and {4D} geomodelling applied to mineral resources exploration—An introduction}
       \field{year}{2015}
       \field{pages}{73\bibrangedash 89}
       \range{pages}{17}
@@ -3421,6 +4088,78 @@
       \field{year}{1959}
       \field{pages}{210\bibrangedash 229}
       \range{pages}{20}
+    \endentry
+    \entry{schaaf2019quantification}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e3fb64ec01bf8f8291e89693f696c93d}{%
+           family={Schaaf},
+           familyi={S\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a36e50e3953de8ff1d402e43382f04fc}{%
+           family={Bond},
+           familyi={B\bibinitperiod},
+           given={Clare\bibnamedelima E},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Copernicus Publications Göttingen, Germany}%
+      }
+      \strng{namehash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \strng{fullhash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \strng{bibnamehash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \strng{authorbibnamehash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \strng{authornamehash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \strng{authorfullhash}{77a207bbf7d3f5d357f26a92873ea9e2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Solid earth}
+      \field{number}{4}
+      \field{title}{Quantification of uncertainty in 3-D seismic interpretation: implications for deterministic and stochastic geomodeling and machine learning}
+      \field{volume}{10}
+      \field{year}{2019}
+      \field{pages}{1049\bibrangedash 1061}
+      \range{pages}{13}
+    \endentry
+    \entry{shannon1948mathematical}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e930d560748b00dab7e3d19806c848ba}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={Claude\bibnamedelima Elwood},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nokia Bell Labs}%
+      }
+      \strng{namehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{fullhash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{bibnamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authorbibnamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authornamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authorfullhash}{e930d560748b00dab7e3d19806c848ba}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Bell system technical journal}
+      \field{number}{3}
+      \field{title}{A mathematical theory of communication}
+      \field{volume}{27}
+      \field{year}{1948}
+      \field{pages}{379\bibrangedash 423}
+      \range{pages}{45}
     \endentry
     \entry{song2022review}{article}{}
       \name{author}{3}{}{%
@@ -3461,7 +4200,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Petroleum Science Bulletin}
       \field{number}{1}
-      \field{title}{Review of a Generative Adversarial Networks (GANs)-based geomodelling method}
+      \field{title}{Review of a Generative Adversarial Networks ({GANs})-based geomodelling method}
       \field{volume}{7}
       \field{year}{2022}
       \field{pages}{34\bibrangedash 49}
@@ -3511,7 +4250,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Hydrology}
-      \field{title}{GANSim-surrogate: An integrated framework for stochastic conditional geomodelling}
+      \field{title}{{GANSim}-surrogate: An integrated framework for stochastic conditional geomodelling}
       \field{volume}{620}
       \field{year}{2023}
       \field{pages}{129493}
@@ -3606,7 +4345,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computational Geosciences}
       \field{number}{2}
-      \field{title}{Geological realism in Fluvial facies modelling with GAN under variable depositional conditions}
+      \field{title}{Geological realism in Fluvial facies modelling with {GAN} under variable depositional conditions}
       \field{volume}{27}
       \field{year}{2023}
       \field{pages}{203\bibrangedash 221}
@@ -3642,7 +4381,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Stratigraphic nomenclature of the Netherlands, revision and update by RGD and NOGEPA}
+      \field{title}{Stratigraphic nomenclature of the {Netherlands}, revision and update by {RGD} and {NOGEPA}}
       \field{year}{1993}
     \endentry
     \entry{vardon2020geothermal}{article}{}
@@ -3716,7 +4455,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:2003.11826}
-      \field{title}{A geothermal well doublet for research and heat supply of the TU Delft Campus}
+      \field{title}{A geothermal well doublet for research and heat supply of the {TU Delft Campus}}
       \field{year}{2020}
     \endentry
     \entry{vardon2024endofwell}{article}{}
@@ -3804,7 +4543,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{End-of-Well Science Programme Report DEL-GT-01 and DEL-GT-02: TU Delft campus geothermal project}
+      \field{title}{End-of-Well Science Programme Report {DEL-GT-01} and {DEL-GT-02}: {TU Delft} campus geothermal project}
       \field{year}{2024}
     \endentry
     \entry{vondrak2018reservoir}{article}{}
@@ -3841,8 +4580,12 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Reservoir architecture model of the Nieuwerkerk Formation (Early Cretaceous, West Netherlands Basin): diachronous development of sand-prone fluvial deposits}
+      \field{journaltitle}{Geological Society, London, Special Publications}
+      \field{title}{Reservoir architecture model of the {Nieuwerkerk Formation} (Early {Cretaceous, West Netherlands Basin}): diachronous development of sand-prone fluvial deposits}
+      \field{volume}{471}
       \field{year}{2018}
+      \field{pages}{147\bibrangedash 171}
+      \range{pages}{25}
     \endentry
     \entry{weert2024multiple}{article}{}
       \name{author}{7}{}{%
@@ -3907,7 +4650,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Solid Earth}
       \field{number}{2}
-      \field{title}{Multiple phase rifting and subsequent inversion in the West Netherlands Basin: implications for geothermal reservoir characterization}
+      \field{title}{Multiple phase rifting and subsequent inversion in the {West Netherlands Basin}: implications for geothermal reservoir characterization}
       \field{volume}{15}
       \field{year}{2024}
       \field{pages}{121\bibrangedash 141}
@@ -3963,7 +4706,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Netherlands Journal of Geosciences}
-      \field{title}{Geology of the Upper Jurassic to Lower Cretaceous geothermal aquifers in the West Netherlands Basin--an overview}
+      \field{title}{Geology of the Upper {Jurassic} to Lower {Cretaceous} geothermal aquifers in the {West Netherlands Basin}--an overview}
       \field{volume}{99}
       \field{year}{2020}
       \field{pages}{e1}
@@ -4038,7 +4781,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Water Resources Research}
       \field{number}{2}
-      \field{title}{Dynamic processes of CO2 storage in the field: 1. Multiscale and multipath channeling of CO2 flow in the hierarchical fluvial reservoir at Cranfield, Mississippi}
+      \field{title}{Dynamic processes of {CO2} storage in the field: 1. Multiscale and multipath channeling of {CO2} flow in the hierarchical fluvial reservoir at {Cranfield, Mississippi}}
       \field{volume}{56}
       \field{year}{2020}
       \field{pages}{e2019EF001360}
@@ -4074,66 +4817,14 @@
       \field{labeltitlesource}{title}
       \field{edition}{2nd}
       \field{isbn}{978-9036605595}
-      \field{title}{Geological Atlas of Western and Central Europe}
+      \field{title}{Geological Atlas of Western and Central {Europe}}
       \field{volume}{2}
       \field{year}{1990}
       \field{pages}{239}
       \range{pages}{1}
     \endentry
-    \entry{zorzi20253d}{article}{}
-      \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=1f5b36b640ad951eac2c7f0b5ae700c9}{%
-           family={Zorzi},
-           familyi={Z\bibinitperiod},
-           given={Luca},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d0b7f9804f0fb3450f8657480061f6a6}{%
-           family={Elmo},
-           familyi={E\bibinitperiod},
-           given={D},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3e4affc55352ef0e86bfb7fa965637e1}{%
-           family={Tafwidla},
-           familyi={T\bibinitperiod},
-           given={F},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f6d7aed3c5c9b0cf2e99bce793f4d204}{%
-           family={Lenauer},
-           familyi={L\bibinitperiod},
-           given={I},
-           giveni={I\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=455143edee087f2cc74d1d85a3d97409}{%
-           family={Furney},
-           familyi={F\bibinitperiod},
-           given={S},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{organization}{1}{%
-        {Australian Centre for Geomechanics}%
-      }
-      \strng{namehash}{6233dc3b108e1fc87358349fc43cea2d}
-      \strng{fullhash}{7d1324349d655612d7df6744c835c7e0}
-      \strng{bibnamehash}{7d1324349d655612d7df6744c835c7e0}
-      \strng{authorbibnamehash}{7d1324349d655612d7df6744c835c7e0}
-      \strng{authornamehash}{6233dc3b108e1fc87358349fc43cea2d}
-      \strng{authorfullhash}{7d1324349d655612d7df6744c835c7e0}
-      \field{sortinit}{Z}
-      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{SSIM 2025: Fourth International Slope Stability in Mining Conference}
-      \field{title}{3D geological models: A reliable depiction of nature or a sketch of our biases?}
-      \field{year}{2025}
-    \endentry
   \enddatalist
+  \missing{he2025generative}
 \endrefsection
 \endinput
 
