@@ -1,7 +1,7 @@
 \chapter{Results}\label{Ch:Results}
 The presentation of the results will follow the order of the workflow: First of all the curated datasets will be displayed with the addition of statistical parameters that can be used to evaluate the difference between the samples in the datasets and the synthetic \gls{gan} samples. Secondly, the post training results are presented which presents the results of the hyperparameter tuning, the cGAN unconstrained performance to grouped facies classes as well as the cGAN unconstrained performance when presented with all facies classes. Finally, the results of the optimization and inversion results are presented, after the model was constrained to the Delft Geothermal Reservoir well data.   
 \section{Datasets}\label{Sec:Datasets}
-In total, 20,000 samples were generated for the three datasets as defined in table~\ref{tab:NEXUS_input}. These generated datasets are visually summarized in figure~\ref{fig:3D_datasets_comparison}: a 2D MDS plot clearly shows a grouping effect per setting, indicating the samples look different internally. This can be visually confirmed by the two random 3D facies plots per setting, showing that a lower sand body extension as input parameter yields samples with thinner sandbodies and more erratic meandering behavior in samples of this size. The right most plots show the pixel-wise entropy computed over an ensemble of 1000 samples per setting, setting a baseline for the entropy readings we look to achieve from a diverse synthetic dataset produced by the trained GAN model. This threshold configuration can be further evaluated by analyzing table~\ref{tab:comparison_facies_distribution_flumy_samples}, which provides an exhaustive overview of the global facies distributions across the ensemble.
+In total, 20,000 samples were generated for the three datasets as defined in table~\ref{tab:NEXUS_input}. These generated datasets are visually summarized in figure~\ref{fig:3D_datasets_comparison}: a 2D MDS plot clearly shows a grouping effect per setting, indicating the samples of different settings do in fact display varying higher-dimensional differences. This can be visually confirmed by the two random 3D facies plots per setting, showing that a lower sand body extension as input parameter yields samples with thinner sandbodies and more erratic meandering behavior in samples of this size. The right most plots show the pixel-wise entropy computed over an ensemble of 1000 samples per setting, setting a baseline for the entropy readings we look to achieve from a diverse synthetic dataset produced by the trained GAN model. This threshold configuration can be further evaluated by analyzing table~\ref{tab:comparison_facies_distribution_flumy_samples}, which provides an exhaustive overview of the global facies distributions across the ensemble.
 \begin{table}[htbp!]
     \centering
     \renewcommand{\arraystretch}{1.4}
@@ -31,23 +31,26 @@ As can be observed in this overview, the structural facies, hereafter referred t
     \caption{MDS plot with two 3D facies samples displayed and a 3D pixel-wise entropy per setting.}
     \label{fig:3D_datasets_comparison}
 \end{figure}
+% -------------------------------------------------
+% ------- POST TRAINING GENERATIVE RESULTS --------
+% -------------------------------------------------
 \section{Post Training Generative Results}\label{Sec:Post_training_res}
 All the models were trained on 2 NVIDIA-A100 GPU's with each 80GB of unified memory. When trained for 25 epochs on 20000 samples, the excecution time took approximately 3-4 hours.
 \subsection{Hyperparameter Tuning}\label{Sec:Hyperparam_results}
 Figure~\ref{fig:ablation_study} and table~\ref{tab:ablation_study} provide an overview of the hyperparameter tuning study. All trained model reserved 10\% of their training data exclusively for validation: computing the \gls{swd} metric for both training and validation datasets. Figure~\ref{fig:ablation_study} includes tracking of the Sliced Wasserstein Distance (SWD) metric across 25 epochs, a randomly generated sample by the trained model and a 3D entropy plot of an ensemble of 1000 \gls{gan} generated samples. Complementary, the Jenson-Shannon Divergence (JSD) and Mean SWD which both compare the ensemble of 1000 generated samples per run to a test set of 1000 samples is provided in table~\ref{tab:ablation_study}. 
-\begin{table}[htbp]
+\begin{table}[htbp!]
     \centering
     \renewcommand{\arraystretch}{1.4}
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{cccccccc}
         \hline
-        \textbf{Run} & \textbf{Epochs}& \textbf{disc penalty} & \textbf{double conv} & \textbf{double resblock} & \textbf{$JSD$} & \textbf{$MS-SWD$} & \textbf{mean $H_{norm}$}\\
+        \textbf{Run} & \textbf{Epochs}& \textbf{disc penalty} & \textbf{double conv} & \textbf{double resblock} & \textbf{JSD $\downarrow$} & \textbf{MS-SWD $\downarrow$} & \textbf{mean $H_{norm}$ $\uparrow$}\\
         \hline
         1 & 25 & no & off & off & 0.0718 $\pm$ 0.0157 & 0.08865 & \\
         2 & 25 & no & on & off & 0.1161 $\pm$ 0.0243 & 0.06842 & \\
         3 & 25 & no & on & on & 0.0458 $\pm$ 0.0076 & 0.08271 & \\
         4 & 25 & 32 & on & on & 0.0612 $\pm$ 0.0314 & 0.09224 & \\
-        5 & 25 & 16 & on & on & 0.0155 $\pm$ 0.0067 & 0.07986 & \\
+        \textbf{5} & \textbf{25} & \textbf{16} & \textbf{on} & \textbf{on} & \textbf{0.0155 $\pm$ 0.0067} & \textbf{0.07986} & \\
         6 & 25 & 1 & on & on & 0.0202 $\pm$ 0.0038 & 0.07690 & \\
         7 & 25 & 16 & on & on & 0.1190 $\pm$ 0.0324 & 0.11924 & \\
         8 & 25 & 16 & on & on & 0.0278 $\pm$ 0.0045 &  0.13389 & \\
@@ -76,9 +79,9 @@ The model with run 5 parameters, of which a complete list with all exact paramet
     \label{fig:mds_samples_run_5}
 \end{figure}
 As already noted in section~\ref{sec:Post_training_res}, the \gls{swd} metric evolution stops improving after around 2000 training iterations, suggesting that the model has stopped improving. However, when assessing the samples from a visual perspective, ... ADD EVOLUTION... 
-
+\pagebreak
 \subsection{High-Fidelity 9-Class Generative Performance}
-Additionally, besides only evaluating the model trained on the grouped facies, the training was also conducted on the high fidelity case: testing whether reverting to 9 facies classes lead to significantly different results in terms of geological plausibility and sample diversity. Since the classes are highly unbalanced (some facies occur over 30\% of the time while others only occur 0.1\% of the time), this run tests what the capability limits of this model is.
+Besides only evaluating the model trained on the grouped facies, the training was also conducted on the high fidelity case: testing whether reverting to 9 facies classes lead to significantly different results in terms of geological plausibility and sample diversity. Since the classes are highly unbalanced, this run tests what the capability limits of this model is. The model was trained for 25 epochs on 20000 samples, with the same hyperparameters as run 5. The results are summarized in figure~\ref{fig:combined_plot_all_channels}. The \gls{swd} evolution indicates that the models ability to represent class sctuctures, varies significantly per class. For channels 0 to 2 and 6 to 8 the \gls{swd} metric decreases immediatly from the start of training, indicating that the model is able to represent these classes well. However, for channels 3 ad 5, the \gls{swd} metric no improvement is made, indicating that the model is not able to represent these classes well. Channel 4 decreases over the full amount of iterations with the possibility to decrease even more. Finally, channel 0, channel 2 and channel six, which had a low \gls{swd} from the start onwards, display occasional increases in the metric. 
 
 \begin{figure}[htbp!]
     \centering
@@ -86,7 +89,43 @@ Additionally, besides only evaluating the model trained on the grouped facies, t
     \caption{Overview of (best) high fidelity model trained over 25 epochs. }
     \label{fig:combined_plot_all_channels}
 \end{figure}
+From a visual perspective, the samples show signs of being able to recreate geological features. This claim is supported by the \gls{mds} plot (ADD FIgure to appendix!) and the corresponding 3D facies plots. However, when evaluating the pixel-wise entropy plot we can observe that the samples show a significant amount of structure, indicating that the model is not able to represent the full complexity of the training dataset. This is further supported by the mean pixel-wise entropy value of ??, which is significantly lower than the mean pixel-wise entropy value of 0.79 for the grouped facies case.
+% ----------------------------------------------------
+% ------- POST CONDITIONING/INVERSION RESULTS --------
+% ----------------------------------------------------
+\pagebreak
+\section{Post-Inversion Results}\label{Sec:Post_Cond_Res}
+During optimization and inversion, the tuned model was conditioned to the well data presented in Section \ref{Sec:Delft_Reservoir}. The evaluation metrics were computed exclusively on the first 32 meters of well data from DEL-GT-01 and DEL-GT-02-S2, yielding a total of 64 spatial conditioning points for the Macro F1-score evaluation. During the initial Latent Space Optimization phase, 100 latent vectors were optimized to fit the well data. These outputs are henceforth referred to as \say{realizations}, as they represent models explicitly conditioned to real-world subsurface observations.
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/results/cgan_constrained_performance/comparative_f1_scores.png}
+    \caption{}
+    \label{fig:post_optimization_f1_scores}
+\end{figure}
 
-\section{Post-Inversion Conditioning Results}\label{Sec:Post_Cond_Res}
+As illustrated in Figure \ref{fig:post_optimization_f1_scores}, the percentage of realizations achieving a flawless fit with the conditioning points is highly dependent on the optimization threshold ($Th$). The threshold ($Th$) defines a specific spatial radius around the wellbore, measured in voxels, within which the generative model is penalized for mismatching the hard conditioning data. Specifically, voxels located beyond this distance threshold are assigned a weight of zero in the context loss function, ensuring that the inversion process enforces localized geological alignment without over-constraining the broader, unobserved reservoir architecture~(See figure~\ref{fig:anisotropic_mask_appendix}). Table~\ref{tab:optimization_f1_scores} details the Macro F1-scores and spatial entropy metrics achieved across these varying threshold configurations.
 
-\subsection{cGAN Latent Space Optimization and Pivotal Tuning}
+\begin{table}[htbp!]
+    \centering
+    \renewcommand{\arraystretch}{1.4}
+    \small
+    \newcolumntype{Y}{>{\centering\arraybackslash}X} 
+    \begin{tabularx}{\textwidth}{X c c c c c c}
+        \hline
+        \textbf{Run} & \textbf{Th} & \textbf{Macro F1$\uparrow$} & \textbf{Mean $H_{norm, P}\uparrow$} & \textbf{Mean $H_{norm, I}\uparrow$} & \textbf{Count $P \uparrow$} & \textbf{Count $I \downarrow$} \\
+        \hline
+        Run 1 & 1  & 0.618539 & 0.641889 & 0.664907 & 36 & 64 \\
+        Run 2 & 2  &          &          &          &    &    \\
+        Run 3 & 5  & 0.835997 & 0.634802 & 0.629816 & 70 & 30 \\
+        Run 4 & 10 & 0.861774 & 0.596361 & 0.582823 & 73 & 27 \\
+        Run 5 & 15 &          &          &          &    &    \\
+        \hline
+    \end{tabularx}
+    \caption{Optimization metrics evaluated across different run configurations. The column `Th` indicates the specific threshold value defining the spatial region affected by latent optimization. Subscript indices $P$ (Perfect) denote the subset of generated samples achieving a flawless well alignment ($\text{F1} = 1.0$), while $I$ (Imperfect) refers to the remaining sample subset that did not fit perfectly ($\text{F1} < 1.0$). Normalized spatial entropy values ($H_{norm}$) are provided respectively for both groups alongside categorical sample counts.}
+    \label{tab:optimization_f1_scores}
+    \label{tab:optimization_f1_scores}
+\end{table}
+
+Concurrently, the distribution of realizations achieving a perfect fit exhibits a rapid, non-linear response to the threshold parameter. Moving from a threshold of 1 (Run 1) to a threshold of 5 (Run 3) yields a near-exponential increase in the number of perfectly conditioned realizations, jumping from 36 to 70. However, as the threshold continues to increase past this point, the rate of improvement plateaus, reaching only 73 perfect realizations at a threshold of 10. This plateau suggests a fundamental limit to how much a frozen generator can bend its learned prior to fit localized data, demonstrating why subsequent Pivotal Tuning is required to bridge the remaining spatial mismatch.
+
+Furthermore, Table \ref{tab:optimization_f1_scores} highlights a critical trade-off between strict well conditioning and spatial diversity. As the optimization threshold increases, the normalized spatial entropy ($H_{norm}$) systematically decreases for both the perfectly aligned ($P$) and imperfectly aligned ($I$) subsets. This mathematical drop in entropy indicates that enforcing stricter conditioning constraints forces the optimization algorithm to sample from a narrower, more restricted region of the latent space. Consequently, while the well data is honored more frequently, the overall stochastic diversity of the generated ensemble diminishes. Visual confirmation of this phenomenon is provided in Appendix \ref{App:Entropy_Thresholds}, which demonstrates that the spatial extent of low-entropy, high-certainty regions expands proportionally with the applied threshold.

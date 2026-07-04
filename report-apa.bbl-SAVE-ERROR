@@ -323,6 +323,45 @@
       \field{pages}{36}
       \range{pages}{1}
     \endentry
+    \entry{chan2019parametric}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=65eb13b6e203002e1ca877679e21266c}{%
+           family={Chan},
+           familyi={C\bibinitperiod},
+           given={Shing},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=adee20c8d635f87f97d28c5e9f9ad728}{%
+           family={Elsheikh},
+           familyi={E\bibinitperiod},
+           given={Ahmed\bibnamedelima H},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{2a4870526de307fdfdf65cab860d7763}
+      \strng{fullhash}{2a4870526de307fdfdf65cab860d7763}
+      \strng{bibnamehash}{2a4870526de307fdfdf65cab860d7763}
+      \strng{authorbibnamehash}{2a4870526de307fdfdf65cab860d7763}
+      \strng{authornamehash}{2a4870526de307fdfdf65cab860d7763}
+      \strng{authorfullhash}{2a4870526de307fdfdf65cab860d7763}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computational Geosciences}
+      \field{number}{5}
+      \field{title}{Parametric generation of conditional geological realizations using generative neural networks}
+      \field{volume}{23}
+      \field{year}{2019}
+      \field{pages}{925\bibrangedash 952}
+      \range{pages}{28}
+    \endentry
     \entry{demyanov2008geomodelling}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=3c6b40a22bef28cb2e77c1e4b74c9726}{%
@@ -1288,6 +1327,43 @@
       \field{pages}{145\bibrangedash 151}
       \range{pages}{7}
     \endentry
+    \entry{manzocchi2026general}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3807f00deea5cc24dc167944195ec488}{%
+           family={Manzocchi},
+           familyi={M\bibinitperiod},
+           given={T},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4637ad30f1472c3422f325b1e7c6c7c}{%
+           family={Walsh},
+           familyi={W\bibinitperiod},
+           given={DA},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{6880333b0faabc8495eb2c463c3c6de8}
+      \strng{fullhash}{6880333b0faabc8495eb2c463c3c6de8}
+      \strng{bibnamehash}{6880333b0faabc8495eb2c463c3c6de8}
+      \strng{authorbibnamehash}{6880333b0faabc8495eb2c463c3c6de8}
+      \strng{authornamehash}{6880333b0faabc8495eb2c463c3c6de8}
+      \strng{authorfullhash}{6880333b0faabc8495eb2c463c3c6de8}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematical Geosciences}
+      \field{title}{A General Framework for Hierarchical Compression-Based Modelling}
+      \field{year}{2026}
+      \field{pages}{1\bibrangedash 44}
+      \range{pages}{44}
+    \endentry
     \entry{martin-hal-01313232}{book}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=d65bbb5614d3c88132d668fa3e83789a}{%
@@ -1415,6 +1491,45 @@
       \field{year}{2007}
       \field{pages}{733\bibrangedash 756}
       \range{pages}{24}
+    \endentry
+    \entry{panaretos2019statistical}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=15e590e58f7c79b8d168fe2c92592a51}{%
+           family={Panaretos},
+           familyi={P\bibinitperiod},
+           given={Victor\bibnamedelima M},
+           giveni={V\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=878941c926a76fccc9009824de657f7b}{%
+           family={Zemel},
+           familyi={Z\bibinitperiod},
+           given={Yoav},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Annual Reviews}%
+      }
+      \strng{namehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{fullhash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{bibnamehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{authorbibnamehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{authornamehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{authorfullhash}{5701d70511945ddeefdff11a7aa546c2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual review of statistics and its application}
+      \field{number}{1}
+      \field{title}{Statistical aspects of Wasserstein distances}
+      \field{volume}{6}
+      \field{year}{2019}
+      \field{pages}{405\bibrangedash 431}
+      \range{pages}{27}
     \endentry
     \entry{prince2023understanding}{book}{}
       \name{author}{1}{}{%
@@ -1602,6 +1717,40 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:2510.14445}
       \field{title}{Towards geological inference with process-based and deep generative modeling, part 1: training on fluvial deposits}
+      \field{year}{2025}
+    \endentry
+    \entry{rongier2025btowards}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=49791af4f7bac7a2f778d4e7105aee0c}{%
+           family={Rongier},
+           familyi={R\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0a27cca2d40216a058559a5a335fed12}{%
+           family={Peeters},
+           familyi={P\bibinitperiod},
+           given={Luk},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{fullhash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{bibnamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authorbibnamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authornamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authorfullhash}{460fd6e45de063f0eaa0818d33ad553d}
+      \field{extraname}{3}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2510.17478}
+      \field{title}{Towards geological inference with process-based and deep generative modeling, part 2: inversion of fluvial deposits and latent-space disentanglement}
       \field{year}{2025}
     \endentry
     \entry{royer20153d}{inbook}{}
@@ -2726,6 +2875,45 @@
       \field{pages}{36}
       \range{pages}{1}
     \endentry
+    \entry{chan2019parametric}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=65eb13b6e203002e1ca877679e21266c}{%
+           family={Chan},
+           familyi={C\bibinitperiod},
+           given={Shing},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=adee20c8d635f87f97d28c5e9f9ad728}{%
+           family={Elsheikh},
+           familyi={E\bibinitperiod},
+           given={Ahmed\bibnamedelima H},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{2a4870526de307fdfdf65cab860d7763}
+      \strng{fullhash}{2a4870526de307fdfdf65cab860d7763}
+      \strng{bibnamehash}{2a4870526de307fdfdf65cab860d7763}
+      \strng{authorbibnamehash}{2a4870526de307fdfdf65cab860d7763}
+      \strng{authornamehash}{2a4870526de307fdfdf65cab860d7763}
+      \strng{authorfullhash}{2a4870526de307fdfdf65cab860d7763}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computational Geosciences}
+      \field{number}{5}
+      \field{title}{Parametric generation of conditional geological realizations using generative neural networks}
+      \field{volume}{23}
+      \field{year}{2019}
+      \field{pages}{925\bibrangedash 952}
+      \range{pages}{28}
+    \endentry
     \entry{demyanov2008geomodelling}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=3c6b40a22bef28cb2e77c1e4b74c9726}{%
@@ -3691,6 +3879,43 @@
       \field{pages}{145\bibrangedash 151}
       \range{pages}{7}
     \endentry
+    \entry{manzocchi2026general}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3807f00deea5cc24dc167944195ec488}{%
+           family={Manzocchi},
+           familyi={M\bibinitperiod},
+           given={T},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4637ad30f1472c3422f325b1e7c6c7c}{%
+           family={Walsh},
+           familyi={W\bibinitperiod},
+           given={DA},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{6880333b0faabc8495eb2c463c3c6de8}
+      \strng{fullhash}{6880333b0faabc8495eb2c463c3c6de8}
+      \strng{bibnamehash}{6880333b0faabc8495eb2c463c3c6de8}
+      \strng{authorbibnamehash}{6880333b0faabc8495eb2c463c3c6de8}
+      \strng{authornamehash}{6880333b0faabc8495eb2c463c3c6de8}
+      \strng{authorfullhash}{6880333b0faabc8495eb2c463c3c6de8}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematical Geosciences}
+      \field{title}{A General Framework for Hierarchical Compression-Based Modelling}
+      \field{year}{2026}
+      \field{pages}{1\bibrangedash 44}
+      \range{pages}{44}
+    \endentry
     \entry{martin-hal-01313232}{book}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=d65bbb5614d3c88132d668fa3e83789a}{%
@@ -3818,6 +4043,45 @@
       \field{year}{2007}
       \field{pages}{733\bibrangedash 756}
       \range{pages}{24}
+    \endentry
+    \entry{panaretos2019statistical}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=15e590e58f7c79b8d168fe2c92592a51}{%
+           family={Panaretos},
+           familyi={P\bibinitperiod},
+           given={Victor\bibnamedelima M},
+           giveni={V\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=878941c926a76fccc9009824de657f7b}{%
+           family={Zemel},
+           familyi={Z\bibinitperiod},
+           given={Yoav},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Annual Reviews}%
+      }
+      \strng{namehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{fullhash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{bibnamehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{authorbibnamehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{authornamehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{authorfullhash}{5701d70511945ddeefdff11a7aa546c2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual review of statistics and its application}
+      \field{number}{1}
+      \field{title}{Statistical aspects of Wasserstein distances}
+      \field{volume}{6}
+      \field{year}{2019}
+      \field{pages}{405\bibrangedash 431}
+      \range{pages}{27}
     \endentry
     \entry{prince2023understanding}{book}{}
       \name{author}{1}{}{%
@@ -4005,6 +4269,40 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:2510.14445}
       \field{title}{Towards geological inference with process-based and deep generative modeling, part 1: training on fluvial deposits}
+      \field{year}{2025}
+    \endentry
+    \entry{rongier2025btowards}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=49791af4f7bac7a2f778d4e7105aee0c}{%
+           family={Rongier},
+           familyi={R\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0a27cca2d40216a058559a5a335fed12}{%
+           family={Peeters},
+           familyi={P\bibinitperiod},
+           given={Luk},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{fullhash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{bibnamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authorbibnamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authornamehash}{460fd6e45de063f0eaa0818d33ad553d}
+      \strng{authorfullhash}{460fd6e45de063f0eaa0818d33ad553d}
+      \field{extraname}{3}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2510.17478}
+      \field{title}{Towards geological inference with process-based and deep generative modeling, part 2: inversion of fluvial deposits and latent-space disentanglement}
       \field{year}{2025}
     \endentry
     \entry{royer20153d}{inbook}{}

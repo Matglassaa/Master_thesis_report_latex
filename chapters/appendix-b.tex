@@ -1,4 +1,69 @@
-\chapter{GAN Training}
+\chapter{FluvGAN}\label{Apendix:FluvGAN}
+\section{One Hot Encoding Strategy}\label{Appendix:One_Hot_Encoding}
+The one-hot encoding strategy used in this project created $n$ spatial channels based on the number of individual classes passed on to the model. Where traditional one-hot encodiding strategies map the values in a channel to either 1 or 0, referring to the presence or absence of a specific class, the final \textit{Tanh} activation function in the \gls{fluvgan} model maps values to either -1 or 1. Figure~\ref{appendix_fig:one_hot_encoding} provides an overview of one hot encoding of a vector.
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/appendix/Appendix_B/one_hot_encoding.png}
+    \caption{Simpel one-ho encoding represenation by converting the original data array into a multitude of bipolar vectors. One-hot encoding can be applied to any type of categorical data.}
+    \label{appendix_fig:one_hot_encoding}
+\end{figure}
+Using one-hot encoding categorical independent data can be correctly fed to the model, avoiding issues where the model think the numbers/values are correlated. The model may start to correlate the the classes based on values, tending to overestimating the classes that do not occur often.
+\section{Fluvgan Architecture}\label{Appendix:FluvGAN_Architecture}
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{p{0.45\textwidth}cc}
+        \hline
+        \textbf{Layer / Block Type} & \textbf{Output Shape} & \textbf{Param \#} \\
+        \hline
+        ConvBlockTranspose3d (Scale 1) & [1, 1024, 4, 4, 4] & 6,553,600 \\
+        DeepResBlockUpscale3d (Scale 2) & [1, 1024, 8, 8, 8] & 4,066,816 \\
+        DeepResBlock3d (Scale 2) & [1, 1024, 8, 8, 8] & 4,066,816 \\
+        DeepResBlockUpscale3d (Scale 3) & [1, 512, 16, 16, 16] & 3,935,744 \\
+        DeepResBlock3d (Scale 3) & [1, 512, 16, 16, 16] & 1,017,600 \\
+        DeepResBlockUpscale3d (Scale 4) & [1, 256, 32, 32, 32] & 984,832 \\
+        DeepResBlock3d (Scale 4) & [1, 256, 32, 32, 32] & 254,848 \\
+        DeepResBlockUpscale3d (Scale 5) & [1, 128, 32, 64, 64] & 99,200 \\
+        DeepResBlock3d (Scale 5) & [1, 128, 32, 64, 64] & 27,072 \\
+        DeepResBlockUpscale3d (Scale 6) & [1, 64, 32, 128, 128] & 25,024 \\
+        DeepResBlock3d (Scale 6) & [1, 64, 32, 128, 128] & 6,880 \\
+        BatchNorm3d + LeakyReLU & [1, 64, 32, 128, 128] & 128 \\
+        ConvBlock3d (Output) & [1, 9, 32, 128, 128] & 15,552 \\
+        \hline
+        \textbf{Total Trainable Parameters} & \multicolumn{2}{c}{\textbf{21,054,112}} \\
+        \hline
+    \end{tabular}
+    \caption{Detailed architectural specifications and layer parameters for the DeepGenerator3d network.}
+    \label{tab:best_generator_architecture}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{p{0.45\textwidth}cc}
+        \hline
+        \textbf{Layer / Block Type} & \textbf{Output Shape} & \textbf{Param \#} \\
+        \hline
+        ConvBlock3d (Input) & [1, 64, 32, 128, 128] & 15,552 \\
+        DeepResBlockDownscale3d (Scale 2) & [1, 128, 16, 64, 64] & 20,992 \\
+        DeepResBlock3d (Scale 2) & [1, 128, 16, 64, 64] & 63,488 \\
+        DeepResBlockDownscale3d (Scale 3) & [1, 256, 8, 32, 32] & 83,968 \\
+        DeepResBlock3d (Scale 3) & [1, 256, 8, 32, 32] & 253,952 \\
+        DeepResBlockDownscale3d (Scale 4) & [1, 512, 4, 16, 16] & 335,872 \\
+        DeepResBlock3d (Scale 4) & [1, 512, 4, 16, 16] & 1,015,808 \\
+        DeepResBlockDownscale3d (Scale 5) & [1, 1024, 4, 8, 8] & 753,664 \\
+        DeepResBlock3d (Scale 5) & [1, 1024, 4, 8, 8] & 1,703,936 \\
+        DeepResBlockDownscale3d (Scale 6) & [1, 1024, 4, 4, 4] & 1,703,936 \\
+        DeepResBlock3d (Scale 6) & [1, 1024, 4, 4, 4] & 1,703,936 \\
+        LeakyReLU & [1, 1024, 4, 4, 4] & 0 \\
+        LinearBlock (Output Prediction) & [1, 1] & 1,025 \\
+        \hline
+        \textbf{Total Trainable Parameters} & \multicolumn{2}{c}{\textbf{7,656,129}} \\
+        \hline
+    \end{tabular}
+    \caption{Detailed architectural specifications and layer parameters for the DeepDiscriminator3d network.}
+    \label{tab:best_discriminator_architecture}
+\end{table}
 
 \begin{figure}[!h]
     \centering
