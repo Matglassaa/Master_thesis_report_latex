@@ -1,7 +1,7 @@
 \chapter{Conclusion}\label{Ch:Conclusion}
-%=====================================================================================%
-% Chapter outline:  
-%=====================================================================================%
+The datasets used in this project were generated using the FLUMY geological modelling software. Altough the input parameters varied in the model the datasets show similar characteristics in terms of facies proportions with Point bars being the most abundant facies in the datasets, followed by mud plugs and overbank deposits. The Crevasse play facies achieved a proportions score of 0.0\% to 0.1\% in all three datasets, indicating that the FLUMY settings used are not fit for recreating these facies. 
+
+The FluvGAN model used in this project shows promising results in its ability to recreate geological pausible structures once properly trained on a single prior. This success is highly dependent on the hyperparameter combinations used during training, which showed that a large dataset combined with a moderately occurring discriminator penalty and sufficient network depth are crucial for a run to produce a model not suffering from mode collapse. Additionally, one-hot encoding also proved to a crucial implementation for the model to train properly on categorical data to achieve the correct facies proportions.
 \section{Answers to Research Questions}
 
 \section{Final Remarks}
