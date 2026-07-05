@@ -96,36 +96,35 @@ From a visual perspective, the samples show signs of being able to recreate geol
 \pagebreak
 \section{Post-Inversion Results}\label{Sec:Post_Cond_Res}
 During optimization and inversion, the tuned model was conditioned to the well data presented in Section \ref{Sec:Delft_Reservoir}. The evaluation metrics were computed exclusively on the first 32 meters of well data from DEL-GT-01 and DEL-GT-02-S2, yielding a total of 64 spatial conditioning points for the Macro F1-score evaluation. During the initial Latent Space Optimization phase, 100 latent vectors were optimized to fit the well data. These outputs are henceforth referred to as \say{realizations}, as they represent models explicitly conditioned to real-world subsurface observations.
+
 \begin{figure}[htbp!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/results/cgan_constrained_performance/comparative_f1_scores.png}
-    \caption{}
+    \caption{Macro F1 and single channel F1 score distributions for three optimization runs with varying threshold values. Run 1: threshold = 1, Run 2: threshold = 2 \& Run 3: threshold = 5.}
     \label{fig:post_optimization_f1_scores}
 \end{figure}
 
-As illustrated in Figure \ref{fig:post_optimization_f1_scores}, the percentage of realizations achieving a flawless fit with the conditioning points is highly dependent on the optimization threshold ($Th$). The threshold ($Th$) defines a specific spatial radius around the wellbore, measured in voxels, within which the generative model is penalized for mismatching the hard conditioning data. Specifically, voxels located beyond this distance threshold are assigned a weight of zero in the context loss function, ensuring that the inversion process enforces localized geological alignment without over-constraining the broader, unobserved reservoir architecture~(See figure~\ref{fig:anisotropic_mask_appendix}). Table~\ref{tab:optimization_f1_scores} details the Macro F1-scores and spatial entropy metrics achieved across these varying threshold configurations.
+As illustrated in Figure \ref{fig:post_optimization_f1_scores}, the performance of realizations achieving a tight fit with the conditioning points is highly dependent on the optimization threshold ($Th$). The threshold ($Th$) defines a specific spatial radius around the wellbore, measured in voxels, within which the generative model is penalized for mismatching the hard conditioning data. Specifically, voxels located beyond this distance threshold are assigned a weight of zero in the context loss function, ensuring that the inversion process enforces localized geological alignment without over-constraining the broader, unobserved reservoir architecture~(See figure~\ref{fig:anisotropic_mask_appendix}). Table~\ref{tab:optimization_f1_scores} details the Macro F1-scores, per-class F1 performance, and mean spatial entropy metrics achieved across these varying threshold configurations.
 
 \begin{table}[htbp!]
     \centering
     \renewcommand{\arraystretch}{1.4}
     \small
-    \newcolumntype{Y}{>{\centering\arraybackslash}X} 
     \begin{tabularx}{\textwidth}{X c c c c c c}
         \hline
-        \textbf{Run} & \textbf{Th} & \textbf{Macro F1$\uparrow$} & \textbf{Mean $H_{norm, P}\uparrow$} & \textbf{Mean $H_{norm, I}\uparrow$} & \textbf{Count $P \uparrow$} & \textbf{Count $I \downarrow$} \\
+        \textbf{Run} & \textbf{Th} & \textbf{Macro F1$\uparrow$} & \textbf{$F1_{C1}\uparrow$} & \textbf{$F1_{C2}\uparrow$} & \textbf{$F1_{C3}\uparrow$} & \textbf{Mean $H_{norm}\uparrow$} \\
         \hline
-        Run 1 & 1  & 0.618539 & 0.641889 & 0.664907 & 36 & 64 \\
-        Run 2 & 2  &          &          &          &    &    \\
-        Run 3 & 5  & 0.835997 & 0.634802 & 0.629816 & 70 & 30 \\
-        Run 4 & 10 & 0.861774 & 0.596361 & 0.582823 & 73 & 27 \\
-        Run 5 & 15 &          &          &          &    &    \\
+        Run 1 & 1 & 0.70 & 0.77 & 0.56 & 0.76 & 0.686 \\
+        Run 2 & 2 & 0.78 & 0.84 & 0.68 & 0.81 & 0.685 \\
+        Run 3 & 5 & 0.84 & 0.90 & 0.79 & 0.85 & 0.663 \\
         \hline
     \end{tabularx}
-    \caption{Optimization metrics evaluated across different run configurations. The column `Th` indicates the specific threshold value defining the spatial region affected by latent optimization. Subscript indices $P$ (Perfect) denote the subset of generated samples achieving a flawless well alignment ($\text{F1} = 1.0$), while $I$ (Imperfect) refers to the remaining sample subset that did not fit perfectly ($\text{F1} < 1.0$). Normalized spatial entropy values ($H_{norm}$) are provided respectively for both groups alongside categorical sample counts.}
-    \label{tab:optimization_f1_scores}
+    \caption{Optimization metrics evaluated across different run configurations. The column `Th` indicates the specific threshold value defining the spatial region affected by latent optimization. Per-class F1-scores ($F1_{C1}$, $F1_{C2}$, $F1_{C3}$) indicate conditioning accuracy across the individual facies categories at the well locations, accompanied by the global mean normalized spatial entropy ($H_{norm}$) computed over the generated ensemble.}
     \label{tab:optimization_f1_scores}
 \end{table}
 
-Concurrently, the distribution of realizations achieving a perfect fit exhibits a rapid, non-linear response to the threshold parameter. Moving from a threshold of 1 (Run 1) to a threshold of 5 (Run 3) yields a near-exponential increase in the number of perfectly conditioned realizations, jumping from 36 to 70. However, as the threshold continues to increase past this point, the rate of improvement plateaus, reaching only 73 perfect realizations at a threshold of 10. This plateau suggests a fundamental limit to how much a frozen generator can bend its learned prior to fit localized data, demonstrating why subsequent Pivotal Tuning is required to bridge the remaining spatial mismatch.
+Concurrently, the distribution of realizations achieving high fidelity exhibits a, non-linear response to the threshold parameter. Moving from a tightly constrained threshold of 1 (Run 1) to a wider threshold of 5 (Run 3) yields a substantial increase across all metrics, with the Macro F1-score rising from 0.70 to 0.84. This upward shift is reflected consistently across all three facies classes. For instance, the dominant class ($C1$) scales from an F1-score of 0.77 up to 0.90, while the minority class ($C2$), which typically represents the optimization bottleneck due to severe class imbalance, sees its F1-score jump significantly from 0.56 to 0.79. This systemic improvement suggests that expanding the spatial radius of the context loss mask provides the latent space optimization algorithm with the necessary geometric gradient information to resolve complex multi-scale facies structures, allowing the model to find valid spatial arrangements that honor the hard conditioning points.
 
-Furthermore, Table \ref{tab:optimization_f1_scores} highlights a critical trade-off between strict well conditioning and spatial diversity. As the optimization threshold increases, the normalized spatial entropy ($H_{norm}$) systematically decreases for both the perfectly aligned ($P$) and imperfectly aligned ($I$) subsets. This mathematical drop in entropy indicates that enforcing stricter conditioning constraints forces the optimization algorithm to sample from a narrower, more restricted region of the latent space. Consequently, while the well data is honored more frequently, the overall stochastic diversity of the generated ensemble diminishes. Visual confirmation of this phenomenon is provided in Appendix \ref{App:Entropy_Thresholds}, which demonstrates that the spatial extent of low-entropy, high-certainty regions expands proportionally with the applied threshold.
+Furthermore, analyzing the relationship between conditioning accuracy and ensemble variance highlights a critical spatial trade-off. The main takeaway from the hyperparameter transition is that as the global F1-score increases, the normalized spatial entropy ($H_{norm}$) systematically decreases under wider thresholds. Geologically and mathematically, this behavior occurs because the area under direct deterministic constraint increases radially from the wellbore with higher threshold values. By expanding this optimization zone, a larger volume of the reservoir is forced to adhere strictly to the static well data across the entire ensemble. Consequently, the area characterized by low entropy expands radially outward from the well trajectories, naturally diminishing the overall stochastic diversity and structural variance of the generated realizations in that region (see Appendix \ref{App:Entropy_Thresholds}).
+
+Importantly, while spatial positioning constraints yield varying F1-scores at the voxel level, the classification capacity of the inverted model remains exceptionally robust. The Receiver Operating Characteristic (ROC) scores are completely perfect across all runs, achieving an Area Under the Curve ($\text{AUC} = 1.0$) for all individual facies classes across every optimization configuration (refer to Figure~\ref{fig:appendix_ROC_curves_post_optimization}). This flawless AUC metric mathematically confirms that the latent space optimization preserves the pristine probablistic separation and architectural logic of the learned geological prior, ensuring that any minor spatial mismatch captured by the F1 metric is merely a localized boundary shift rather than a breakdown in facies identification.

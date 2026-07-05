@@ -3,7 +3,7 @@
 The one-hot encoding strategy used in this project created $n$ spatial channels based on the number of individual classes passed on to the model. Where traditional one-hot encodiding strategies map the values in a channel to either 1 or 0, referring to the presence or absence of a specific class, the final \textit{Tanh} activation function in the \gls{fluvgan} model maps values to either -1 or 1. Figure~\ref{appendix_fig:one_hot_encoding} provides an overview of one hot encoding of a vector.
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/appendix/Appendix_B/one_hot_encoding.png}
+    \includegraphics[width=0.5\textwidth]{figures/appendix/appendix_B/one_hot_encoding.png}
     \caption{Simpel one-ho encoding represenation by converting the original data array into a multitude of bipolar vectors. One-hot encoding can be applied to any type of categorical data.}
     \label{appendix_fig:one_hot_encoding}
 \end{figure}
@@ -64,10 +64,3 @@ Using one-hot encoding categorical independent data can be correctly fed to the 
     \caption{Detailed architectural specifications and layer parameters for the DeepDiscriminator3d network.}
     \label{tab:best_discriminator_architecture}
 \end{table}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/appendix/loss_visualization_cgan_150_epochs.png}
-    \caption{}
-    \label{fig:GAN_architecture}
-\end{figure}
