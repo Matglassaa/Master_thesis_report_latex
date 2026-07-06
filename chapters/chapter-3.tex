@@ -74,7 +74,7 @@ During the adversarial training process, the weights of both the Generator ($\ma
 
 During adversarial training, instability often manifests as exploding logarithmic losses when either the Generator $\mathbf{G}$ or Discriminator $\mathbf{D}$ becomes too confident in their predictions. Furthermore, poorly calibrated networks are highly susceptible to severe mode collapse, where the generator's stochastic capability is restricted. Besides the exact model architecture, other hyperparameters exist that influence how the model behaves during training. To investigate the optimal model architecture and hyperparameters that yield stable training and diverse geological outputs, a systematic hyperparameter tuning study was conducted.
 
-\subsubsection{Hyperparameters}
+\subsubsection*{Hyperparameters}
 Hyperparameter tuning involves testing various combinations of network settings to evaluate their impact on model performance. The primary objective is to identify an optimal configuration that minimizes the discrepancy between the generated models and the input data, while actively preserving spatial ensemble diversity.To achieve this, baseline parameters (such as the optimizer and batch size) were kept constant (see table~\ref{tab:fixed_baseline_config}), while a specific set of architectural and training hyperparameters were varied stepwise. The complete search space for this hyperparameter study is outlined in Table~\ref{tab:Hyperparameter_search_space}.
 
 \begin{table}[htbp!]
@@ -149,7 +149,7 @@ By calculating the normalized entropy at each specific spatial coordinate across
 
 This voxel-wise evaluation visually maps regions of spatial conflict and agreement, which can be summarized across the entire volume domain to yield a global scalar score $\bar{H} = \frac{1}{V}\sum_{z,y,x} H(z,y,x)$. To evaluate how closely the spatial distribution of uncertainty matches the reference data, the coordinate-wise probability tensors are aggregated and compared using the \gls{jsd}~\parencite{lin1991divergence}. The \gls{jsd} measures the coordinate-wise distributional disagreement between the reference baseline and the \gls{gan} models (The full mathematical derivations and multi-scale details for these evaluation metrics are expanded in Appendix~\ref{app:evaluation_math}).
 
-\subsubsection{Data conditioning}
+\subsubsection*{Data conditioning}
 While JS divergence defines the overall ensemble spread, after optimization and inversion, each individual \gls{gan} model within that ensemble must still strictly honor the physical reality at the wellbore. This physical reality at the wellbore acts as a strict spatial constraint, the localized mismatch of which is calculated using the Macro F1-score. The Macro F1-score calculates the unweighted average of the harmonic mean of precision and recall across all $C$ individual facies classes:
 
 \[ F1_{macro} = \frac{1}{C} \sum_{c=1}^{C} \frac{2 \cdot \text{Precision}_c \cdot \text{Recall}_c}{\text{Precision}_c + \text{Recall}_c} \]
