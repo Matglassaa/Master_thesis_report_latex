@@ -24,10 +24,10 @@ In total, 20,000 samples were generated for the three datasets as defined in tab
     \caption{Global categorical facies distribution profiles compared across the three synthetic training datasets for all available classes.}
     \label{tab:comparison_facies_distribution_flumy_samples}
 \end{table}
-As can be observed in this overview, the structural facies, hereafter referred to as classes, exhibit a severe statistical imbalance throughout the data volume. This severe imbalance is a result of dominant classes occupying over 60\% of the total grid volume, while corresponding minority classes are entirely absent due to the fundamental boundary limitations of the FLUMY NEXUS parameters. The volumetric presence of classes 4, 5, and 6 is particularly suppressed, yielding an exceptionally low occurrence rate ranging between 0.0\% and 0.1\%. Altough the classes will be grouped to form three classes instead of nine, the class imbalance will remain with the second class only occuring around 5|5 of the time while the first class occurs approximatly 70\% of the time. Such depressed occurrence rates could present an optimization bottleneck as the random occurrence of these volumes throughout the samples could confuse the model into finding an optimized setting that totally disregards these classes. The Discriminator could get stuck on deciding whether a sample is real or fake by judging mostly based on class 1, which leads to the Generator trying to improve the structure of this class, completely disregarding the other classes. Moreover, the high class imbalance in the data has to be accounted for when evaluating the model, especially with regards to the well mismatch evaluation. 
+As can be observed in this overview, the structural facies, hereafter referred to as classes, exhibit a severe statistical imbalance throughout the generated data volume. This imbalance stems from dominant classes occupying over 60\% of the total grid volume, while specific minority classes are heavily suppressed due to the boundary limitations of the FLUMY NEXUS parameters. Specifically, the volumetric presence of classes 4, 5, and 6 is negligible, yielding an exceptionally low occurrence rate ranging between 0.0\% and 0.1\%.  Such depressed occurrence rates present a critical optimization bottleneck during adversarial training. Because standard GAN objective functions treat all voxels with uniform weight, the Discriminator may be biased to evaluating sample validity almost entirely on the dominant Class 1. Consequently, the Generator can easily get trapped in a suboptimal training loop that refines large-scale features while completely disregarding the structural nuances of minority facies. This statistical skewness must be strictly accounted for during model evaluation, particularly regarding the localized well mismatch metrics.  However, a vital structural justification emerges when transitioning from the high-fidelity 9-class case to the upscaled 3-class framework . Although the class imbalance persists within this configuration—with the primary class dominating approximately 70\% of the domain and the secondary class appearing only around 5\% of the time, this upscaled arrangement provides a necessary geological bridge to the operational environment. Crucially, the global facies proportions of the 3-class synthetic ensemble closely resemble the actual empirical well log proportions interpreted from the cored and logged sections of the DEL-GT-01 and DEL-GT-02-S2 wells (see Figure \ref{fig:appendix_well_data}) . Therefore, while the unscaled prior suffers from fundamental synthesis limitations under default settings , the upscaled prior successfully aligns the model's categorical resolution with the physical subsurface reality of the target reservoir.  
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=0.95\textwidth]{figures/results/datasets_summary.png}
+    \includegraphics[width=0.95\textwidth]{figures/results/cgan_unconstrained_performance/datasets_summary.png}
     \caption{MDS plot with two 3D facies samples displayed and a 3D pixel-wise entropy per setting.}
     \label{fig:3D_datasets_comparison}
 \end{figure}
@@ -62,7 +62,7 @@ Figure~\ref{fig:ablation_study} and table~\ref{tab:ablation_study} provide an ov
 \end{table}
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=0.95\textwidth]{figures/results/Ablation_study.png}
+    \includegraphics[width=0.95\textwidth]{figures/results/cgan_unconstrained_performance/Ablation_study.png}
     \caption{Ablation study starting from \gls{fluvgan} and progressively adding/adjusting parameters to observe their effect on training, geological plausibility and sample diversity.~\textit{Run 1:} Standard FluvGAN architecture from~\parencite{rongier2025atowards}.~\textit{Run 2:} Addition of double convolutional layers.~\textit{Run 3:} Addition of double residual blocks (i.e. skip connections) on top of double convolutions.~\textit{Run 4:} Addition of a discriminator penalty every 32 iterations.~\textit{Run 5:} CHanged discriminator penalty to every 16 iterations.~\textit{Run 6:} Changed discriminator penalty to every iteration.~\textit{Run 7:} Run 5 hyperparameters but decreased to 10000 training samples.~\textit{Run 8:} Run 5 hyperparameters but changed number of itereation of the discriminator to 2.}
     \label{fig:ablation_study}
 \end{figure}
@@ -74,7 +74,7 @@ Moreover, the base \gls{fluvgan} architecture lead to significant mode collapse 
 The model with run 5 parameters, of which a complete list with all exact parameters can be found in (add table to the appendix), was run for 100 epochs as well to see whether the results could improve. Altough the the JSD and MS-SWD values did not vary significantly, the geological plausibility of the samples seems to increase significantly, suggested by figure~\ref{fig:mds_samples_run_5}: when visually, comparing the evolution from 25 to 100 epochs, especially the continuity of the clay deposits, the continuity of this facies seems to have increased (add comparison figure between these two samples! -> 20 3s samples from 25 epochs and 20 samples from 100 epochs.). This is further supported by the blob mean blob size calculation (see table~)
 \begin{figure}[htbpt!]
     \centering
-    \includegraphics[width=0.75\textwidth]{figures/results/mds_samples_overview_matrix.png}
+    \includegraphics[width=0.75\textwidth]{figures/results/cgan_unconstrained_performance/mds_samples_overview_matrix.png}
     \caption{Overview of model trained with run 5 settings as described in table~\ref{tab:ablation_study} and figure~\ref{fig:ablation_study} for 100 epochs. The MDS plot shows a 2D representation of a high dimensional structure computed with the Wasserstein distance. For reference have 100 samples from run 6 been added, showing that those samples do not overlap with the training dataset samples, suggesting they lack in full complexity.}
     \label{fig:mds_samples_run_5}
 \end{figure}
@@ -85,7 +85,7 @@ Besides only evaluating the model trained on the grouped facies, the training wa
 
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=0.95\textwidth]{figures/results/combined_plot_all_channels.png}
+    \includegraphics[width=0.95\textwidth]{figures/results/cgan_unconstrained_performance/combined_plot_all_channels.png}
     \caption{Overview of (best) high fidelity model trained over 25 epochs. }
     \label{fig:combined_plot_all_channels}
 \end{figure}

@@ -16,7 +16,19 @@
 *.synctex.gz
 *.bcf
 *.run.xml
+*.bbl
+*.glsdefs
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.loc
+*.soc
 
 # VS Code specific
 .vscode/
 .gemini/
+

@@ -147,7 +147,7 @@ To ensure the metric is bound strictly between 0 and 1, facilitating direct cros
 \end{equation}
 By calculating the normalized entropy at each specific spatial coordinate across multiple generated models, this metric serves as a direct validation of the model's stochastic diversity. High entropy values at a given pixel indicate that the generator produces a varied distribution of facies at that location, whereas low entropy exposes areas of rigid uniformity or localized mode collapse. 
 
-This voxel-wise evaluation visually maps regions of spatial conflict and agreement, which can be summarized across the entire volume domain to yield a global scalar score $\bar{H} = \frac{1}{V}\sum_{z,y,x} H(z,y,x)$. To evaluate how closely the spatial distribution of uncertainty matches the reference data, the coordinate-wise probability tensors are aggregated and compared using the Jensen-Shannon (JS) divergence~\parencite{lin1991divergence}. As a symmetric metric based on Kullback-Leibler divergence~\parencite{kullback1951information}, the squared JS divergence measures the coordinate-wise distributional disagreement between the reference baseline and the \gls{gan} models (The full mathematical derivations and multi-scale details for these evaluation metrics are expanded in Appendix~\ref{app:evaluation_math}).
+This voxel-wise evaluation visually maps regions of spatial conflict and agreement, which can be summarized across the entire volume domain to yield a global scalar score $\bar{H} = \frac{1}{V}\sum_{z,y,x} H(z,y,x)$. To evaluate how closely the spatial distribution of uncertainty matches the reference data, the coordinate-wise probability tensors are aggregated and compared using the \gls{jsd}~\parencite{lin1991divergence}. The \gls{jsd} measures the coordinate-wise distributional disagreement between the reference baseline and the \gls{gan} models (The full mathematical derivations and multi-scale details for these evaluation metrics are expanded in Appendix~\ref{app:evaluation_math}).
 
 \subsubsection{Data conditioning}
 While JS divergence defines the overall ensemble spread, after optimization and inversion, each individual \gls{gan} model within that ensemble must still strictly honor the physical reality at the wellbore. This physical reality at the wellbore acts as a strict spatial constraint, the localized mismatch of which is calculated using the Macro F1-score. The Macro F1-score calculates the unweighted average of the harmonic mean of precision and recall across all $C$ individual facies classes:
@@ -157,7 +157,7 @@ While JS divergence defines the overall ensemble spread, after optimization and 
 Where for each class the precision and recall scores have to calculated:
 
 \[Precision = \frac{TP}{TP + FN}\]
-\[Recall = \frac{TP}{TP + FN}\]
+\[Recall = \frac{TP}{TP + FP}\]
 
 where true positive (TP) represents the number of correctly predicted positive pixels, false positive (FP) the predicted positive but actually negative pixels, false negative (FN) the predicted negative but actually positive pixels.
 
