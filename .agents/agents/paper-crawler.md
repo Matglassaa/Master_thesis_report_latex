@@ -3,7 +3,7 @@ name: paper-crawler
 description: Collects and classifies research papers from DBLP and OpenAlex APIs for literature surveys
 kind: local
 tools:
-  - read_file
+  - view_file
   - glob
   - grep_search
   - run_shell_command

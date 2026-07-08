@@ -3,7 +3,7 @@ name: bibliography-auditor
 description: Audits bibliography entries for completeness, consistency, and hygiene — checks .bib files, compiled PDF for unresolved references, arXiv-only citations, title capitalization, and venue consistency
 kind: local
 tools:
-  - read_file
+  - view_file
   - glob
   - grep_search
   - run_shell_command
@@ -16,7 +16,7 @@ model: inherit
 
 ## Before Starting
 
-Read `/Users/owl/.claude/principles/academic-writing.md` for the full principle set.
+Read `the academic-writing principles (in the academic-writing skill directory)` for the full principle set.
 **Primary principles**: E1 (cite all named models/benchmarks/datasets), E2 (citation completeness at first mention), E3 (bibliography hygiene).
 
 ## Your Task

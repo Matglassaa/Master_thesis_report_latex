@@ -3,7 +3,7 @@ name: brainstormer
 description: Generates creative ideas, alternative framings, connections between concepts, and novel research directions
 kind: local
 tools:
-  - read_file
+  - view_file
   - glob
   - grep_search
   - web_fetch

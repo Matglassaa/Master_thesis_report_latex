@@ -3,7 +3,7 @@ name: latex-layout-auditor
 description: Audits compiled PDF output for figure and table layout issues, checking float placement, alignment, sizing, and caption consistency
 kind: local
 tools:
-  - read_file
+  - view_file
   - glob
   - grep_search
   - run_shell_command

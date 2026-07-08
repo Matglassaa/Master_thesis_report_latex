@@ -140,7 +140,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Petroleum geology of the continental shelf of {North-West Europe}}
+      \field{booktitle}{Petroleum Geology of the Continental Shelf of {North-West Europe}}
       \field{title}{Habitat of the {Rijswijk} oil province, onshore, the {Netherlands}}
       \field{year}{1981}
       \field{pages}{301\bibrangedash 309}
@@ -189,7 +189,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Norwegian petroleum society special publications}
+      \field{journaltitle}{Norwegian Petroleum Society Special Publications}
       \field{title}{Sedimentary environments offshore {Norway}—an overview}
       \field{volume}{10}
       \field{year}{2001}
@@ -510,7 +510,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Mathematical Geosciences}
-      \field{title}{Three-Dimensional Latent Diffusion Models for Parameterizing and History Matching Facies Systems Under Hierarchical Uncertainty}
+      \field{title}{Three-dimensional latent diffusion models for parameterizing and history matching facies systems under hierarchical uncertainty}
       \field{year}{2025}
       \field{pages}{1\bibrangedash 33}
       \range{pages}{33}
@@ -552,7 +552,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Science of the total environment}
+      \field{journaltitle}{Science of the Total Environment}
       \field{title}{On the relation between fluvio-deltaic flood basin geomorphology and the wide-spread occurrence of arsenic pollution in shallow aquifers}
       \field{volume}{574}
       \field{year}{2017}
@@ -877,6 +877,49 @@
       \field{pages}{cp\bibrangedash 161}
       \range{pages}{-1}
     \endentry
+    \entry{he2025generative}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=214c101bc711bfb683516a59fae51ecc}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Ran},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9c40aa498e849f7f722883a4ae1fb336}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=116ce38201da138f399dde04290058b8}{%
+           family={Tan},
+           familyi={T\bibinitperiod},
+           given={Tieniu},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{26c4625cfd46809129ed3e20871063f3}
+      \strng{fullhash}{2b1df87cf030aa59c86483dd349a35a1}
+      \strng{bibnamehash}{2b1df87cf030aa59c86483dd349a35a1}
+      \strng{authorbibnamehash}{2b1df87cf030aa59c86483dd349a35a1}
+      \strng{authornamehash}{26c4625cfd46809129ed3e20871063f3}
+      \strng{authorfullhash}{2b1df87cf030aa59c86483dd349a35a1}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{National Science Review}
+      \field{month}{02}
+      \field{title}{Generative artificial intelligence: a historical perspective}
+      \field{volume}{12}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.1093/nsr/nwaf050
+      \endverb
+    \endentry
     \entry{heinemann2021enabling}{article}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -1185,7 +1228,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{The annals of mathematical statistics}
+      \field{journaltitle}{The Annals of Mathematical Statistics}
       \field{number}{1}
       \field{title}{On information and sufficiency}
       \field{volume}{22}
@@ -1242,7 +1285,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Advances in water resources}
+      \field{journaltitle}{Advances in Water Resources}
       \field{title}{Inversion using a new low-dimensional representation of complex binary geological media based on a deep neural network}
       \field{volume}{110}
       \field{year}{2017}
@@ -1286,7 +1329,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{nature}
+      \field{journaltitle}{Nature}
       \field{number}{7553}
       \field{title}{Deep learning}
       \field{volume}{521}
@@ -1319,7 +1362,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Information theory}
+      \field{journaltitle}{IEEE Transactions on Information Theory}
       \field{number}{1}
       \field{title}{Divergence measures based on the Shannon entropy}
       \field{volume}{37}
@@ -1359,7 +1402,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Mathematical Geosciences}
-      \field{title}{A General Framework for Hierarchical Compression-Based Modelling}
+      \field{title}{A general framework for hierarchical compression-based modelling}
       \field{year}{2026}
       \field{pages}{1\bibrangedash 44}
       \range{pages}{44}
@@ -1637,7 +1680,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{ACM Transactions on graphics (TOG)}
+      \field{journaltitle}{ACM Transactions on Graphics (TOG)}
       \field{number}{1}
       \field{title}{Pivotal tuning for latent-based editing of real images}
       \field{volume}{42}
@@ -1866,7 +1909,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Solid earth}
+      \field{journaltitle}{Solid Earth}
       \field{number}{4}
       \field{title}{Quantification of uncertainty in 3-D seismic interpretation: implications for deterministic and stochastic geomodeling and machine learning}
       \field{volume}{10}
@@ -1899,7 +1942,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{The Bell system technical journal}
+      \field{journaltitle}{The Bell System Technical Journal}
       \field{number}{3}
       \field{title}{A mathematical theory of communication}
       \field{volume}{27}
@@ -2200,7 +2243,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:2003.11826}
+      \field{journaltitle}{Proceedings World Geothermal Congress 2020}
       \field{title}{A geothermal well doublet for research and heat supply of the {TU Delft Campus}}
       \field{year}{2020}
     \endentry
@@ -2692,7 +2735,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Petroleum geology of the continental shelf of {North-West Europe}}
+      \field{booktitle}{Petroleum Geology of the Continental Shelf of {North-West Europe}}
       \field{title}{Habitat of the {Rijswijk} oil province, onshore, the {Netherlands}}
       \field{year}{1981}
       \field{pages}{301\bibrangedash 309}
@@ -2741,7 +2784,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Norwegian petroleum society special publications}
+      \field{journaltitle}{Norwegian Petroleum Society Special Publications}
       \field{title}{Sedimentary environments offshore {Norway}—an overview}
       \field{volume}{10}
       \field{year}{2001}
@@ -3062,7 +3105,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Mathematical Geosciences}
-      \field{title}{Three-Dimensional Latent Diffusion Models for Parameterizing and History Matching Facies Systems Under Hierarchical Uncertainty}
+      \field{title}{Three-dimensional latent diffusion models for parameterizing and history matching facies systems under hierarchical uncertainty}
       \field{year}{2025}
       \field{pages}{1\bibrangedash 33}
       \range{pages}{33}
@@ -3104,7 +3147,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Science of the total environment}
+      \field{journaltitle}{Science of the Total Environment}
       \field{title}{On the relation between fluvio-deltaic flood basin geomorphology and the wide-spread occurrence of arsenic pollution in shallow aquifers}
       \field{volume}{574}
       \field{year}{2017}
@@ -3429,6 +3472,49 @@
       \field{pages}{cp\bibrangedash 161}
       \range{pages}{-1}
     \endentry
+    \entry{he2025generative}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=214c101bc711bfb683516a59fae51ecc}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Ran},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9c40aa498e849f7f722883a4ae1fb336}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=116ce38201da138f399dde04290058b8}{%
+           family={Tan},
+           familyi={T\bibinitperiod},
+           given={Tieniu},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{26c4625cfd46809129ed3e20871063f3}
+      \strng{fullhash}{2b1df87cf030aa59c86483dd349a35a1}
+      \strng{bibnamehash}{2b1df87cf030aa59c86483dd349a35a1}
+      \strng{authorbibnamehash}{2b1df87cf030aa59c86483dd349a35a1}
+      \strng{authornamehash}{26c4625cfd46809129ed3e20871063f3}
+      \strng{authorfullhash}{2b1df87cf030aa59c86483dd349a35a1}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{National Science Review}
+      \field{month}{02}
+      \field{title}{Generative artificial intelligence: a historical perspective}
+      \field{volume}{12}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.1093/nsr/nwaf050
+      \endverb
+    \endentry
     \entry{heinemann2021enabling}{article}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -3737,7 +3823,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{The annals of mathematical statistics}
+      \field{journaltitle}{The Annals of Mathematical Statistics}
       \field{number}{1}
       \field{title}{On information and sufficiency}
       \field{volume}{22}
@@ -3794,7 +3880,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Advances in water resources}
+      \field{journaltitle}{Advances in Water Resources}
       \field{title}{Inversion using a new low-dimensional representation of complex binary geological media based on a deep neural network}
       \field{volume}{110}
       \field{year}{2017}
@@ -3838,7 +3924,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{nature}
+      \field{journaltitle}{Nature}
       \field{number}{7553}
       \field{title}{Deep learning}
       \field{volume}{521}
@@ -3871,7 +3957,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Information theory}
+      \field{journaltitle}{IEEE Transactions on Information Theory}
       \field{number}{1}
       \field{title}{Divergence measures based on the Shannon entropy}
       \field{volume}{37}
@@ -3911,7 +3997,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Mathematical Geosciences}
-      \field{title}{A General Framework for Hierarchical Compression-Based Modelling}
+      \field{title}{A general framework for hierarchical compression-based modelling}
       \field{year}{2026}
       \field{pages}{1\bibrangedash 44}
       \range{pages}{44}
@@ -4189,7 +4275,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{ACM Transactions on graphics (TOG)}
+      \field{journaltitle}{ACM Transactions on Graphics (TOG)}
       \field{number}{1}
       \field{title}{Pivotal tuning for latent-based editing of real images}
       \field{volume}{42}
@@ -4418,7 +4504,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Solid earth}
+      \field{journaltitle}{Solid Earth}
       \field{number}{4}
       \field{title}{Quantification of uncertainty in 3-D seismic interpretation: implications for deterministic and stochastic geomodeling and machine learning}
       \field{volume}{10}
@@ -4451,7 +4537,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{The Bell system technical journal}
+      \field{journaltitle}{The Bell System Technical Journal}
       \field{number}{3}
       \field{title}{A mathematical theory of communication}
       \field{volume}{27}
@@ -4752,7 +4838,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:2003.11826}
+      \field{journaltitle}{Proceedings World Geothermal Congress 2020}
       \field{title}{A geothermal well doublet for research and heat supply of the {TU Delft Campus}}
       \field{year}{2020}
     \endentry
@@ -5122,7 +5208,6 @@
       \range{pages}{1}
     \endentry
   \enddatalist
-  \missing{he2025generative}
 \endrefsection
 \endinput
 

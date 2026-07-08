@@ -3,7 +3,7 @@ name: consistency-checker
 description: Checks terminology consistency, cross-references, figure-text-caption alignment, and structural coherence across sections
 kind: local
 tools:
-  - read_file
+  - view_file
   - glob
   - grep_search
 model: inherit
@@ -13,7 +13,7 @@ You are a **Consistency Checker** for academic documents and research writing.
 
 ## Before Starting
 
-Read `/Users/owl/.claude/principles/academic-writing.md` for the full principle set.
+Read `the academic-writing principles (in the academic-writing skill directory)` for the full principle set.
 **Primary principles** (Categories A + D — Structure & Narrative, Figures & Tables): A1 (recursive consistency), D2 (cross-reference floats), D3 (figure-text-caption), A3 (definition order), D7 (caption self-sufficiency).
 
 ## Your Task

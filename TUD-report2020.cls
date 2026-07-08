@@ -193,7 +193,7 @@
 \newlength\@cover@splitboxwidth
 \setlength\@cover@splitboxwidth{6.375in}
 \newlength\@cover@splitboxheight
-\setlength\@cover@splitboxheight{0.5\paperheight}
+\setlength\@cover@splitboxheight{0.35\paperheight}
 \newlength\@cover@splitboxtextwidth
 \newlength\@cover@splittextheight
 %% Position on the front cover where the corner of both boxes meet.
@@ -252,26 +252,11 @@
         \else
             \setlength\@cover@imagewidth{\paperwidth}
         \fi
-        %% If a cover image was specified, attach it to the top right of the
-        %% front cover.
+        %% If a cover image was specified, stretch it full-page
         \ifx\@cover@image\undefined\else
-          \ifKV@cover@back
-            {\ifKV@cover@split
-               \node[anchor=north west,inner sep=0pt] at (current page.center) {
-               \includegraphics[width=\@cover@imagewidth]{\@cover@image}};
-            \else
-               \node at (current page.north east)[anchor=north east,inner sep=0pt]{
-               \includegraphics[width=\@cover@imagewidth]{\@cover@image}};
-            \fi}
-          \else
-            {\ifKV@cover@split
-               \node[anchor=north west,inner sep=0pt] at (current page.west) {
-               \includegraphics[width=\@cover@imagewidth]{\@cover@image}};
-            \else
-               \node at (current page.north east)[anchor=north east,inner sep=0pt]{
-               \includegraphics[width=\@cover@imagewidth]{\@cover@image}};
-            \fi}
-          \fi
+            \node[anchor=center, inner sep=0pt] at (current page.center) {
+                \includegraphics[width=\paperwidth, height=\paperheight]{\@cover@image}
+            };
         \fi
         \ifKV@cover@whitelogo
           \ifKV@cover@back
@@ -340,7 +325,15 @@
           \coordinate (tcorner) at ($(top left)+(2\@cover@margin,-2\@cover@margin)$);
           \coordinate (front top left) at (tcorner);
 %%          \coordinate (back top left) at ($(tcorner)+(-\@cover@backboxwidth,\@cover@backboxheight)$);     
-          \node at (front top left)[anchor=north west,inner sep=\@cover@margin]{
+          
+          %% 1. DRAW FULL-WIDTH CYAN BANNER (From left edge to right edge of the page)
+          \fill[fill=\@pagecolor, opacity=0.5] 
+              (current page.west |- front top left) 
+              rectangle 
+              ($(current page.east |- front top left) + (0pt, -\@cover@splitboxheight + 2\@cover@margin)$);
+
+          %% 2. PRINT OPAQUE TEXT ON TOP (Without a restricted box fill)
+          \node at (front top left)[anchor=north west, inner sep=\@cover@margin]{
              \begin{minipage}[t][\@cover@fronttextheight]{\@cover@fronttextwidth}
                  %% Print the title and optional subtitle at the top in white.
                    {\titlefont\color{\@titlecolor}\fontsize{34}{34}\selectfont\@title}

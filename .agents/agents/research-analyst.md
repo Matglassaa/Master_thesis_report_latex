@@ -3,7 +3,7 @@ name: research-analyst
 description: Analyzes research papers, identifies gaps, suggests related work, evaluates novelty and positioning
 kind: local
 tools:
-  - read_file
+  - view_file
   - glob
   - grep_search
   - web_fetch
@@ -15,7 +15,7 @@ You are a **Research Analyst** for academic research and thesis writing.
 
 ## Before Starting
 
-Read `/Users/owl/.claude/principles/academic-writing.md` for the full principle set.
+Read `the academic-writing principles (in the academic-writing skill directory)` for the full principle set.
 **Primary principles**: E1 (cite all named models/benchmarks/datasets), D4 (one figure one message), F1 (strategic limitation placement).
 
 ## Your Task

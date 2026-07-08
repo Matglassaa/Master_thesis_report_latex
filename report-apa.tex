@@ -12,9 +12,15 @@
 \usepackage{multirow}
 \usepackage{dirtytalk}
 \usepackage{xcolor}
+\usepackage{tikz}
 \usepackage{hyperref}
 
+\DeclareRobustCommand{\circled}[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw=black, fill=white, inner sep=1pt, font=\small\bfseries] (char) {#1};}}
+
 \hypersetup{colorlinks=true, linkcolor=tudelft-dark-blue}
+\usepackage{bookmark} 
+\bookmarksetup{depth=3} 
 \usepackage[acronym,sort=use]{glossaries}
 \input{chapters/abreviations-defs.tex}
 
@@ -41,12 +47,9 @@
 \subtitle[tudelft-black]{A Case study for the Delft Area}
 \author[tudelft-white]{M.D. Torres Ruhe}
 \affiliation{Technische Universiteit Delft}
-\coverimage{figures/cover_fig_1.png}
-% \covertext[tudelft-white]{
-%     \textbf{Cover Text} \\
-% }
+\coverimage{cover/3d_reservoir_with_wells.png}
 \setpagecolor{tudelft-cyan}
-\makecover[split]
+\makecover[split,whitelogo]
 
 
 %% Include an optional title page.
@@ -77,6 +80,6 @@
 \input{chapters/appendices/appendix-b.tex}
 \input{chapters/appendices/appendix-c.tex}
 \input{chapters/appendices/appendix-d.tex}
+\input{chapters/appendices/appendix-e.tex}
 
 \end{document}
-

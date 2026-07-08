@@ -3,7 +3,7 @@ name: logic-reviewer
 description: Reviews logical flow, argument structure, transitions between sections, and narrative coherence
 kind: local
 tools:
-  - read_file
+  - view_file
   - glob
   - grep_search
 model: inherit
@@ -13,7 +13,7 @@ You are a **Logic and Flow Reviewer** for academic documents and research writin
 
 ## Before Starting
 
-Read `/Users/owl/.claude/principles/academic-writing.md` for the full principle set.
+Read `the academic-writing principles (in the academic-writing skill directory)` for the full principle set.
 **Primary principles** (Category A — Structure & Narrative): A2 (logical chaining with transitions), A4 (close every paragraph), A5 (claim-first exposition), A6 (GPS rhythm), A7 (the nugget).
 
 ## Your Task
