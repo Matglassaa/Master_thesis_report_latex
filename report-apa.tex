@@ -14,14 +14,23 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{hyperref}
+\usetikzlibrary{shapes.geometric}
 
 \DeclareRobustCommand{\circled}[1]{\tikz[baseline=(char.base)]{
-    \node[shape=circle, draw=black, fill=white, inner sep=1pt, font=\small\bfseries] (char) {#1};}}
+    \node[shape=circle, draw=black, fill=white, inner sep=1pt, font=\small\bfseries] (char) {#1};
+    }
+}
+
+\DeclareRobustCommand{\triangled}[1][white]{%
+  \tikz[baseline=(char.south)]{
+    \node[shape=regular polygon, regular polygon sides=3, draw=black, fill=#1, minimum size=1.0em, inner sep=0pt] (char) {};%
+  }%
+}
 
 \hypersetup{colorlinks=true, linkcolor=tudelft-dark-blue}
 \usepackage{bookmark} 
 \bookmarksetup{depth=3} 
-\usepackage[acronym,sort=use]{glossaries}
+\usepackage[acronym,sort=use,nonumberlist]{glossaries}
 \input{chapters/abreviations-defs.tex}
 
 \makeglossaries
@@ -43,8 +52,8 @@
 \frontmatter
 
 %% Uncomment following 16 lines for a cover with a picture on the lower half only
-\title[tudelft-white]{Evaluating the applicability of Generative Adversarial networks to generate geological facies models}
-\subtitle[tudelft-black]{A Case study for the Delft Area}
+\title[tudelft-white]{Evaluating the applicability of Generative Adversarial networks for geological facies modelling}
+\subtitle[tudelft-black]{A case study on the Delft Geothermal Reservoir}
 \author[tudelft-white]{M.D. Torres Ruhe}
 \affiliation{Technische Universiteit Delft}
 \coverimage{cover/3d_reservoir_with_wells.png}
@@ -81,5 +90,6 @@
 \input{chapters/appendices/appendix-c.tex}
 \input{chapters/appendices/appendix-d.tex}
 \input{chapters/appendices/appendix-e.tex}
+\input{chapters/appendices/appendix-f.tex}
 
 \end{document}

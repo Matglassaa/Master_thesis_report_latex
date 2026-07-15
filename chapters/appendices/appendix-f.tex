@@ -1,0 +1,9 @@
+\chapter{Post - Inversion results}
+During latent space optimization the losses for each of the 100 optimized latents were computed using a combination of contect loss ($\Lambda_{context}$) and geological prior loss ($\Lambda_{prior}$) during each iteration. Figure~\ref{fig:appendix_post_lso_losses} showcases the total loss for each of the latent-space optimization runs.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_F/loss_curves_latent_sapce_optimization.png}
+    \caption{Loss curves of the different runs (Run 1: th = 1, Run 2: th= 2, Run 3: th = 5) over 3000 iterations. The total loss increases as the threshold increases from 1 to 5.}
+    \label{fig:appendix_post_lso_losses}
+\end{figure}

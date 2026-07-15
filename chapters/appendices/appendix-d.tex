@@ -45,14 +45,14 @@ This formulation pushes the localized outputs to perfectly match the hard condit
 \section{Generative Evaluation Metrics}\label{app:evaluation_math}
 The evaluation framework relies on advanced statistical divergence and optimal transport metrics to overcome the limitations of standard voxel-by-voxel assessments in unconditioned 3D modeling.
 
-\subsection{Wasserstein Distance and Mean Sliced Wasserstein Distance}
+\subsection{Wasserstein Distance and Mean \glsentryshort{swd}}
 The conceptual foundation for structural evaluation is the Wasserstein distance, which quantifies the optimal transport cost required to reconfigure the generated probability distribution $P_g$ into the reference real data distribution $P_r$ \parencite{panaretos2019statistical, rongier2025atowards}. It is defined as:
 \begin{equation}\label{eq:wasserstein}
     \mathcal{W}(P_r, P_g) = \inf_{\gamma \sim \Pi(P_r, P_g)} \mathbb{E}_{(x,y) \sim \gamma} [\|x - y\|]
 \end{equation}
 where $\Pi(P_r, P_g)$ denotes the set of all joint probability distributions $\gamma(x,y)$ whose marginals are $P_r$ and $P_g$ respectively. 
 
-Because computing Equation \ref{eq:wasserstein} over high-dimensional 3D grids suffers from the curse of dimensionality, we employ the Mean Sliced Wasserstein Distance (MSWD). MSWD projects the complex 3D distributions onto 1D lines where the optimal transport problem has a trivial, closed-form solution (sorting). Mathematically, it is defined by integrating the 1D Wasserstein distances over the unit hypersphere $\mathbb{S}^{d-1}$:
+Because computing Equation \ref{eq:wasserstein} over high-dimensional 3D grids suffers from the curse of dimensionality, we employ the Mean \gls{swd} (MSWD). MSWD projects the complex 3D distributions onto 1D lines where the optimal transport problem has a trivial, closed-form solution (sorting). Mathematically, it is defined by integrating the 1D Wasserstein distances over the unit hypersphere $\mathbb{S}^{d-1}$:
 \begin{equation}\label{eq:mswd}
     \text{MSWD}(P_r, P_g) = \int_{\mathbb{S}^{d-1}} \mathcal{W}_{1D}(\mathcal{R}_{\omega} \# P_r, \mathcal{R}_{\omega} \# P_g) d\omega
 \end{equation}

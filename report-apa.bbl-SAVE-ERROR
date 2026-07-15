@@ -196,44 +196,6 @@
       \field{pages}{7\bibrangedash 37}
       \range{pages}{31}
     \endentry
-    \entry{brock2018large}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=adb20bf3d0b245b522662eed0d7cb5a2}{%
-           family={Brock},
-           familyi={B\bibinitperiod},
-           given={Andrew},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=913090a0d65c7a300c602f5a5a5a61e3}{%
-           family={Donahue},
-           familyi={D\bibinitperiod},
-           given={Jeff},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9d16b7284df92c9adaee86c37ab992df}{%
-           family={Simonyan},
-           familyi={S\bibinitperiod},
-           given={Karen},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{9fea317a07c20323dff7fb9b17e77ff5}
-      \strng{fullhash}{3164af52b8e69894e92b64552f9e237b}
-      \strng{bibnamehash}{3164af52b8e69894e92b64552f9e237b}
-      \strng{authorbibnamehash}{3164af52b8e69894e92b64552f9e237b}
-      \strng{authornamehash}{9fea317a07c20323dff7fb9b17e77ff5}
-      \strng{authorfullhash}{3164af52b8e69894e92b64552f9e237b}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Proceedings of the International Conference on Learning Representations ({ICLR})}
-      \field{title}{Large scale {GAN} training for high fidelity natural image synthesis}
-      \field{year}{2019}
-    \endentry
     \entry{bruining2023sedimentological}{thesis}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=8087cc0a2c344a0f4b2c056b76d14de8}{%
@@ -685,6 +647,39 @@
       \endverb
       \keyw{Conceptual models,Model evaluation,Model rejection,Multi-model framework,Conceptual model uncertainty}
     \endentry
+    \entry{fawcett2006introduction}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9c15aa0b2a7683cefeaa12c991d0b1c2}{%
+           family={Fawcett},
+           familyi={F\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{fullhash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{bibnamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authorbibnamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authornamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authorfullhash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pattern recognition letters}
+      \field{number}{8}
+      \field{title}{An introduction to ROC analysis}
+      \field{volume}{27}
+      \field{year}{2006}
+      \field{pages}{861\bibrangedash 874}
+      \range{pages}{14}
+    \endentry
     \entry{goodfellow2014generative}{article}{}
       \name{author}{8}{}{%
         {{un=0,uniquepart=base,hash=5d2585c11210cf1d4512e6e0a03ec315}{%
@@ -797,6 +792,30 @@
       \field{note}{\url{http://www.deeplearningbook.org}}
       \field{title}{Deep Learning}
       \field{year}{2016}
+    \endentry
+    \entry{Google2025AccuracyPrecision}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=70f03373e7d41cdbb68dd0f7221ac5f8}{%
+           family={{Google for Developers}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \strng{fullhash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \strng{bibnamehash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \strng{authorbibnamehash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \strng{authornamehash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \strng{authorfullhash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall}}
+      \field{note}{Accessed: 2026-07-08}
+      \field{title}{Classification: Accuracy, recall, precision, and related metrics}
+      \field{year}{2025}
     \endentry
     \entry{groenenberg2010targeting}{article}{}
       \name{author}{9}{}{%
@@ -1196,6 +1215,39 @@
       \field{year}{1996}
       \field{pages}{2617\bibrangedash 2658}
       \range{pages}{42}
+    \endentry
+    \entry{kruskal1964multidimensional}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b89b4f02ff2e102fd2373f69879b51a}{%
+           family={Kruskal},
+           familyi={K\bibinitperiod},
+           given={J.\bibnamedelimi B.},
+           giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \strng{fullhash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \strng{bibnamehash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \strng{authorbibnamehash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \strng{authornamehash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \strng{authorfullhash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychometrika}
+      \field{number}{1}
+      \field{title}{Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis}
+      \field{volume}{29}
+      \field{year}{1964}
+      \field{pages}{1\bibrangedash 27}
+      \range{pages}{27}
     \endentry
     \entry{kullback1951information}{article}{}
       \name{author}{2}{}{%
@@ -2791,44 +2843,6 @@
       \field{pages}{7\bibrangedash 37}
       \range{pages}{31}
     \endentry
-    \entry{brock2018large}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=adb20bf3d0b245b522662eed0d7cb5a2}{%
-           family={Brock},
-           familyi={B\bibinitperiod},
-           given={Andrew},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=913090a0d65c7a300c602f5a5a5a61e3}{%
-           family={Donahue},
-           familyi={D\bibinitperiod},
-           given={Jeff},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9d16b7284df92c9adaee86c37ab992df}{%
-           family={Simonyan},
-           familyi={S\bibinitperiod},
-           given={Karen},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{9fea317a07c20323dff7fb9b17e77ff5}
-      \strng{fullhash}{3164af52b8e69894e92b64552f9e237b}
-      \strng{bibnamehash}{3164af52b8e69894e92b64552f9e237b}
-      \strng{authorbibnamehash}{3164af52b8e69894e92b64552f9e237b}
-      \strng{authornamehash}{9fea317a07c20323dff7fb9b17e77ff5}
-      \strng{authorfullhash}{3164af52b8e69894e92b64552f9e237b}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Proceedings of the International Conference on Learning Representations ({ICLR})}
-      \field{title}{Large scale {GAN} training for high fidelity natural image synthesis}
-      \field{year}{2019}
-    \endentry
     \entry{bruining2023sedimentological}{thesis}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=8087cc0a2c344a0f4b2c056b76d14de8}{%
@@ -3280,6 +3294,39 @@
       \endverb
       \keyw{Conceptual models,Model evaluation,Model rejection,Multi-model framework,Conceptual model uncertainty}
     \endentry
+    \entry{fawcett2006introduction}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9c15aa0b2a7683cefeaa12c991d0b1c2}{%
+           family={Fawcett},
+           familyi={F\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{fullhash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{bibnamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authorbibnamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authornamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authorfullhash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pattern recognition letters}
+      \field{number}{8}
+      \field{title}{An introduction to ROC analysis}
+      \field{volume}{27}
+      \field{year}{2006}
+      \field{pages}{861\bibrangedash 874}
+      \range{pages}{14}
+    \endentry
     \entry{goodfellow-et-al-2016}{book}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=5d2585c11210cf1d4512e6e0a03ec315}{%
@@ -3392,6 +3439,30 @@
       \field{year}{2014}
       \field{pages}{2672\bibrangedash 2680}
       \range{pages}{9}
+    \endentry
+    \entry{Google2025AccuracyPrecision}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=70f03373e7d41cdbb68dd0f7221ac5f8}{%
+           family={{Google for Developers}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \strng{fullhash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \strng{bibnamehash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \strng{authorbibnamehash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \strng{authornamehash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \strng{authorfullhash}{70f03373e7d41cdbb68dd0f7221ac5f8}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall}}
+      \field{note}{Accessed: 2026-07-08}
+      \field{title}{Classification: Accuracy, recall, precision, and related metrics}
+      \field{year}{2025}
     \endentry
     \entry{groenenberg2010targeting}{article}{}
       \name{author}{9}{}{%
@@ -3791,6 +3862,39 @@
       \field{year}{1996}
       \field{pages}{2617\bibrangedash 2658}
       \range{pages}{42}
+    \endentry
+    \entry{kruskal1964multidimensional}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b89b4f02ff2e102fd2373f69879b51a}{%
+           family={Kruskal},
+           familyi={K\bibinitperiod},
+           given={J.\bibnamedelimi B.},
+           giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \strng{fullhash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \strng{bibnamehash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \strng{authorbibnamehash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \strng{authornamehash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \strng{authorfullhash}{3b89b4f02ff2e102fd2373f69879b51a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychometrika}
+      \field{number}{1}
+      \field{title}{Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis}
+      \field{volume}{29}
+      \field{year}{1964}
+      \field{pages}{1\bibrangedash 27}
+      \range{pages}{27}
     \endentry
     \entry{kullback1951information}{article}{}
       \name{author}{2}{}{%

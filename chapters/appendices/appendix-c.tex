@@ -1,4 +1,4 @@
-\chapter{FluvGAN}\label{Apendix:FluvGAN}
+\chapter{\glsentryshort{fluvgan}}\label{Apendix:FLUVGAN}
 \section{One Hot Encoding Strategy}\label{Appendix:One_Hot_Encoding}
 The one-hot encoding strategy used in this project created $n$ spatial channels based on the number of individual classes passed on to the model. Where traditional one-hot encodiding strategies map the values in a channel to either 1 or 0, referring to the presence or absence of a specific class, the final \textit{Tanh} activation function in the \gls{fluvgan} model maps values to either -1 or 1. Figure~\ref{appendix_fig:one_hot_encoding} provides an overview of one hot encoding of a vector.
 \begin{figure}[htbp!]
@@ -68,6 +68,6 @@ Using one-hot encoding categorical independent data can be correctly fed to the 
 \begin{figure}
     \centering
     \includegraphics[width=0.80\textwidth]{figures/results/cgan_unconstrained_performance/ms_swd_mds_plot.png}
-    \caption{Multi-Dimensional Scaling (MDS) plot of the \gls{msswd} values computed for the test dataset, illustrating the distribution shift and clustering behaviour of the model 5 architecture between 25 and 100 training epochs.}
+    \caption{\glsentryshort{mds} plot of the \glsentryshort{msswd} values computed for the test dataset, illustrating the distribution shift and clustering behaviour of the model 5 architecture between 25 and 100 training epochs.}
     \label{fig:msswd_mds_best_models}
 \end{figure}

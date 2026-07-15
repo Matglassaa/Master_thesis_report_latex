@@ -1,7 +1,10 @@
 \chapter{Results}\label{Ch:Results}
-The presentation of the results will follow the order of the workflow: First of all the curated datasets will be displayed with the addition of statistical parameters that can be used to evaluate the difference between the samples in the datasets and the synthetic \gls{gan} samples. Secondly, the post training results summarize the results of the hyperparameter tuning, the~\gls{cgan} unconstrained performance to grouped facies classes as well as the cGAN unconstrained performance when presented with all facies classes. Finally, the results of the optimization and inversion results are presented, after the model was constrained to the Delft Geothermal Reservoir well data.   
+The presentation of the results will follow the order of the workflow: First of all the curated datasets will be displayed with the addition of statistical parameters that can be used to evaluate the difference between the samples in the datasets and the synthetic \gls{gan} samples. Secondly, the post training results summarize the results of the hyperparameter tuning, the~\gls{cgan} unconstrained performance to grouped facies classes as well as the \gls{cgan} unconstrained performance when presented with all facies classes. Finally, the results of the optimization and inversion results are presented, after the model was constrained to the Delft Geothermal Reservoir well data.
 \section{Datasets}\label{Sec:Datasets}
-In total, 20,000 samples were generated for each of the three datasets as defined in table~\ref{tab:NEXUS_input}. The generated datasets are visually summarised in figure~\ref{fig:3D_datasets_comparison}: a 2D \gls{mds} plot. \gls{mds} is a technique used to simplify complex, high-dimensional data into a clear two-dimensional map. It looks at the differences between the 3D grid samples and plots them so that similar realisations sit close together, while vastly different ones are placed far apart \cite{kruskal1964multidimensional, rongier2025atowards}. This plot clearly shows a grouping effect per setting, indicating the samples of different settings do in fact display varying higher-dimensional differences. This can be visually confirmed by the two random 3D facies plots per setting, showing that a lower sand body extension as input parameter yields samples with thinner sandbodies and more erratic meandering behaviour in samples of this size. The right-most plots show the pixel-wise entropy computed over an ensemble of 1000 samples per setting, setting a baseline for the entropy readings we look to achieve from a diverse synthetic dataset produced by the trained GAN model. This threshold configuration can be further evaluated by analysing table~\ref{tab:comparison_facies_distribution_flumy_samples}, which provides an exhaustive overview of the global facies distributions across the ensemble.
+In total, 20,000 samples were generated for each of the three training datasets defined in Table~\ref{tab:NEXUS_input}. These datasets are visually summarized in Figure~\ref{fig:3D_datasets_comparison} through three different evaluation metrics: a 2D \gls{mds} plot, random 3D realizations, and pixel-wise entropy maps. \Gls{mds} is utilized to project complex, high-dimensional structural data into a clear two-dimensional space by mapping the relative dissimilarities between the 3D grid samples; consequently, similar realizations cluster closely together, whereas structurally distinct volumes are positioned far apart~\parencite{kruskal1964multidimensional, rongier2025atowards}. The clear grouping effect observed per parameter configuration indicates that the different generation settings successfully manifest distinct, higher-dimensional geological characteristics. 
+
+This structural variance is visually confirmed by the random 3D facies plots, which demonstrate that a reduced sand-body extension parameter yields thinner channel architectures and more erratic meandering behavior. To quantify this spatial variability across the ensembles, the right-most panels of Figure~\ref{fig:3D_datasets_comparison} illustrate the normalized pixel-wise spatial entropy computed over 1,000 samples per setting. Setting 2 exhibits the lowest mean voxel-wise entropy (0.66), indicating a more rigidly constrained spatial distribution, whereas Setting 3 displays the highest structural diversity with a mean entropy of 0.71. Together, these values establish a critical baseline for spatial uncertainty, serving as a benchmark against which the generative diversity of the trained \gls{gan} model will be evaluated. The underlying volumetric composition of these configurations can be further evaluated in Table~\ref{tab:comparison_facies_distribution_flumy_samples}, which provides an exhaustive overview of the global facies distributions across each ensemble.
+
 \begin{table}[htbp!]
     \centering
     \renewcommand{\arraystretch}{1.4}
@@ -24,16 +27,24 @@ In total, 20,000 samples were generated for each of the three datasets as define
     \caption{Global categorical facies distribution profiles compared across the three synthetic training datasets for all available classes.}
     \label{tab:comparison_facies_distribution_flumy_samples}
 \end{table}
-As can be observed in this overview, the structural facies, exhibit a severe statistical imbalance throughout the generated data volume. This imbalance stems from dominant facies occupying over 60\% of the total grid volume, while specific minority facies are heavily suppressed, highlighting a limitation of the FLUMY NEXUS parameters. Specifically, the volumetric presence of facies 4, 5, and 6 is negligible, yielding an exceptionally low occurrence rate ranging between 0.0\% and 0.1\%.  Such low occurrence rates present a optimization challenge during adversarial training. Because standard~\gls{gan} objective functions treat all voxels with uniform weight, the discriminator may be biased to evaluating sample validity almost entirely on the dominant Class 1. As a  result, the generator can get trapped in a suboptimal training loop that refines large-scale features while completely disregarding the structural nuances of minority facies. This statistical skewness must be strictly accounted for during model evaluation, particularly regarding the localized well mismatch metrics. 
 
-When transitioning from the detailed 9-class case to the upscaled 3-class case, the secondary class naturally increases to make up about 5\% of the total volume. Quite by chance, these grouped facies proportions closely match the actual empirical proportions interpreted from the real cored and logged sections of the DEL-GT-01 and DEL-GT-02-S2 wells (see Figure~\ref{fig:appendix_well_data}). Therefore, while the original 9-class prior struggles with severe generation limitations under default settings, this upscaled version accidentally aligns the model's facies distributions perfectly with the target reservoir. 
+As can be observed in this overview, the structural facies exhibit a severe statistical imbalance throughout the generated data volume. This imbalance stems from the dominant facies occupying over 60\% of the total grid volume, while specific minority categories are heavily suppressed, highlighting a notable limitation of the default FLUMY NEXUS parameters. Specifically, the volumetric presence of facies 4, 5, and 6 is negligible, yielding an exceptionally low occurrence rate ranging between 0.0\% and 0.1\%. Such extreme skewness presents a severe optimization challenge during adversarial training. Because standard \gls{gan} objective functions treat all voxels with uniform weight, the discriminator becomes inherently biased toward evaluating sample validity based almost entirely on the dominant facies. As a result, the generator can get trapped in a suboptimal training loop that refines large-scale features while completely disregarding the structural nuances of minority facies. This statistical discrepancy must be strictly accounted for during subsequent model evaluations, particularly regarding localized well-mismatch metrics.
 
-\begin{figure}[htbp]
+When transitioning from the detailed 9-class categorization to the upscaled 3-class configuration, the secondary class naturally expands to constitute approximately 5\% of the total volume. Fortuitously, these grouped facies proportions closely mirror the empirical proportions interpreted from the real cored and logged intervals of the DEL-GT-01 and DEL-GT-02-S2 wells (see Figure~\ref{fig:appendix_well_data}). Therefore, while the original 9-class prior suffers from severe generative constraints under default settings, this upscaled interpretation successfully aligns the dataset's global facies distributions with the target reservoir characteristics.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/appendix/appendix_A/Well_logs_and_proportions.png}
+    \caption{Overview of \glsentryshort{fa}s by~\parencite{bruining2023sedimentological} on the DEL-GT-01 and DEL-GT-02-S2 reservoir section. The Y-axis represents the along-hole depth.}
+    \label{fig:appendix_well_data}
+\end{figure}
+
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=0.95\textwidth]{figures/results/flumy_datasets/datasets_summary.png}
-    \caption{MDS plot with two 3D facies samples displayed and a 3D pixel-wise entropy per setting.}
+    \caption{\glsentryshort{mds} plot accompanied by two random 3D facies samples and the corresponding 3D pixel-wise normalized spatial entropy maps for each parameter setting.}
     \label{fig:3D_datasets_comparison}
-\end{figure}
+\end{figure}   
 
 \section{Post Training Generative Results}\label{Sec:Post_training_res}
 All the models were trained on 2 NVIDIA-A100 GPU's with each 80GB of unified memory. When trained for 25 epochs on 20000 samples, the excecution time took approximately 3-4 hours.
@@ -46,7 +57,7 @@ Figure~\ref{fig:ablation_study} and table~\ref{tab:ablation_study} provide an ov
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{cccccccc}
         \hline
-        \textbf{model} & \textbf{Epochs}& \textbf{disc penalty} & \textbf{double conv} & \textbf{double resblock} & \textbf{JSD $\downarrow$} & \textbf{MS-SWD $\downarrow$} & \textbf{mean $H_{norm}$ $\uparrow$}\\
+        \textbf{model} & \textbf{Epochs}& \textbf{disc penalty} & \textbf{double conv} & \textbf{double resblock} & \textbf{\gls{jsd} $\downarrow$} & \textbf{\gls{msswd} $\downarrow$} & \textbf{mean $H_{norm}$ $\uparrow$}\\
         \hline
         1 & 25 & no & off & off & 0.0718 $\pm$ 0.0157 & 0.08865 & 0.515 \\
         2 & 25 & no & on & off & 0.1161 $\pm$ 0.0243 & 0.06842 & 0.430 \\
@@ -59,38 +70,38 @@ Figure~\ref{fig:ablation_study} and table~\ref{tab:ablation_study} provide an ov
         \hline
     \end{tabular}%
     }
-    \caption{Overview of hyperparameters and evaluation metrics of each model. model 5, based on architecture 4 by~\parencite{rongier2025atowards} yields the best JSD and second to best MS-SWD value.}
+    \caption{Overview of hyperparameters and evaluation metrics of each model. model 5, based on architecture 4 by~\parencite{rongier2025atowards} yields the best \glsentryshort{jsd} and second to best \glsentryshort{msswd} value.}
     \label{tab:ablation_study}
 \end{table}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.95\textwidth]{figures/results/hyperparameter_tuning/Ablation_study.png}
-    \caption{Ablation study starting from \gls{fluvgan} and progressively adding/adjusting parameters to observe their effect on training, geological plausibility and sample diversity.~\textit{model 1:} Standard FluvGAN architecture from~\parencite{rongier2025atowards}.~\textit{model 2:} Addition of double convolutional layers.~\textit{model 3:} Addition of double residual blocks (i.e. skip connections) on top of double convolutions.~\textit{model 4:} Addition of a discriminator penalty every 32 iterations.~\textit{model 5:} CHanged discriminator penalty to every 16 iterations.~\textit{model 6:} Changed discriminator penalty to every iteration.~\textit{model 7:} model 5 hyperparameters but decreased to 10000 training samples.~\textit{model 8:} model 5 hyperparameters but changed number of itereation of the discriminator to 2.}
+    \caption{Ablation study starting from \glsentryshort{fluvgan} and progressively adding/adjusting parameters to observe their effect on training, geological plausibility and sample diversity.~\textit{model 1:} Standard \glsentryshort{fluvgan} architecture from~\parencite{rongier2025atowards}.~\textit{model 2:} Addition of double convolutional layers.~\textit{model 3:} Addition of double residual blocks (i.e. skip connections) on top of double convolutions.~\textit{model 4:} Addition of a discriminator penalty every 32 iterations.~\textit{model 5:} CHanged discriminator penalty to every 16 iterations.~\textit{model 6:} Changed discriminator penalty to every iteration.~\textit{model 7:} model 5 hyperparameters but decreased to 10000 training samples.~\textit{model 8:} model 5 hyperparameters but changed number of itereation of the discriminator to 2.}
     \label{fig:ablation_study}
 \end{figure}
 
-Based on the metrics from table~\ref{tab:ablation_study} and entropy plots from figure~\ref{fig:ablation_study}, the best model was achieved in model 5 with a~\gls{jsd} of 0.0155,~\gls{msswd} of 0.07986 and with the best voxel-wise entropy value out of all the models (0.79), supported by the 3D entropy plot closely resembling the 3D entropy plot of the setting 2 test dataset. The~\gls{msswd} metric showed all samples decreasing in sliced wasserstein's distance, indicating that the generators are quickly learning to produce samples that have reduced~\gls{swd} compared to the validation dataset. An interesting observation with regards to the \gls{swd} evolution over 25 epochs can be made: All plots show a stabilizing SWD after 2000 training iterations. From a \gls{swd} metric standpoint, this indicates that the model has stopped improving its samples compared to the validation dataset. 
+Based on the metrics from table~\ref{tab:ablation_study} and entropy plots from figure~\ref{fig:ablation_study}, the best model was achieved in model 5 with a~\gls{jsd} of 0.0155,~\gls{msswd} of 0.07986 and with the best voxel-wise entropy value out of all the models (0.79), supported by the 3D entropy plot closely resembling the 3D entropy plot of the setting 2 test dataset. The~\gls{msswd} metric showed all samples decreasing in sliced wasserstein's distance, indicating that the generators are quickly learning to produce samples that have reduced~\gls{swd} compared to the validation dataset. An interesting observation with regards to the \gls{swd} evolution over 25 epochs can be made: All plots show a stabilizing \gls{swd} after 2000 training iterations. From a \gls{swd} metric standpoint, this indicates that the model has stopped improving its samples compared to the validation dataset. 
 
-Moreover, the base \gls{fluvgan} architecture lead to significant mode collapse looking at figure~\ref{fig:ablation_study}. Only after increasing the model depth (double convolutions \& double residual blocks) did the model train properly without mode collapse. Moreover, when varying the discriminator R1 Regularization, applying the penalty every 16 iterations yielded the best result. All other option (no penalty, every 32 iterations and every iteration) all resulted in mode collapse. Finally, model 7 and 8 investigated whether decreasing the number of training samples from 20000 to 10000 and only updating the discriminator every 2nd iteration, yielded any improved results. Where the results from model 8 yielded similar results to model 6, the metrics from model 8 yielded a much higher mean JSD of 0.1190 $\pm$ 0.0324. Additionally, looking at the entropy plot of model 8 in figure~\ref{fig:ablation_study}, The plot shows a significantly higher percentage of regions with low entropy values, indicating that most samples produced by the generator after training have similar pixel-wise values.
+Moreover, the base \gls{fluvgan} architecture lead to significant mode collapse looking at figure~\ref{fig:ablation_study}. Only after increasing the model depth (double convolutions \& double residual blocks) did the model train properly without mode collapse. Moreover, when varying the discriminator R1 Regularization, applying the penalty every 16 iterations yielded the best result. All other option (no penalty, every 32 iterations and every iteration) all resulted in mode collapse. Finally, model 7 and 8 investigated whether decreasing the number of training samples from 20000 to 10000 and only updating the discriminator every 2nd iteration, yielded any improved results. Where the results from model 8 yielded similar results to model 6, the metrics from model 8 yielded a much higher mean \gls{jsd} of 0.1190 $\pm$ 0.0324. Additionally, looking at the entropy plot of model 8 in figure~\ref{fig:ablation_study}, The plot shows a significantly higher percentage of regions with low entropy values, indicating that most samples produced by the generator after training have similar pixel-wise values.
 
-\subsection{cGAN Unconstrained Performance}
+\subsection{\glsentryshort{cgan} Unconstrained Performance}
 To evaluate if features continue to refine during late-stage training, Model 5.1 extended the baseline Model 5 configuration to 100 epochs. Figures~\ref{fig:2D_Z_slices_models_5(1)_and_flumy} and~\ref{fig:2D_XY_slices_models_5(1)_and_flumy} show the mid-slices along the X, Y, and Z axes for three generated samples compared to the test dataset. Both models successfully generate meandering sand bodies with central mudplugs (\ref{tab:appendix_facies_config_overview}), alongside adjacent floodplains and levees. Additionally, the X- and Y-axis plots display~\say{V} shaped mudplug infills and elongated clay deposits. However, the slices also reveal structural artifacts, including closed loops \circled{1}, previously noted by~\textcite{sun2023geological}, and new isolated random voxels \circled{2}. Since 2D visual inspection cannot capture the 3D spatial continuity of these features, quantitative 3D metrics are necessary to properly evaluate model performance.
 
-table~\ref{tab:model_5_epoch_comparison}, provides an overview of the main evaluation metrics used on models 5 and 5.1.  Both models score almost equal on all metrics: the JSD metric improved slightly with more training epochs from \textbf{Add} to \textbf{Add} whereas the mean voxel-wise entropy decreased from 0.704 to 0.684. Both models show a clear mismatch in unique patterns present in the ensembles with a $\pm$ 30\% increase over the baseline. Furthermore, Figure~\ref{fig:msswd_mds_best_models} shows no significant structural shift in the \gls{msswd} multidimensional scaling. The clustered distributions indicate that the extra training epochs fail to improve the model's overlap with the test dataset, making the two models hardly distinguishable under this metric.
+table~\ref{tab:model_5_epoch_comparison}, provides an overview of the main evaluation metrics used on models 5 and 5.1.  Both models score almost equal on all metrics: the \gls{jsd} metric improved slightly with more training epochs from 0.0146 to 0.0132 whereas the mean voxel-wise entropy decreased from 0.704 to 0.684. Both models show a clear mismatch in unique patterns present in the ensembles with a $\pm$ 30\% increase over the baseline. Furthermore, Figure~\ref{fig:msswd_mds_best_models} shows no significant structural shift in the \gls{msswd} multidimensional scaling. The clustered distributions indicate that the extra training epochs fail to improve the model's overlap with the test dataset, making the two models hardly distinguishable under this metric.
 \begin{table}[htbp!]
     \centering
     \renewcommand{\arraystretch}{1.4}
     \small
     \begin{tabularx}{\textwidth}{Xcccccc}
         \hline
-        \textbf{name}& \textbf{epochs} & \textbf{JSD $\uparrow$} & \textbf{MS-SWD $\downarrow$} & \textbf{mean $H_{norm} \uparrow$} & \textbf{$n$ unique patterns} & \\
+        \textbf{name}& \textbf{epochs} & \textbf{\gls{jsd} $\uparrow$} & \textbf{\gls{msswd} $\downarrow$} & \textbf{mean $H_{norm}$} & \textbf{$n$ unique patterns} & \\
         \hline
         setting 2 & - & - & - &  0.692 & 2,949,220 \\
-        model 5 & 25 & 0.0 & 0.08 & 0.704 &  3,846,513 \\
-        model 5 & 100 & 0.0 & 0. & 0.684 & 3,727,836 \\
+        model 5 & 25 & 0.0146 & 0.08 & 0.704 &  3,846,513 \\
+        model 5 & 100 & \textbf{0.0132} & \textbf{add} & \textbf{0.684} & \textbf{3,727,836} \\
         \hline
     \end{tabularx}
-    \caption{Overview of hyperparameters and evaluation metrics of each model ($N = 100$ realizations). Model 5, based on architecture 4 by~\parencite{rongier2025atowards}, yields the best JSD and second to best MS-SWD value.}
+    \caption{Overview of hyperparameters and evaluation metrics of each model ($N = 100$ realizations). Model 5, based on architecture 4 by~\parencite{rongier2025atowards}, yields the best \glsentryshort{jsd} and second to best \glsentryshort{msswd} value.}
     \label{tab:model_5_epoch_comparison}
 \end{table}
 
@@ -113,7 +124,7 @@ table~\ref{tab:model_5_epoch_comparison}, provides an overview of the main evalu
     \label{fig:2D_Z_slices_models_5(1)_and_flumy}
 \end{figure}
 
-The connectivity and pattern analysis metrics were computed to evaluate the facies conductivities compared to the baseline, as well as assessing the number of unique patterns. Figure~\ref{fig:model_5_connectivity_distributions} showcases the facies connectivity distributions for both models. While the general overlap in connected component (blob) sizes relative to the test dataset indicates that the models successfully capture facies groupings, systematic discrepancies remain. Both configurations overestimate the frequency of isolated single voxels for the Crevasse Splay \& Levee deposits, consequently underestimating the occurrence of larger clusters containing 10 or more voxels. A similar trend is observed in the Clay deposits generated by Model~5.1, which exhibits a corresponding overestimation of isolated single voxels. This phenomenon can be the explanation for the mismatch in number of unique patterns present in the ensembles, where the isolated voxels result in a substantial number of additional unique patterns.
+The connectivity and pattern analysis metrics were computed to evaluate the facies conductivities compared to the baseline, as well as assessing the number of unique patterns. Figure~\ref{fig:model_5_connectivity_distributions} showcases the facies connectivity distributions for both models. While the general overlap in connected component (blob) sizes relative to the test dataset indicates that the models successfully capture facies groupings, systematic discrepancies remain. Both configurations overestimate the frequency of isolated single voxels for the Crevasse Splay \& Levee deposits, consequently underestimating the occurrence of larger clusters containing 10 or more voxels. A similar trend is observed in the Clay deposits generated by Model~5.1, which exhibits a corresponding overestimation of isolated single voxels. This phenomenon can be the explanation for the mismatch in number of unique patterns present in the ensembles, where the isolated voxels result in a substantial number of additional unique patterns. ALtough a minor difference, model 5.1 actually performs slightly better that model 5 on the larger blob sizes (range from 10$^1$ - 10$^3$) in both the crevasse splay \& levee deposits as well as the clay deposits, suggesting that the increased number of epochs dedicated to training helped the model in better predicting facies continuity.
 
 \begin{figure}[ht!]
     \centering
@@ -122,12 +133,12 @@ The connectivity and pattern analysis metrics were computed to evaluate the faci
     \label{fig:model_5_connectivity_distributions}
 \end{figure}
 
-Finally, the \gls{jsd} normalised voxel-wise entropy was evaluated across all three axes (Figures~\ref{fig:H_norm_over_Z_axes, fig:H_norm_over_XY_axes}). In the baseline dataset (setting 2), entropy fluctuates significantly along the X and Y axes, yet remains highly stable along the Z-axis. When evaluating the generative models, Model 5 successfully mirrors this Z-axis baseline consistency. In contrast, Model 5.1 exhibits a systematic decline in entropy along the Z-axis. This indicates that prolonged training (Model~5.1) restricts the generative variance, suggesting that extended epochs induce a partial mode collapse rather than an improved representation of spatial diversity for this case study.
+Finally, the \gls{jsd} normalised voxel-wise entropy was evaluated across all three axes (figures~\ref{fig:H_norm_over_Z_axes} and~\ref{fig:H_norm_over_XY_axes}). In the baseline dataset (setting 2), entropy fluctuates significantly along the X and Y axes, yet remains highly stable along the Z-axis. When evaluating the generative models, Model 5 successfully mirrors this Z-axis baseline consistency. In contrast, Model 5.1 exhibits a systematic decline in entropy along the Z-axis. This indicates that prolonged training (Model~5.1) restricts the generative variance, suggesting that extended epochs induce a partial mode collapse rather than an improved representation of spatial diversity for this case study.
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/results/cgan_unconstrained_performance/combined_H_and_JSD_metrics_axis_Z.png}
-    \caption{Comparison of the \gls{jsd} normalized voxel-wise entropy across the Z, Y, and X axes. The decline in Z-axis entropy for Model 5.1 highlights a loss in stochastic diversity.}
+    \caption{Comparison of the \glsentryshort{jsd} normalized voxel-wise entropy across the Z, Y, and X axes. The decline in Z-axis entropy for Model 5.1 highlights a loss in stochastic diversity.}
     \label{fig:H_norm_over_Z_axes}
 \end{figure}
 
@@ -138,7 +149,7 @@ The voxel-wise entropy across the horizontal axes also reveals a trend in the or
 \subsection{High-Fidelity and Multi-Prior Models}
 To test the limits of the generative framework, two additional scenarios were evaluated: a high-fidelity model and a multi-prior model. 
 
-The high-fidelity model was trained on the same baseline dataset as before (Setting 2), but it retained all nine individual facies classes instead of grouping them into three Facies Associations. Because the nine original classes are highly unbalanced, this scenario tests how well the generator handles severe class imbalances. 
+The high-fidelity model was trained on the same baseline dataset as before (Setting 2), but it retained all nine individual facies classes instead of grouping them into three \glspl{fa}. Because the nine original classes are highly unbalanced, this scenario tests how well the generator handles severe class imbalances. 
 
 In contrast, the multi-prior model kept the grouped three-class configuration but was trained on a combined dataset containing 10,000 samples from each of the three different geological settings (Settings 1, 2, and 3). This setup evaluates whether the Model 5 hyperparameters can successfully handle a mixture of different geological rules. Both models were trained for 25 epochs, and the results are summarized in Table~\ref{tab:high_fidelity_multiprior_comparison}.
 
@@ -155,19 +166,21 @@ In contrast, the multi-prior model kept the grouped three-class configuration bu
     \small
     \begin{tabularx}{\textwidth}{Xccccc}
         \hline
-        \textbf{Model Configuration} & \textbf{Epochs} & \textbf{JSD $\downarrow$} & \textbf{MS-SWD $\downarrow$} & \textbf{Mean $H_{norm} \uparrow$} & \textbf{$n$ Unique Patterns} \\
+        \textbf{Model Configuration} & \textbf{Epochs} & \textbf{\gls{jsd} $\downarrow$} & \textbf{\gls{msswd} $\downarrow$} & \textbf{Mean $H_{norm} \uparrow$} & \textbf{$n$ Unique Patterns} \\
         \hline
-        Setting 2 (Baseline Data)    & -  & -    & -       & 0.692 & 2,949,220 \\
-        Model 5 (Grouped, Setting 2) & 25 & 0.0155 & 0.07986 & 0.704 & 3,846,513 \\
-        High-Fidelity (9-Class, Setting 2) & 25 & \textbf{Add}  & \textbf{Add}   & \textbf{Add}  & \textbf{Add} \\
-        Multi-Prior (Grouped, All Settings) & 25 & \textbf{Add}  & \textbf{Add}   & \textbf{Add}  & \textbf{Add} \\
+        Setting 2 (grouped)    & -  & -    & -       & 0.692 & 2,949,220 \\
+        Setting 2 (non-gouped) & -  & -    & -       & 0.695  & 8,864,195    \\
+        High-Fidelity (9-Class, Setting 2) & 25 & 0.1102 &   & 0.351  & 6,017,855 \\
+        Multi-Prior (Grouped, All Settings) & 25 & \textbf{0.0168} &  & \textbf{0.661}  & 4,512,631 \\
         \hline
     \end{tabularx}
     \caption{Overview of evaluation metrics comparing the high-fidelity and multi-prior configurations against the baseline implementations ($N = 100$ realizations).}
     \label{tab:high_fidelity_multiprior_comparison}
 \end{table}
 
-The \gls{swd} evolution for the high-fidelity model shows that performance varies significantly by channel. For channels 0–2 and 6–8, the \gls{swd} metric decreases immediately from the start of training, showing that the model learns these structures well. However, for channels 3 and 5, the metric shows no improvement, meaning the model fails to represent these specific minority classes. Channel 4 decreases steadily over the full 25 epochs, suggesting it might improve further with more training. Meanwhile, channels 0, 2, and 6 maintain low initial values with occasional minor increases.
+The high-fidelity model is able to generate samples with all nine facies distribution correctly represented in them (figure~\ref{fig:app_facies_dist_high_fidelity_model}). From a visual perspective we can however see a high number of single isolated voxels belonging to the channel lag facies, as well as a mud plug and sand plug facies with bad connectivity and structures that do not fully resemble geologic realistic structures. The pixel-wise entropy plot (figure~\ref{fig:combined_plot_all_channels}) shows a significant amount of rigid structure, indicating that the model lacks spatial entropy and cannot capture the full complexity of the training data. This is confirmed by a mean pixel-wise entropy value of 0.351, significantly lower than the baseline mean normalized entropy achieved.
+
+Conversely, the multi-prior model suffers from heavy mode collapse. When presenting the Model 5 hyperparameters with the combined dataset of all three settings, the training process destabilizes. As shown in Figure~\ref{fig:2D_Z_slices_models_hf_all_set_and_flumy}, the generator stops producing diverse geological variations and instead outputs nearly identical, repetitive patterns that fail to represent the unique features of the different input settings.
 
 \begin{figure}[htbp]
     \centering
@@ -176,64 +189,85 @@ The \gls{swd} evolution for the high-fidelity model shows that performance varie
     \label{fig:combined_plot_all_channels}
 \end{figure}
 
-From a visual perspective, the high-fidelity model is able to reproduce a wide variety of the nine facies classes. This is supported by the \gls{mds} plot and the corresponding 3D facies plots (see Appendix). However, the pixel-wise entropy plot shows a significant amount of rigid structure, indicating that the model lacks spatial entropy and cannot capture the full complexity of the training data. This is confirmed by a mean pixel-wise entropy value of \textbf{Add}, which is much lower than the 0.704 achieved in the grouped 3-class case.
+The \gls{swd} evolution for the high-fidelity model shows that performance varies significantly by channel. For channels 0–2 and 6–8, the \gls{swd} metric decreases immediately from the start of training, showing that the model learns these structures well. However, for channels 3 and 5, the metric shows no improvement, meaning the model fails to represent these specific minority classes. Channel 4 decreases steadily over the full 25 epochs, suggesting it might improve further with more training. Meanwhile, channels 0, 2, and 6 maintain low initial values with occasional minor increases.
 
-Conversely, the multi-prior model suffers from heavy mode collapse. When presenting the Model 5 hyperparameters with the combined dataset of all three settings, the training process destabilizes. As shown in Figure~\ref{fig:2D_Z_slices_models_hf_all_set_and_flumy}, the generator stops producing diverse geological variations and instead outputs nearly identical, repetitive patterns that fail to represent the unique features of the different input settings.
+These outcomes demonstrate that while the Model 5 configuration was highly effective for the 3-class, single-setting case, directly expanding it to the 9-class and multi-prior scenarios does not achieve stable or diverse \gls{gan} convergence. It should be noted that no separate hyperparameter tuning or ablation study was performed specifically for these two complex scenarios. Consequently, while Model 5 provides a strong baseline, these findings suggest that higher-dimensional or mixed-prior datasets require dedicated hyperparameter optimization to prevent destabilization and mode collapse.
 
-These outcomes demonstrate that while the Model 5 configuration was highly effective for the 3-class, single-setting case, directly expanding it to the 9-class and multi-prior scenarios does not achieve stable or diverse GAN convergence. It should be noted that no separate hyperparameter tuning or ablation study was performed specifically for these two complex scenarios. Consequently, while Model 5 provides a strong baseline, these findings suggest that higher-dimensional or mixed-prior datasets require dedicated hyperparameter optimization to prevent destabilization and mode collapse.
+\section{Post-Inversion Results}\label{Sec:Post_Cond_Res}The tuned model was inverted using the first 32 metres of well data from DEL-GT-01 and DEL-GT-02-S2 (Section~\ref{Sec:Delft_Reservoir}). This interval provides an ideal testing ground, capturing highly contrasting geological environments: DEL-GT-01 lacks Overbank Mudstone, whereas DEL-GT-02-S2 contains virtually no Levee deposits (Figure~\ref{fig:appendix_well_data}). This asymmetry tests the framework's capacity to adapt to distinct, localized constraints rather than defaulting to a uniform rule. During the initial Latent Space Optimization (LSO), 100 latent vectors were optimized to fit these trajectories (loss curves detailed in Figure~\ref{fig:appendix_post_lso_losses}). The resulting outputs are termed \say{realisations}, representing generative models explicitly conditioned to real-world subsurface observations.
 
-\section{Post-Inversion Results}\label{Sec:Post_Cond_Res}
-During inversion, the tuned model was conditioned to the well data presented in Section~\ref{Sec:Delft_Reservoir}. The evaluation metrics were computed exclusively on the first 32 metres of well data from DEL-GT-01 and DEL-GT-02-S2, yielding a total of 64 spatial conditioning points for the Macro F1-score evaluation. This specific interval provides a good testing ground because it captures a highly contrasting geological setup between the two well locations. Within this 32-metre window, the wells display completely different facies distributions: DEL-GT-01 contains almost no Overbank Mudstone, whereas DEL-GT-02-S2 contains virtually no Levee deposits. Choosing this asymmetric dataset serves as a rigorous proof-of-concept. It allows us to assess whether the inversion process can successfully adapt to distinct local constraints across different areas of the grid, rather than just learning a single, uniform rule. During the initial Latent Space Optimization phase, 100 latent vectors were optimized to fit the well data. These outputs are referred to as \say{realisations}, as they represent models explicitly conditioned to real-world subsurface observations.
+\subsection{Latent Space Optimization}Figure~\ref{fig:post_optimization_f1_scores_distributions} presents the F1-score distributions of the post-LSO realisations. Conditioning accuracy relies heavily on the optimization threshold ($Th$), which dictates the spatial radius (in voxels) around the wellbore penalized for data mismatch. Voxels beyond this radius receive zero weight in the context loss function, enforcing local geological alignment without over-constraining the broader reservoir architecture (Figure~\ref{fig:anisotropic_mask_appendix}).
+
+From figure~\ref{fig:post_optimization_f1_scores_distributions}, it is observable that model 3 achieves the superior overall F1-score distribution, boasting the highest frequency of realisations exceeding 0.8, whereas model 1 yields the lowest performance. Notably, all evaluated configurations exhibit a wide performance bandwidth, with individual F1-scores spanning a broad range from 0.50 to 0.95. This substantial variability in final conditioning accuracy mirrors the behavior observed during the optimization process itself; the corresponding loss curves (see figure~\ref{fig:appendix_post_lso_losses}) display a matching wide bandwidth, where final loss values can differ by up to an order of magnitude between individual runs. This strong coupling indicates that the latent space optimization is highly sensitive to initial vector trajectories, where runs that successfully converge to significantly lower loss minima directly translate into the highest-fidelity F1-score realisations.
 
 \begin{figure}[htbp!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/results/cgan_constrained_performance/f1_score_comparisons.png}
-    \caption{Macro F1 and single channel F1 score distributions for three optimization models with varying threshold values. model 1: threshold = 1, model 2: threshold = 2 \& model 3: threshold = 5.}
+    \caption{Macro F1 and single channel F1 score distributions for three optimization models with varying threshold values (model 1: threshold = 1, model 2: threshold = 2 \& model 3: threshold = 5).}
     \label{fig:post_optimization_f1_scores_distributions}
 \end{figure}
 
-As illustrated in Figure~\ref{fig:post_optimization_f1_scores}, the performance of realisations achieving a tight fit with the conditioning points is highly dependent on the optimization threshold ($Th$). The threshold ($Th$) defines a specific spatial radius around the wellbore, measured in voxels, within which the generative model is penalized for mismatching the hard conditioning data. Voxels located beyond this distance threshold are assigned a weight of zero in the context loss function, ensuring that the inversion process enforces localized geological alignment without over-constraining the broader, unobserved reservoir architecture~(See figure~\ref{fig:anisotropic_mask_appendix}). Table~\ref{tab:optimization_f1_scores} details the Macro F1-scores, per-class F1 performance, and mean spatial entropy metrics achieved across these varying threshold configurations.
-
-\begin{figure}[htbp!]
-    \centering
-    \includegraphics[width=0.9\linewidth]{figures/results/cgan_constrained_performance/master_grouped_vertical_6x1.png}
-    \caption{2D slices taken over the X- and Y- axes at the well trajectory coordinates realisations generated after latent optimization. The regions nearby the well trajectory show continuity of geologic features when found in the wells. ADD Entropy plot to illustrate this only the closeby region of the wellbore is affected!!}
-    \label{fig:2D_XY_slices_at_well_trajectories}
-\end{figure}
-
+Table~\ref{tab:optimization_f1_scores} details the Macro F1-scores, per-class F1 performance, and mean spatial entropy metrics achieved across these varying threshold configurations. The (macro) F1-score distributions of realisations exhibit a positive response to the threshold parameter. Moving from a tightly constrained threshold of 1 (model 1) to a wider threshold of 5 (model 3) yields a substantial increase across all metrics, with the Macro F1-score rising from 0.70 to 0.84. This upward shift is reflected consistently across all three facies classes. The dominant class ($C1$) scales from an F1-score of 0.77 up to 0.90, while the minority class ($C2$), which typically represents the optimization bottleneck due to severe class imbalance, sees its F1-score jump from 0.56 to 0.79. This systemic improvement suggests that expanding the spatial radius of the context loss mask provides the latent space optimization with the necessary information to allow the model to find valid spatial arrangements that honor the hard conditioning points.
 
 \begin{table}[htbp!]
     \centering
     \renewcommand{\arraystretch}{1.4}
     \small
-    \begin{tabularx}{\textwidth}{X c c c c c c}
+    \begin{tabularx}{\textwidth}{X c c c c c c c}
         \hline
-        \textbf{model} & \textbf{Th} & \textbf{mean Macro F1$\uparrow$} & \textbf{mean $F1_{C1}\uparrow$} & \textbf{mean $F1_{C2}\uparrow$} & \textbf{mean $F1_{C3}\uparrow$} & \textbf{mean $H_{norm}\uparrow$} \\
+        \textbf{model} & \textbf{Th} & $\mathbf{\overline{\vphantom{\big|}\text{Macro F1}}\uparrow}$ & $\mathbf{\overline{\vphantom{\big|}F1}_{C1}\uparrow}$ & $\mathbf{\overline{\vphantom{\big|}F1}_{C2}\uparrow}$ & $\mathbf{\overline{\vphantom{\big|}F1}_{C3}\uparrow}$ & \textbf{\gls{jsd}}$\downarrow$ & $\mathbf{\overline{\vphantom{\big|}H}_{norm}\uparrow}$ \\
         \hline
-        model 1 & 1 & 0.70 & 0.77 & 0.56 & 0.76 & 0.686 \\
-        model 2 & 2 & 0.78 & 0.84 & 0.68 & 0.81 & 0.685 \\
-        model 3 & 5 & 0.84 & 0.90 & 0.79 & 0.85 & 0.663 \\
+        run 1 (lso) & 1 & 0.70 & 0.77 & 0.56 & 0.76 & 0.015 & 0.686  \\
+        run 2 (lso) & 2 & 0.78 & 0.84 & 0.68 & 0.81 & 0.017 & 0.685  \\
+        run 3 (lso) & 5 & 0.84 & 0.90 & 0.79 & 0.85 & 0.028 & 0.663  \\
         \hline
     \end{tabularx}
-    \caption{Optimization metrics evaluated across different model configurations. The column `Th` indicates the specific threshold value defining the spatial region affected by latent optimization. Per-class F1-scores ($F1_{C1}$, $F1_{C2}$, $F1_{C3}$) indicate conditioning accuracy across the individual facies categories at the well locations, accompanied by the global mean normalized spatial entropy ($H_{norm}$) computed over the generated ensemble.}
+    \caption{Optimization metrics...}
     \label{tab:optimization_f1_scores}
 \end{table}
 
-The (macro) F1-score distributions of realisations exhibit a positive response to the threshold parameter. Moving from a tightly constrained threshold of 1 (model 1) to a wider threshold of 5 (model 3) yields a substantial increase across all metrics, with the Macro F1-score rising from 0.70 to 0.84. This upward shift is reflected consistently across all three facies classes. The dominant class ($C1$) scales from an F1-score of 0.77 up to 0.90, while the minority class ($C2$), which typically represents the optimization bottleneck due to severe class imbalance, sees its F1-score jump from 0.56 to 0.79. This systemic improvement suggests that expanding the spatial radius of the context loss mask provides the latent space optimization with the necessary information to allow the model to find valid spatial arrangements that honor the hard conditioning points.
-
 To evaluate the conditioning performance down the vertical profiles, Figure~\ref{fig:post_optimization_metrics_across_Z_axis} displays the depth-by-depth ensemble prediction probabilities for each individual facies alongside the comprehensive categorical match accuracy. The vertical profiles demonstrate a clear correlation between the framework's generative confidence and the global class distributions of the prior training dataset. 
-
-For depth intervals corresponding to the dominant sand body deposits (FA1), the ensemble channel probability consistently stays pinned close to $1.0$, translating to an almost perfect overall match accuracy across the realization ensemble. Conversely, the highly underrepresented crevasse splay and levee deposits (FA2) expose a significant optimization bottleneck; the ensemble prediction probability for FA2 peaks at only $0.7$, with some runs dropping as low as $0.3$ even within intervals where the facies is explicitly logged. The clay deposits (FA3) exhibit intermediate performance characteristics, demonstrating reasonable structural replication and stability across the vertical column. 
-
-This stark performance disparity directly mirrors the underlying class imbalance present within the foundational FLUMY datasets, where FA1 is the most abundant facies followed by FA3, while FA2 remains severely suppressed. The dominant volumetric occupancy of FA1 allows the generator to map its structural boundaries with high confidence, whereas the sparse representation of FA2 prevents the latent space optimization from establishing highly confident, deterministic boundaries along the wellbore paths.
 
 \begin{figure}[htbp!]
     \centering
     \includegraphics[width=0.95\textwidth]{figures/results/cgan_constrained_performance/accuracy_score_across_depth_DEL-GT-01.png}
     \vspace{0.3cm}
     \includegraphics[width=0.95\textwidth]{figures/results/cgan_constrained_performance/accuracy_score_across_depth_DEL-GT-02-S2.png}
-    \caption{Vertical depth profiles for wells DEL-GT-01 and DEL-GT-02-S2 showing the individual ensemble prediction probabilities per facies (left three panels) and the aggregate categorical match accuracy (rightmost panel) evaluated across three optimization models (Model 1: threshold = 1, Model 2: threshold = 2, and Model 3: threshold = 5).}
+    \caption{Vertical depth profiles for wells DEL-GT-01 (top row) and DEL-GT-02-S2 (bottom row). The left three panels display ensemble prediction probabilities for each facies alongside black dotted indicting the exact interval along the well that the facies is found. Shaded color intervals highlight the distance between the prediction curve and perfect probability ($1.0$), directly illustrating how strongly each model respects the well constraints at that depth. emphasizing conditional alignment. The rightmost panel shows the aggregated match accuracy across the three evaluated conditional GAN models.}
     \label{fig:post_optimization_metrics_across_Z_axis}
 \end{figure}
 
-Furthermore, analyzing the relationship between conditioning accuracy and ensemble variance highlights a spatial trade-off. The main takeaway from here is that as the global F1-score increases, the normalized spatial entropy ($H_{norm}$) systematically decreases under wider thresholds. Geologically and mathematically, this behaviour occurs because the area under direct deterministic constraint increases radially from the wellbore with higher threshold values. By expanding this optimization zone, a larger volume of the reservoir is forced to adhere strictly to the static well data across the entire ensemble. Consequently, the area characterized by low entropy expands radially outward from the well trajectories, naturally diminishing the overall stochastic diversity and structural variance of the generated realisations in that region (see Appendix \ref{App:Entropy_Thresholds}).
+For depth intervals corresponding to the dominant sand body deposits (FA1), the ensemble channel probability consistently stays pinned close to $1.0$, translating to an almost perfect overall match accuracy across the realization ensemble. Conversely, the underrepresented crevasse splay and levee deposits (FA2) expose a significant optimization bottleneck; the ensemble prediction probability for FA2 peaks at only $0.7$, with some runs dropping as low as $0.3$ even within intervals where the facies is explicitly logged. The clay deposits (FA3) exhibit intermediate performance characteristics, demonstrating reasonable structural replication and stability across the vertical column. This difference directly mirrors the underlying class imbalance present within the foundational FLUMY datasets, where FA1 is the most abundant facies followed by FA3, while FA2 remains severely suppressed. The dominant volumetric occupancy of FA1 allows the generator to map its structural boundaries with high confidence, whereas the sparse representation of FA2 prevents the latent space optimization from establishing highly confident, deterministic boundaries along the wellbore paths.
+
+Furthermore, analyzing the relationship between conditioning accuracy and ensemble variance highlights a spatial trade-off during the latent space optimization phase. The main takeaway is that as the global F1-score increases via a wider threshold, the normalized spatial entropy ($H_{norm}$) systematically decreases (figure~\ref{fig:2D_XY_slices_at_well_trajectories}). This behaviour occurs because the area under direct deterministic constraint increases radially from the wellbore with higher threshold values. By expanding this optimization zone, a larger volume of the reservoir is forced to adhere strictly to the static well data across the entire ensemble. Consequently, the area characterized by low entropy expands outward from the well trajectories based on the spatial threshold. When viewed in a horizontal ($X$-$Y$) cross-section, this low-entropy zone expands radially and isotropically. However, when viewed in a vertical section where the $Z$-axis is displayed on the vertical axis of a plot, the zone takes on an elliptical, anisotropic shape, reflecting the different spatial scales or weights applied vertically versus horizontally.
+
+the anisotropic behaviour is captured in figure~\ref{fig:2D_XY_slices_at_well_trajectories}: when moving from \textit{Run 1} to \textit{Run 3} and looking at the top part of DEL-GT-02-S2, the region classified as FA1 decreases when the threshold increases, which is a direc effect of the increased threshold leading to the FA2 and FA3 probabilities of each voxel overtaking the probability of FA1. Moreover, the increased threshold clearly leads to \textit{stratification} of the threshold region which further reduced both the global normalized entropy as well as the geological plausibility compared to the geological setting: stratified regions are particularly uncommon in the training datasets. This could further explain the sudden drop in \gls{jsd} fro \textit{Run 1} to \textit{Run 3}.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=1.05\linewidth]{figures/results/cgan_constrained_performance/master_grouped_facies_and_entropy.png}
+    \caption{Post latent-space optimization 2D slices of the facies and voxel-wise entropy taken of the realisations. Well trajectories are indicated by the red~\triangled[red] (producer) and blue~\triangled[blue] (injector) triangles. The threshold, a hyperparameter of the latent space optimization, increases with each run (Run 1: th = 1, Run 2: th = 2, Run 3: th = 5) which has a strong correlation to the regions with decreased voxel-wise entropy. The figure has a $\pm$ 20$\times$ exaggeration of the Z-axis.}
+    \label{fig:2D_XY_slices_at_well_trajectories}
+\end{figure}
+\pagebreak
+\subsection{Pivotal Tuning}The severe spatial variance penalty and minority-class bottleneck incurred during LSO underscore the critical necessity of the workflow's second phase: pivotal tuning. Because LSO struggles to achieve perfect voxel-by-voxel matches within a frozen latent space—especially for heavily imbalanced priors—pivotal tuning temporarily unfreezes the generator's internal weights. This allows for microscopic, localized adjustments to forcefully align the output with the well data without relying on entropy-destroying thresholds.
+
+As detailed in Table~\ref{tab:pivotal_tuning_f1_scores}, applying pivotal tuning to the most tightly constrained baseline (Model 1, $Th=1$) leads to a significant improvement of the Macro F1-scores. The mean Macro F1-score surges from 0.70 (post-LSO) to 0.89. Most importantly, pivotal tuning resolves the $C2$ optimization bottleneck: the minority class F1-score leaps from 0.56 to 0.87, easily outperforming the widest LSO threshold. Notably, Table~\ref{tab:pivotal_tuning_f1_scores} also reveals a clear performance plateau. Unlike LSO, where widening the threshold drove significant accuracy improvements, increasing the pivotal tuning threshold from $Th=1$ to $Th=5$ provides only marginal gains (the Macro F1-score rises merely from 0.89 to 0.91). This indicates that once the generator's weights are unfrozen, a minimal spatial context window is sufficient to achieve peak conditioning accuracy.
+
+\begin{table}[htbp!]
+    \centering
+    \renewcommand{\arraystretch}{1.4}
+    \small
+    \begin{tabularx}{\textwidth}{X c c c c c c c}
+        \hline
+        \textbf{model} & \textbf{Th} & $\mathbf{\overline{\vphantom{\big|}\text{Macro F1}}\uparrow}$ & $\mathbf{\overline{\vphantom{\big|}F1}_{C1}\uparrow}$ & $\mathbf{\overline{\vphantom{\big|}F1}_{C2}\uparrow}$ & $\mathbf{\overline{\vphantom{\big|}F1}_{C3}\uparrow}$ & \textbf{\gls{jsd}}$\downarrow$ & $\mathbf{\overline{\vphantom{\big|}H}_{norm}\uparrow}$ \\
+        \hline
+        run 1 (pv)  & 1 & 0.89 & 0.90 & 0.87 & 0.89 & 0.017 & 0.714 \\
+        run 2 (pv)  & 2 & 0.90 & 0.92 & 0.89 & 0.89 & 0.018 & 0.702 \\
+        run 3 (pv)  & 5 & 0.91 & 0.96 & 0.90 & 0.91 & 0.029 & 0.671 \\
+        \hline
+    \end{tabularx}
+    \caption{Optimization metrics...}
+    \label{tab:pivotal_tuning_f1_scores}
+\end{table}
+
+Although the tightly constrained configuration ($Th=1$) successfully circumvents the global LSO spatial variance penalty—raising the mean normalized spatial entropy ($H_{norm}$) to 0.714—visual structural degradation is already apparent at this baseline level. The corresponding voxel-wise entropy plots reveal the emergence of rigid, unnatural patterns even at $Th=1$. This indicates that the unfrozen generator overfits to the localized constraint zone, causing the spatial structure to shift toward a geologically invalid state. As the optimization mask expands ($Th=2$ and $Th=5$), this destabilization becomes quantitatively pronounced, evidenced by a sharp decline in $H_{norm}$ (dropping to 0.671 in Run 3). Consequently, while pivotal tuning effectively secures deterministic well alignment, the unfreezing of internal weights introduces inherent structural artifacts, revealing a distinct trade-off between absolute conditioning accuracy and localized geological plausibility.
