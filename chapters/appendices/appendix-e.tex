@@ -1,20 +1,20 @@
-\chapter{Evaluation Metrics}
-\begin{figure}
-    \centering\includegraphics[width=0.9\linewidth]{figures/appendix/facies_distribution_both.png}
-    \label{fig:app_facies_dist_high_fidelity_model}
-\end{figure}
+\chapter{Training Datasets}\label{Appendix:Flumy_datasets}
+This appendix provides supplementary 2D cross-sectional visualisations and spatial entropy characterisations for the synthetic training datasets generated using FLUMY~\parencite{martin-hal-01313232}. The three simulated suites—Setting~1, Setting~2, and Setting~3~(detailed in Section~\ref{Subsec:Dataset_descriptions} and Table~\ref{tab:NEXUS_input})—represent distinct fluvial-deltaic depositional regimes ranging from lower plain to upper plain characteristics by varying maximum channel depth and lateral sand-body extension.
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/results/cgan_unconstrained_performance/combined_H_and_JSD_metrics_axis_Y.png}
-    \includegraphics[width=0.9\textwidth]{figures/results/cgan_unconstrained_performance/combined_H_and_JSD_metrics_axis_X.png}
-    \caption{Comparison of the \glsentryshort{jsd} normalized voxel-wise entropy across the Y, and X axes.}
-    \label{fig:H_norm_over_XY_axes}
-\end{figure}
+Figure~\ref{fig:appendix_flumy_facies_slices} presents representative 2D orthogonal cross-sections along the horizontal~($XY$) and vertical~($XZ$ and $YZ$) planes for individual realizations from Settings~1, 2, and~3, mapped according to the upscaled 3-facies scheme: Channel~(fa1), Crevasse/Levee~(fa2), and Floodplain/Overbank fines~(fa3). Across all three configurations, the visual morphology, facies connectivity, and vertical stacking behavior exhibit negligible observable differences. This qualitative consistency indicates that the underlying process-based rules preserve fundamental fluvial structural motifs across the tested parameter range.
 
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_E/master_grouped_vertical_6x1.png}
-    \caption{tba}
-    \label{fig:2D_XY_slices_models_5(1)_and_flumy}
+    \includegraphics[width=0.99\textwidth]{figures/appendix/appendix_E/2d_facies_slices_all_settings.png}
+    \caption{Representative 2D orthogonal cross-sections~($XY$ horizontal plane, $XZ$ and $YZ$ vertical planes) of synthetic 3D realizations generated under Setting~1, Setting~2, and Setting~3. The categorical facies correspond to the upscaled 3-facies scheme: fa1~(Channel, orange), fa2~(Crevasse/Levee, yellow), and fa3~(Floodplain, green).}
+    \label{fig:appendix_flumy_facies_slices}
+\end{figure}
+
+Complementing the individual sample visualisations, Figure~\ref{fig:appendix_flumy_entropy_slices} displays the voxel-wise Shannon entropy cross-sections across the identical orthogonal planes. Corroborating the individual cross-sections, the ensemble entropy distributions display virtually no perceptible spatial variation across Settings~1, 2, and~3. In this modelling framework, the invariance of spatial entropy across settings is an advantageous and expected result. Spatial entropy acts as an intrinsic computational constant of the underlying stochastic process, reflecting the fundamental information uncertainty and variability of the synthetic depositional engine. The consistency across all three parameter configurations confirms that varying geometric parameters~(such as channel depth and sand-body extension) does not introduce artificial predictability or localized spatial distortion. Consequently, this stable entropy profile provides an unbiased, robust benchmark for assessing the generative diversity and uncertainty replication of the trained \gls{fluvgan} models.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/appendix/appendix_E/2d_entropy_slices_all_settings.png}
+    \caption{Voxel-wise Shannon entropy cross-sections~(in bits) computed across the sample ensembles for Setting~1, Setting~2, and Setting~3 along the $XY$, $XZ$, and $YZ$ planes. The spatial entropy distribution remains consistent across all three settings, acting as an invariant computational baseline for ensemble diversity.}
+    \label{fig:appendix_flumy_entropy_slices}
 \end{figure}
