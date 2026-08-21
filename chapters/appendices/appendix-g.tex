@@ -4,15 +4,41 @@ During \gls{lso}, the losses for each of the 100~optimized latents were computed
 
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_F/latent_space_optimization_loss.png}
-    \caption{Loss curves of the different runs (Run 1: th = 1, Run 2: th= 2, Run 3: th = 5) over 3000 iterations. The total loss increases as the threshold increases from 1 to 5.}
+    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_G/latent_space_optimization_loss.png}
+    \caption{Loss curves of the different runs (Run~1: $Th=1$, Run~2: $Th=2$, Run~3: $Th=5$) over 3,000~iterations. The total loss increases as the threshold increases from 1 to 5.}
     \label{fig:appendix_post_lso_losses}
 \end{figure}
 
 \section{Pivotal Tuning}
+During \gls{pt}, the generator weights are fine-tuned across 1,000~iterations to adapt directly to the conditioning constraints at the well locations. Figure~\ref{fig:appendix_post_pv_losses} displays the loss convergence trajectories across the three spatial threshold configurations ($Th = 1, 2, 5$). Across all settings, the loss declines steadily without plateauing, indicating ongoing weight adaptation.
+
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_F/pivotal_tuning_loss.png}
-    \caption{Loss curves of the pivotal tuning runs with different threshold values.}
-    \label{fig:appendix_post_lso_losses}
+    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_G/pivotal_tuning_loss.png}
+    \caption{Loss curves of the pivotal tuning runs across varying spatial constraint thresholds ($Th=1, 2, 5$) over 1,000~iterations.}
+    \label{fig:appendix_post_pv_losses}
+\end{figure}
+
+To evaluate how wider spatial constraint thresholds impact spatial uncertainty in the surrounding reservoir, Figure~\ref{fig:2d_entropy_slices_post_pt} presents representative 2D horizontal ($XY$) slices of voxel-wise spatial entropy for Run~2 ($Th=2$) and Run~3 ($Th=5$). While Run~1 ($Th=1$, shown in Figure~\ref{fig:2d_entropy_Z_slices_run_1}) confines the deterministic, low-entropy halo tightly to the single-voxel well paths, increasing the threshold to $Th=2$ and $Th=5$ forces an expanding radial volume around both wells to become deterministic. For Run~3 ($Th=5$), this suppressed-entropy halo spreads considerably into the inter-well domain, reducing the stochastic variability of the generated ensemble.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_G/2d_entropy_Z_slices_run_2.png}
+    \vspace{0.3cm}
+    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_G/2d_entropy_Z_slices_run_3.png}
+    \caption{2D horizontal ($XY$) cross-sections of voxel-wise normalized spatial entropy for post-\glsentryshort{pt} realisations across representative depth slices: (top) Run~2 ($Th=2$) at depths $Z=9, 15, 16$~m; (bottom) Run~3 ($Th=5$) at depths $Z=16, 18, 30$~m. Increasing the constraint threshold expands the low-entropy, deterministic halo around the wellbores into the adjacent reservoir volume.}
+    \label{fig:2d_entropy_slices_post_pt}
+\end{figure}
+
+The directional distribution divergence and spatial entropy profiles along the principal Cartesian axes ($Z$, $X$, and $Y$) are illustrated in Figure~\ref{fig:jsd_entropy_post_pt}. Along the horizontal $X$ and $Y$ axes, the \gls{jsd} curves exhibit sharp, prominent peaks precisely at the coordinates of the two conditioning wellbores (DEL-GT-01 and DEL-GT-02-S2 at $X \approx 45, 95$ and $Y \approx 40, 63$). The amplitude of these divergence spikes scales directly with the spatial threshold, reflecting the increased structural deformation imposed on the prior distribution by larger context masks. Concurrently, the normalized entropy curves along $X$ and $Y$ show pronounced localized reductions at the well positions for Run~3, while maintaining high, stationary baseline entropy across the unconstrained inter-well regions. Along the vertical $Z$-axis, divergence is predominantly elevated at the vertical domain boundaries and within specific cored intervals where hard conditioning enforces localized facies transitions, with Run~3 exhibiting a consistently higher baseline divergence across the entire depth interval.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_G/jsd_z_axis_post_pt.png}
+    \vspace{0.2cm}
+    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_G/jsd_x_axis_post_pt.png}
+    \vspace{0.2cm}
+    \includegraphics[width=0.99\linewidth]{figures/appendix/appendix_G/jsd_y_axis_post_pt.png}
+    \caption{Directional normalized spatial entropy (left panels) and Jensen--Shannon Divergence (\glsentryshort{jsd}, right panels) along the $Z$, $X$, and $Y$ axes for post-\glsentryshort{pt} ensembles (Runs~1, 2, and~3) compared against the unconditioned Setting~2 baseline. Sharp peaks in divergence and localized drops in entropy coincide with the spatial locations of the conditioning wells, with magnitudes proportional to the constraint threshold $Th$.}
+    \label{fig:jsd_entropy_post_pt}
 \end{figure}

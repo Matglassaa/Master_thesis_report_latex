@@ -23,7 +23,7 @@ To assess spatial uncertainty and validate generation diversity across an ensemb
 \begin{equation}\label{eq:entropy_pixel}
     H_{\text{norm}}(\mathbf{v}) = -\frac{1}{\log_2(k)} \sum_{i=1}^{k} P(F_i \mid \mathbf{v}) \log_2 P(F_i \mid \mathbf{v})
 \end{equation}
-Here, $P(F_i \mid \mathbf{v})$ is the empirical probability of generating facies $F_i$ at the specific voxel $\mathbf{v}$ across the entire ensemble of realizations. An $H_{\text{norm}}(\mathbf{v})$ of $0$ implies total certainty~(uniformity or potential mode collapse at that voxel), while $1$ implies total uncertainty~(maximum diversity across all $k$ facies).
+Here, $P(F_i \mid \mathbf{v})$ is the empirical probability of generating facies $F_i$ at the specific voxel $\mathbf{v}$ across the entire ensemble of realisations. An $H_{\text{norm}}(\mathbf{v})$ of $0$ implies total certainty~(uniformity or potential mode collapse at that voxel), while $1$ implies total uncertainty~(maximum diversity across all $k$ facies).
 
 \textbf{Computational Scaling:} Entropy calculations are highly efficient parallel operations. The scaling is purely linear, $\mathcal{O}(V \cdot k)$, where $V$ is the total number of voxels, making it perfectly suited for massive 3D grids regardless of ensemble size.
 
